@@ -1,0 +1,106 @@
+@import "../styles/utils.module.scss";
+
+#_navbar_wrapper{
+    padding: 1rem;
+    background-color: $BLACK;
+
+
+    // ======
+    width: 100vw;
+    // ======
+
+    @media only screen and (min-width: 2501px){
+        padding: 2rem 1rem;
+    }
+
+      @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+        padding: 1.75rem 1rem;
+      }
+
+      @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+        padding: 1.5rem 1rem;
+      }
+
+      @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+        padding: 1.25rem 1rem;
+      }
+
+
+
+    #_navbar_logo{
+        font-size: 1.5rem;
+        color: $ORANGE;
+        font-weight: bolder;
+        text-transform: uppercase;
+        span{
+            color: $BLUE;
+        }
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2.3rem;
+          }
+  
+          @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+              font-size: 2.25rem;
+          }
+  
+          @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 2rem;
+          }
+  
+          @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+             font-size: 1.75rem;
+          }
+
+        @media only screen and (max-width: 768px) { 
+            font-size: 1.25rem;
+        }
+    }
+
+    #_navbar_hamburger{
+        font-size: 2.5rem;
+        color: white;
+    }
+
+    a{
+        font-size: 1rem;
+        color: white;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+            color: $ORANGE;
+        }
+
+        @media only screen and (min-width: 2501px){
+          font-size: 1.75rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+          font-size: 1.25rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 1.1rem;
+        }
+    }
+
+    
+
+
+    #_navbar_icon_wishlist{
+        transition: all 0.2s ease-in-out;
+        &:hover{
+            color: $RED;
+        }
+    }
+    #_navbar_icon_cart{
+        transition: all 0.2s ease-in-out;
+        &:hover{
+            color: $BLUE;
+        }
+    }
+
+}
