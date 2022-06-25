@@ -14,9 +14,6 @@
         
 
 
-    
-
-
     @media only screen and (max-width: 768px) { 
         padding: 2rem 1rem;
     }
@@ -33,6 +30,11 @@
     max-width: 1200px;
     width: 100%;
     text-align: center;
+
+    @media only screen and (min-width: 1400px){
+        top: 50%;
+        left: 50%;
+    }
 
     @media only screen and (max-width: 768px) { 
         top: 50%;
@@ -51,7 +53,27 @@
         margin-bottom: 1rem;
 
         // background-color: red;
-      
+
+
+        @media only screen and (min-width: 2501px){
+            font-size: 5.75rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 5.25rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 4.75rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 4.25rem;
+        }
+
+
+        
+    //  ==================================================
 
         @media only screen and (max-width: 1200px) { 
             font-size: 3rem;
@@ -79,6 +101,29 @@
         color: white;
         font-size: 1.1rem;
         margin-bottom: 2rem;
+
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+            max-width: 1000px;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+            max-width: 900px;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+            max-width: 900px;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 1.25rem;
+        }
+
+
+        // ================================================
        
 
         @media only screen and (max-width: 1200px) { 
@@ -118,6 +163,24 @@
             color: #d3d3d3;
             font-size: 0.8rem;
             margin-bottom: 0.6rem;
+
+
+            @media only screen and (min-width: 2501px){
+                font-size: 1.75rem;
+            }
+    
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 1.5rem;
+            }
+    
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+              font-size: 1.25rem;
+            }
+    
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 1.1rem;
+            }
+
         }
         ._auto_complete_suggestions_tags{
             margin-right: 0.6rem;
@@ -130,6 +193,52 @@
             &:hover{
                 background-color: $H_RED;
             }
+
+
+
+            @media only screen and (min-width: 2501px){
+                font-size: 1.6rem;
+                display: inline-block;
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+                max-width: 230px;
+                width: 100%;
+                border-radius: 5px;
+            }
+    
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 1.5rem;
+                display: inline-block;
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+                max-width: 230px;
+                width: 100%;
+                border-radius: 5px;
+            }
+    
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+              font-size: 1.25rem;
+              display: inline-block;
+                margin-right: 0.8rem;
+                margin-bottom: 0.8rem;
+                max-width: 200px;
+                width: 100%;
+                border-radius: 5px;
+            }
+    
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 1.1rem;
+                display: inline-block;
+                margin-right: 0.8rem;
+                margin-bottom: 0.8rem;
+                max-width: 170px;
+                width: 100%;
+                border-radius: 5px;
+            }
+
+
+
+            // ==========================
 
             @media only screen and (max-width: 600px) { 
                font-size: 0.75rem;
@@ -157,10 +266,53 @@
                     text-align: left;
                     font-size: 1rem;
 
+                    @media only screen and (min-width: 2501px){
+                        font-size: 2rem;
+                    }
+            
+                    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                        font-size: 1.75rem;
+                    }
+            
+                    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                        font-size: 1.5rem;
+                    }
+            
+                    @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                       font-size: 1.25rem;
+                    }
+
+                      // =====================================
+
                     @media only screen and (max-width: 768px) { 
                         font-size: 0.8rem;
                     }
                 }
+
+
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                    max-width: 900px;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                    max-width: 800px;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 1.5rem;
+                    max-width: 700px;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.25rem;
+                }
+
+
+                // =====================================
 
                 @media only screen and (max-width: 768px) { 
                     font-size: 0.8rem;
@@ -187,6 +339,47 @@
                 border-bottom-right-radius: 5px; 
                 background-color: $ORANGE;
                 font-size: 1rem;
+
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    background-color: $H_ORANGE;
+                }
+
+
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                    max-width: 100px;
+                    width: 100%;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                    max-width: 80px;
+                   width: 100%;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 1.5rem;
+                    max-width: 60px;
+                   width: 100%;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.25rem;
+                   max-width: 40px;
+                   width: 100%;
+                }
+
+
+
+
+
+
+
+                // ======================================
 
                 @media only screen and (max-width: 768px) { 
                     font-size: 0.8rem;
