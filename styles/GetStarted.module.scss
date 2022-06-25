@@ -8,7 +8,47 @@
         padding: 2rem 1rem;
     }
 
+
+    h1{
+        margin: 0;
+        font-size: 2.25rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
     ._gs_boxes{
-        
+        padding: 1rem;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        background-color: whitesmoke;
+        border-radius: 8px;
+        min-height: 320px;
+        img{
+            margin-bottom: 1rem;
+            width: 100%;
+            border-radius: 4px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        h3{
+            margin: 0;
+            font-size: 1.25rem;
+            color: $BLACK;
+            font-weight: bolder;
+            margin-bottom: 0.6rem;
+
+            @media only screen and (max-width: 480px) { 
+                
+            }
+
+        }
+
+        h4{
+            margin: 0;
+            font-size: 1rem;
+            color: grey;
+            font-weight: 400;
+        }
     }
 }
