@@ -1,10 +1,16 @@
+import styles from "../styles/GetStarted.module.scss";
+import { Container, Row, Col } from "react-bootstrap";
+
 const GetStarted = () => {
   return (
     <>
-      Aute consectetur consectetur esse exercitation aliquip qui voluptate
-      fugiat anim ex. Aute qui deserunt velit mollit magna mollit irure
-      adipisicing duis. Eiusmod magna esse enim ullamco consectetur enim fugiat
-      exercitation eiusmod dolor laborum aute amet consequat.
+      <div id={styles._gs_wrapper}>
+        <Container fluid="lg" className="p-0">
+          <Row>
+            <Col></Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };
