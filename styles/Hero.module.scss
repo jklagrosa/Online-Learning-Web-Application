@@ -14,7 +14,7 @@
         
 
 
-    margin-bottom: 100rem;
+    
 
 
     @media only screen and (max-width: 768px) { 
@@ -27,46 +27,113 @@
     // }
 #_hero_details_wrapper{
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 1200px;
     width: 100%;
     text-align: center;
 
+    @media only screen and (max-width: 768px) { 
+        top: 50%;
+        left: 50%;
+    }
+
     // background-color: yellow;
     h1{
-        margin: 0;
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
         font-size: 4rem;
         color: white;
         text-transform: capitalize;
         font-weight: bolder;
         margin-bottom: 1rem;
+
+        // background-color: red;
+      
+
+        @media only screen and (max-width: 1200px) { 
+            font-size: 3rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            max-width: 700px;
+        }
+
+        @media only screen and (max-width: 600px) { 
+            font-size: 2.5rem;
+            max-width: 500px;
+        }
+
+        @media only screen and (max-width: 375px) { 
+            font-size: 2.25rem;
+            max-width: 500px;
+        }
     }
-    p{
-        margin: 0;
+    ._hero_para{
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
+     
         color: white;
         font-size: 1.1rem;
         margin-bottom: 2rem;
+       
+
+        @media only screen and (max-width: 1200px) { 
+            font-size: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            max-width: 600px;
+        }
+
+        @media only screen and (max-width: 600px) { 
+            font-size: 0.8rem;
+            max-width: 370px;
+        }
+
+        @media only screen and (max-width: 425px) { 
+            font-size: 0.8rem;
+            max-width: 300px;
+        }
     }
 
     ._auto_complete_suggestions{
         margin: 0 auto;
         display: block;
         // background-color: red;
-        max-width: 400px;
+        max-width: 500px;
         width: 100%;
+
+
+        @media only screen and (max-width: 425px) { 
+            display: none;
+        }
+
+
         ._auto_complete_suggestions_title{
             margin: 0;
-            color: white;
-            font-size: 1rem;
+            color: #d3d3d3;
+            font-size: 0.8rem;
             margin-bottom: 0.6rem;
         }
         ._auto_complete_suggestions_tags{
+            margin-right: 0.6rem;
             cursor: pointer;
             background-color: $RED;
             color: white;
             padding: 0.3rem;
+            font-size: 0.8rem;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                background-color: $H_RED;
+            }
+
+            @media only screen and (max-width: 600px) { 
+               font-size: 0.75rem;
+            }
         }
     }
 
@@ -84,9 +151,31 @@
                 border-top-left-radius: 5px;
                 border-bottom-left-radius: 5px;
                 text-align: left;
+                font-size: 1rem;
                 &::placeholder{
                     color: grey;
                     text-align: left;
+                    font-size: 1rem;
+
+                    @media only screen and (max-width: 768px) { 
+                        font-size: 0.8rem;
+                    }
+                }
+
+                @media only screen and (max-width: 768px) { 
+                    font-size: 0.8rem;
+                    max-width: 400px;
+                    width: 100%;
+                }
+
+                @media only screen and (max-width: 600px) { 
+                    max-width: 250px;
+                    width: 100%;
+                }
+
+                @media only screen and (max-width: 375px) { 
+                    max-width: 200px;
+                    width: 100%;
                 }
             }
 
@@ -96,7 +185,12 @@
                 padding: 1rem;
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px; 
-                background-color: $BLUE;
+                background-color: $ORANGE;
+                font-size: 1rem;
+
+                @media only screen and (max-width: 768px) { 
+                    font-size: 0.8rem;
+                }
             }
         }
           

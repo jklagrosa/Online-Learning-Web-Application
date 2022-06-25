@@ -1,26 +1,14 @@
 import styles from "../styles/Hero.module.scss";
-import {
-  Container,
-  InputGroup,
-  FormControl,
-  Button,
-  Row,
-  Col,
-} from "react-bootstrap";
-
+import { Container, InputGroup, FormControl, Button } from "react-bootstrap";
+import { BsSearch } from "react-icons/bs";
 const Hero = () => {
-  const options = [
-    { value: "Burns Bay Road" },
-    { value: "Downing Street" },
-    { value: "Wall Street" },
-  ];
   return (
     <>
       <div id={styles._hero_wrapper}>
         <Container fluid="lg" className="p-0">
           <div id={styles._hero_details_wrapper}>
             <h1>Education is the biggest luxury</h1>
-            <p>
+            <p className={styles._hero_para}>
               Educating all understudies to accomplish today and tomorrow in a
               worldwide network and economy
             </p>
@@ -31,40 +19,27 @@ const Hero = () => {
                   aria-label="Search Courses"
                   className={styles._auto_complete_input}
                 />
-                <Button variant="primary">Button</Button>
+                <Button variant="primary">
+                  <BsSearch color="white" />
+                </Button>
               </InputGroup>
             </div>
             <div className={styles._auto_complete_suggestions}>
               <p className={styles._auto_complete_suggestions_title}>
-                Course Tags:
+                Suggestions:
               </p>
-              <Row className="g-3">
-                <Col xs={6} md={3}>
-                  <span className={styles._auto_complete_suggestions_tags}>
-                    Programming
-                  </span>
-                </Col>
-                <Col xs={6} md={3}>
-                  <span className={styles._auto_complete_suggestions_tags}>
-                    Programming
-                  </span>
-                </Col>
-                <Col xs={6} md={3}>
-                  <span className={styles._auto_complete_suggestions_tags}>
-                    Programming
-                  </span>
-                </Col>
-                <Col xs={6} md={3}>
-                  <span className={styles._auto_complete_suggestions_tags}>
-                    Programming
-                  </span>
-                </Col>
-                <Col xs={6} md={3}>
-                  <span className={styles._auto_complete_suggestions_tags}>
-                    Programming
-                  </span>
-                </Col>
-              </Row>
+              <span className={styles._auto_complete_suggestions_tags}>
+                Programming
+              </span>
+              <span className={styles._auto_complete_suggestions_tags}>
+                Web Design
+              </span>
+              <span className={styles._auto_complete_suggestions_tags}>
+                Web Development
+              </span>
+              <span className={styles._auto_complete_suggestions_tags}>
+                Graphic Design
+              </span>
             </div>
           </div>
         </Container>
