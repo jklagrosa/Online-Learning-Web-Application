@@ -1,0 +1,106 @@
+@import "../styles/utils.module.scss";
+
+#_hero_wrapper{
+    position: relative;
+    padding: 4rem 2rem;
+    background: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.6) ) ,
+        url('/hero.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    min-height: 100vh;
+        
+
+
+    margin-bottom: 100rem;
+
+
+    @media only screen and (max-width: 768px) { 
+        padding: 2rem 1rem;
+    }
+
+    // ._auto_complete_dropdown{
+    //     width: 5000px !important; 
+    //     font-size: 10rem !important;
+    // }
+#_hero_details_wrapper{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+
+    // background-color: yellow;
+    h1{
+        margin: 0;
+        font-size: 4rem;
+        color: white;
+        text-transform: capitalize;
+        font-weight: bolder;
+        margin-bottom: 1rem;
+    }
+    p{
+        margin: 0;
+        color: white;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    ._auto_complete_suggestions{
+        margin: 0 auto;
+        display: block;
+        // background-color: red;
+        max-width: 400px;
+        width: 100%;
+        ._auto_complete_suggestions_title{
+            margin: 0;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+        ._auto_complete_suggestions_tags{
+            cursor: pointer;
+            background-color: $RED;
+            color: white;
+            padding: 0.3rem;
+        }
+    }
+
+    ._auto_complete_wrapper{
+        margin-bottom: 1rem;
+        ._auto_complete_input_wrapper{
+            margin: 0 auto;
+            display: block;
+            input{
+                all: unset;
+                background-color: white;
+                max-width: 500px;
+                width: 100%;
+                padding: 1rem;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                text-align: left;
+                &::placeholder{
+                    color: grey;
+                    text-align: left;
+                }
+            }
+
+            button{
+                all: unset;
+                cursor: pointer;
+                padding: 1rem;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px; 
+                background-color: $BLUE;
+            }
+        }
+          
+    }
+}
+    
+}
