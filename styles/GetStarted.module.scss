@@ -3,7 +3,12 @@
 
 #_gs_wrapper{
     padding: 4rem 2rem;
+    background-color: white;
     @media only screen and (max-width: 768px) { 
         padding: 2rem 1rem;
+    }
+
+    ._gs_boxes{
+        
     }
 }

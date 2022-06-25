@@ -6,8 +6,12 @@ const GetStarted = () => {
     <>
       <div id={styles._gs_wrapper}>
         <Container fluid="lg" className="p-0">
-          <Row>
-            <Col></Col>
+          <Row className="gx-3 gy-5">
+            <Col xs={6} md={3}>
+                <div className={styles._gs_boxes}>
+          
+                </div>
+            </Col>
           </Row>
         </Container>
       </div>
