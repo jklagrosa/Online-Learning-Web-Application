@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <div id={styles._footer_wrapper}>
         <Container fluid="lg" className="p-0">
-          <Row className="gx-3 gy-4">
+          <Row className="gx-3 gy-5 mx-auto">
             <Col xs={12} md={6} lg={4}>
               <div className={styles._footer_details}>
                 <h3>
@@ -55,7 +55,7 @@ const Footer = () => {
             </Col>
             {/* === */}
             <Col xs={12} md={6} lg={4}>
-              <div className={styles._footer_details}>
+              <div className={styles._footer_details_TECH_USED}>
                 <h6>Tech Used</h6>
                 <a>HTML5</a>
                 <br></br>
