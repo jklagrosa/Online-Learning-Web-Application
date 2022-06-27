@@ -1,7 +1,7 @@
 import Navigation from "../components/Nav";
 import Hero from "../components/Hero";
 import GetStarted from "../components/GetStarted";
-import Achievement from "../components/Achievement";
+import Events from "../components/Events";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <GetStarted />
-      <Achievement />
+      <Events />
     </>
   );
 }
