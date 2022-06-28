@@ -1,5 +1,6 @@
 import Navigation from "../components/Nav";
 import Hero from "../components/Hero";
+import OverAll from "../components/OverAll";
 import GetStarted from "../components/GetStarted";
 import Events from "../components/Events";
 import Footer from "../components/Footer";
@@ -12,6 +13,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <GetStarted />
+      <OverAll />
       <Events />
       <FAQ />
       <Footer />

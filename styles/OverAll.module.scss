@@ -2,5 +2,25 @@
 
 
 #_overall_wrapper{
-    
+    padding: 4rem 2rem;
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6) ) ,
+        url('/gs/overall.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        // ======
+        width: 100vw;
+        // ========
+
+
+
+    @media only screen and (max-width: 768px) { 
+        padding: 2rem 1rem;
+    }
+
+    ._overall_details{
+
+    }
 }
