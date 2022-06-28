@@ -4,6 +4,7 @@ import GetStarted from "../components/GetStarted";
 import Events from "../components/Events";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
+import FAQ from "../components/FAQ";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <GetStarted />
       <Events />
+      <FAQ />
       <Footer />
       <Copyright />
     </>

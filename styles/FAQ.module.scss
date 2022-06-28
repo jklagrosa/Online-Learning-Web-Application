@@ -1,0 +1,153 @@
+@import "../styles/utils.module.scss";
+
+
+#_faq_wrapper{
+    padding: 4rem 2rem;
+    background-color: white;
+    @media only screen and (max-width: 768px) { 
+        padding: 2rem 1rem;
+    }
+
+    h1{
+        margin: 0 auto;
+        max-width: 800px;
+        width: 100%;
+        font-size: 2.25rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: $BLACK;
+        
+
+        @media only screen and (min-width: 2501px){
+            font-size: 3.5rem;
+            max-width: 1200px;
+            margin-bottom: 2.5rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 3rem;
+            max-width: 1000px;
+            margin-bottom: 2.5rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 2.75rem;
+            max-width: 1000px;
+            margin-bottom: 2.5rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 2.5rem;
+        }
+
+        // =================================================
+
+        @media only screen and (max-width: 991px) { 
+          font-size: 2rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            font-size: 1.75rem;
+        }
+
+        @media only screen and (max-width: 600px) { 
+            font-size: 1.5rem;
+            max-width: 350px;
+        }
+
+    }
+
+
+    ._faq_item{
+        margin-bottom: 1.25rem;
+        background-color: whitesmoke;
+
+
+
+        
+        @media only screen and (min-width: 2501px){
+            padding: 1rem 0.3rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            padding: 1rem 0.3rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+          padding: 1rem;
+        }
+
+
+
+    }
+
+    ._faq_header > *{
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: $BLACK;
+        background-color: whitesmoke;
+
+
+
+        @media only screen and (min-width: 2501px){
+          font-size: 1.8rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+          font-size: 1.5rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 1.25rem;
+        }
+
+
+
+        // =======================================
+
+        @media only screen and (max-width: 992px) { 
+            font-size: 0.9rem;
+        }
+
+    }
+
+    ._faq_body{
+        font-size: 1rem;
+
+
+
+
+        
+        @media only screen and (min-width: 2501px){
+          font-size: 1.75rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+          font-size: 1.25rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 1.1rem;
+        }
+
+
+
+
+        // ==============================================
+
+
+        @media only screen and (max-width: 992px) { 
+            font-size: 0.9rem;
+        }
+    }
+
+}

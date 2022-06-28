@@ -40,7 +40,7 @@ const Navigation = () => {
                 Top Sellers
               </Nav.Link>
               <Nav.Link href="#" className={styles._navbar_links}>
-                Testimonials
+                Events
               </Nav.Link>
               <Nav.Link href="#" className={styles._navbar_links}>
                 Achievement
