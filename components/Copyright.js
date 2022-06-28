@@ -1,11 +1,17 @@
+import styles from "../styles/Copyright.module.scss";
+import { Container } from "react-bootstrap";
+
 const Copyright = () => {
   return (
     <>
-      Velit amet ad labore quis adipisicing. Dolor aliqua velit reprehenderit
-      aliqua officia elit occaecat nulla quis mollit adipisicing. Voluptate
-      deserunt incididunt dolore et ut eiusmod. Exercitation ad cillum dolore
-      incididunt. Qui fugiat id nulla aliqua eiusmod exercitation Lorem Lorem
-      occaecat occaecat.
+      <div id={styles._copyright_wrapper}>
+        <Container fluid="lg" className="p-0">
+          <p>
+            Copyright &copy; {new Date().getFullYear()} JK Lagrosa. All Rights
+            Reserved.
+          </p>
+        </Container>
+      </div>
     </>
   );
 };
