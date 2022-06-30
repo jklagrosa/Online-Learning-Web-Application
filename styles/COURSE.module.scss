@@ -60,9 +60,55 @@
                 font-size: 1.25rem;
                 color: $ORANGE;
             }
+
+            h3{
+                margin: 0;
+                margin-top: 1.25rem;
+                font-weight: 600;
+                color: $VIOLET;
+                font-size: 2rem;
+            }
         }
       }
-        
+
+
+    //   DIVIDER
+      ._course_divider{
+        margin: 2rem 0;
+      }
+    // END
+
+
+        // COURSE OVERVIEW
+
+        ._course_contents_overview{
+            margin-top: 3rem;
+
+
+            h2{
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 1.25rem;
+            }
+            p{
+                margin: 0;
+                max-width: 700px;
+                width: 100%;
+                font-size: 1rem;
+            }
+
+            h3{
+                margin: 0;
+                font-size: 1.25rem;
+                font-weight: 500;
+                margin-top: 2rem;
+            }
+
+            ul{
+                margin-top: 1.25rem;
+            }
+        }
     }
 
   

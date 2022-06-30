@@ -61,13 +61,36 @@ const CourseID = () => {
                       <BsPersonFill className={styles._course_contents_ICONS} />{" "}
                       25 Enrolled Students
                     </span>
+
+                    <h3>₱300</h3>
                   </div>
                 </div>
 
-
                 {/* COURSE OVERVIEW */}
+                <hr className={styles._course_divider} />
 
+                <div className={styles._course_contents_overview}>
+                  <h2>Course Overview</h2>
+                  <p>
+                    Youll learn how to build a Kubernetes cluster, and how to
+                    deploy and manage applications on it. Along the way, youll
+                    learn the internals of how Kubernetes works, as well as
+                    best-practices such as managing applications declaratively.
+                    By the end of the course youll have all the tools you need
+                    to get started with Kubernetes and take your career to the
+                    next level.
+                  </p>
+                  {/* WHAT YOU`LL LEARN IN THIS COURSE */}
+                  <h3>What you&apos;ll learn in this course:</h3>
 
+                  <ul>
+                    <li>Feel confident using Adobe InDesign</li>
+                    <li>All the useful shortcuts</li>
+                    <li>Be able to create Flyers, Brochures, Advertisements</li>
+                    <li>How to work with Images &amp; Text</li>
+                    <li>Work with color &amp;Gradients &amp; Grids</li>
+                  </ul>
+                </div>
               </Col>
             </Row>
           </div>
