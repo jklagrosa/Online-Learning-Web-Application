@@ -52,7 +52,7 @@
             span{
                 margin-right: 1.25rem;
                 font-size: 1rem;
-                color: gray;
+                color: $GRAY;
             }
 
             ._course_contents_ICONS{
@@ -90,12 +90,14 @@
                 font-size: 2rem;
                 font-weight: 500;
                 margin-bottom: 1.25rem;
+                color: $BLACK;
             }
             p{
                 margin: 0;
                 max-width: 700px;
                 width: 100%;
                 font-size: 1rem;
+                color: $GRAY;
             }
 
             h3{
@@ -103,12 +105,37 @@
                 font-size: 1.25rem;
                 font-weight: 500;
                 margin-top: 2rem;
+                color: $BLACK;
             }
 
             ul{
                 margin-top: 1.25rem;
+                font-size: 1rem;
+                color: $GRAY;
+                li{
+                    margin-bottom: 0.8rem;
+                }
             }
         }
+
+
+        // COURSE CONTENTS
+
+        ._course_videos{
+            ._course_videos_h2{
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 1.25rem;
+                margin-top: 4rem;
+                color: $BLACK;
+            }
+
+            ._course_videos_BODY{
+                margin-bottom: 1.25rem;
+            }
+        }
+
     }
 
   

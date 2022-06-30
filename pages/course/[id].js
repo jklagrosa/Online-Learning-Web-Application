@@ -1,5 +1,12 @@
 import styles from "../../styles/COURSE.module.scss";
-import { Container, Row, Col, Breadcrumb, Badge } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Breadcrumb,
+  Badge,
+  Accordion,
+} from "react-bootstrap";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Copyright from "../../components/Copyright";
@@ -90,6 +97,33 @@ const CourseID = () => {
                     <li>How to work with Images &amp; Text</li>
                     <li>Work with color &amp;Gradients &amp; Grids</li>
                   </ul>
+                </div>
+
+                {/* COURSE CONTENTS */}
+
+                <div className={styles._course_videos}>
+                  <h2 className={styles._course_videos_h2}>Course Contents</h2>
+                  <Accordion defaultActiveKey="0" flush>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Lessons</Accordion.Header>
+                      <Accordion.Body>
+                        <div className={styles._course_videos_BODY}>
+                          Cillum enim culpa qui cupidatat labore magna proident
+                          consequat incididunt.
+                        </div>
+
+                        <div className={styles._course_videos_BODY}>
+                          Cillum enim culpa qui cupidatat labore magna proident
+                          consequat incididunt.
+                        </div>
+
+                        <div className={styles._course_videos_BODY}>
+                          Cillum enim culpa qui cupidatat labore magna proident
+                          consequat incididunt.
+                        </div>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
                 </div>
               </Col>
             </Row>
