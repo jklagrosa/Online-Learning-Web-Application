@@ -12,8 +12,8 @@ import Footer from "../../components/Footer";
 import Copyright from "../../components/Copyright";
 
 import { AiFillStar, AiFillCaretRight } from "react-icons/ai";
-import { BsPersonFill } from "react-icons/bs";
-import { FaChalkboardTeacher } from "react-icons/fa";
+import { BsPersonFill, BsPlayBtnFill } from "react-icons/bs";
+import { FaChalkboardTeacher, FaLock } from "react-icons/fa";
 import { MdPlayLesson } from "react-icons/md";
 
 const CourseID = () => {
@@ -105,21 +105,45 @@ const CourseID = () => {
                   <h2 className={styles._course_videos_h2}>Course Contents</h2>
                   <Accordion defaultActiveKey="0" flush>
                     <Accordion.Item eventKey="0">
-                      <Accordion.Header>Lessons</Accordion.Header>
+                      <Accordion.Header
+                        className={styles._course_videos_accordion_header}
+                      >
+                        Lessons
+                      </Accordion.Header>
                       <Accordion.Body>
                         <div className={styles._course_videos_BODY}>
-                          Cillum enim culpa qui cupidatat labore magna proident
-                          consequat incididunt.
+                          <p>
+                            <BsPlayBtnFill
+                              className={styles._course_videos_BODY_ICON}
+                            />
+                            Intreoduction Copy{" "}
+                            <FaLock
+                              className={styles._course_videos_BODY_ICON_LOCK}
+                            />
+                          </p>
                         </div>
-
+                        {/*  */}
                         <div className={styles._course_videos_BODY}>
-                          Cillum enim culpa qui cupidatat labore magna proident
-                          consequat incididunt.
+                          <p>
+                            <BsPlayBtnFill
+                              className={styles._course_videos_BODY_ICON}
+                            />
+                            Intreoduction Copy{" "}
+                            <FaLock
+                              className={styles._course_videos_BODY_ICON_LOCK}
+                            />
+                          </p>
                         </div>
-
                         <div className={styles._course_videos_BODY}>
-                          Cillum enim culpa qui cupidatat labore magna proident
-                          consequat incididunt.
+                          <p>
+                            <BsPlayBtnFill
+                              className={styles._course_videos_BODY_ICON}
+                            />
+                            Intreoduction Copy{" "}
+                            <FaLock
+                              className={styles._course_videos_BODY_ICON_LOCK}
+                            />
+                          </p>
                         </div>
                       </Accordion.Body>
                     </Accordion.Item>
