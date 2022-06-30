@@ -60,7 +60,57 @@
 
 
     ._featured_course_card{
-        
+        margin: 0 auto;
+        display: block;
+        max-width: 500px;
+        width: 100%;
+        min-height: 500px;
+
+
+        img{
+            width: 100%;
+            display: block;
+            min-height: 200px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        ._featured_course_card_BODY{
+            ._H1_TAG{
+                margin: 0;
+                font-size: 1.5rem;
+                color: $BLACK;
+                margin-bottom: 1.5rem;
+            }
+
+
+            ._P_TAG{
+                margin: 0;
+                font-size: 1rem;
+                color: gray;
+                margin-bottom: 1rem;
+            }
+
+
+            ._featured_card_ICONS{
+                margin-right: 0.3rem;
+                font-size: 1.25rem;
+                color: $ORANGE;
+            }
+
+
+        }
+
+        ._featured_course_card_FOOTER{
+            button{
+
+            }
+
+            span{
+                
+            }
+        }
     }
 
 }
