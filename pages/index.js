@@ -6,14 +6,16 @@ import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
 import FAQ from "../components/FAQ";
 import Featured from "../components/Featured";
+import Latest from "../components/Latest";
 
 export default function Home() {
   return (
     <>
       <Navigation />
       <Hero />
-      <Featured />
+      <Latest />
       <GetStarted />
+      <Featured />
       <Events />
       <FAQ />
       <Footer />
