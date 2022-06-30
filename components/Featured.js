@@ -79,7 +79,7 @@ const Featured = () => {
                 <Card.Body className={styles._featured_course_card_BODY}>
                   <abbr title="Course title" style={{ all: "unset" }}>
                     <Card.Title className={styles._H1_TAG}>
-                      Take A Course For Web Development
+                      Take A Course For dasdasdasdasdrere
                     </Card.Title>
                   </abbr>
 
