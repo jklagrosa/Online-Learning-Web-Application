@@ -31,7 +31,7 @@ const CourseID = () => {
         <Container fluid="lg" className="p-0">
           {/* ====================== */}
           <div className={styles._course_header_section}>
-            <Row className="gx-3 gy-4 mx-auto">
+            <Row className="gx-3 gy-5 mx-auto">
               <Col xs={12} md={8}>
                 <Breadcrumb className={styles._breadcrumb_course_links}>
                   <Breadcrumb.Item
@@ -99,21 +99,24 @@ const CourseID = () => {
 
                   <ul>
                     <li>
-                      <AiOutlineCheck /> Feel confident using Adobe InDesign
+                      <AiOutlineCheck className={styles._course_learn_checks} />{" "}
+                      Feel confident using Adobe InDesign
                     </li>
                     <li>
-                      <AiOutlineCheck /> All the useful shortcuts
+                      <AiOutlineCheck className={styles._course_learn_checks} />{" "}
+                      All the useful shortcuts
                     </li>
                     <li>
-                      <AiOutlineCheck /> Be able to create Flyers, Brochures,
-                      Advertisements
+                      <AiOutlineCheck className={styles._course_learn_checks} />{" "}
+                      Be able to create Flyers, Brochures, Advertisements
                     </li>
                     <li>
-                      <AiOutlineCheck /> How to work with Images &amp; Text
+                      <AiOutlineCheck className={styles._course_learn_checks} />{" "}
+                      How to work with Images &amp; Text
                     </li>
                     <li>
-                      <AiOutlineCheck /> Work with color &amp;Gradients &amp;
-                      Grids
+                      <AiOutlineCheck className={styles._course_learn_checks} />{" "}
+                      Work with color &amp;Gradients &amp; Grids
                     </li>
                   </ul>
                 </div>
