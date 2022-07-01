@@ -60,16 +60,30 @@ const CourseID = () => {
                       />{" "}
                       David Sopas
                     </span>
+
+                    <div
+                      className={styles._course_contents_ICONS_DIVIDER}
+                    ></div>
+
                     {/*  */}
                     <span>
                       <AiFillStar className={styles._course_contents_ICONS} />{" "}
                       4.2/5
                     </span>
+
+                    <div
+                      className={styles._course_contents_ICONS_DIVIDER}
+                    ></div>
+
                     {/*  */}
                     <span>
                       <MdPlayLesson className={styles._course_contents_ICONS} />{" "}
                       3 Lessons
                     </span>
+
+                    <div
+                      className={styles._course_contents_ICONS_DIVIDER}
+                    ></div>
                     {/*  */}
                     <span>
                       <BsPersonFill className={styles._course_contents_ICONS} />{" "}
