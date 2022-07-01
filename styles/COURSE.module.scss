@@ -22,8 +22,32 @@
         }
     }
 
+    // RIGHT COL
+    ._course_SMALL_COL_contents{
+        img{
+            width: 100%;
+            display: block;
+            min-height: 350px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        ._course_SMALL_COL_details{
+
+        }
+    }
+    // END
+
+
+    // ==============================================
+
+
+    // LEFT COL
+
     ._course_header_section{
-        padding: 50px 0;
+        padding: 5rem 0;
         width: 100%;
 
       ._course_header_details{
@@ -155,7 +179,7 @@
                     ._course_videos_BODY_ICON_LOCK{
                         color: $H_RED;
                         font-size: 1.25rem;
-                        margin-left: 20rem;
+                        margin-left: 30rem;
                     }
                 }
 
@@ -165,6 +189,6 @@
 
     }
 
-  
+        // END
 
 }

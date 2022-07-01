@@ -13,8 +13,15 @@ import Copyright from "../../components/Copyright";
 
 import { AiFillStar, AiFillCaretRight } from "react-icons/ai";
 import { BsPersonFill, BsPlayBtnFill } from "react-icons/bs";
-import { FaChalkboardTeacher, FaLock } from "react-icons/fa";
-import { MdPlayLesson } from "react-icons/md";
+import {
+  FaChalkboardTeacher,
+  FaLock,
+  FaSignal,
+  FaPercentage,
+  FaCertificate,
+  FaLanguage,
+} from "react-icons/fa";
+import { MdPlayLesson, MdAccessTimeFilled, MdQuiz } from "react-icons/md";
 
 const CourseID = () => {
   return (
@@ -152,7 +159,10 @@ const CourseID = () => {
               </Col>
               {/* ================================================ */}
               <Col xs={12} md={4}>
-                
+                <div className={styles._course_SMALL_COL_contents}>
+                  <img src="/gs/1.png" />
+                  <div className={styles._course_SMALL_COL_details}></div>
+                </div>
               </Col>
             </Row>
           </div>
