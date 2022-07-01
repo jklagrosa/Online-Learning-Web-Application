@@ -25,7 +25,7 @@ const CourseID = () => {
           {/* ====================== */}
           <div className={styles._course_header_section}>
             <Row className="gx-3 gy-4 mx-auto">
-              <Col>
+              <Col xs={12} md={8}>
                 <Breadcrumb className={styles._breadcrumb_course_links}>
                   <Breadcrumb.Item
                     className={styles._course_links}
@@ -150,13 +150,17 @@ const CourseID = () => {
                   </Accordion>
                 </div>
               </Col>
+              {/* ================================================ */}
+              <Col xs={12} md={4}>
+                
+              </Col>
             </Row>
           </div>
 
           {/* ====================== */}
-          <Row className="g-0 mx-auto" id={styles._course_row_wrapper}>
+          {/* <Row className="g-0 mx-auto" id={styles._course_row_wrapper}>
             <Col></Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
       <Footer />
