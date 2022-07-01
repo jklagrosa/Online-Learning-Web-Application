@@ -18,7 +18,9 @@
     ._breadcrumb_course_links{
         ._course_links{
             font-size: 1rem;
-         
+            @media only screen and (max-width: 1200px) { 
+               font-size: 0.9rem;
+            }
         }
     }
 
@@ -32,9 +34,90 @@
             object-position: center;
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin-bottom: 1.25rem;
+
+
+            @media only screen and (max-width: 1200px) { 
+                min-height: 250px;
+            }
+
         }
 
         ._course_SMALL_COL_details{
+
+
+            // KEY
+            ._course_SMALL_COL_KEY{
+                font-size: 1rem;
+                color: $GRAY;
+                display: inline-block;
+                margin-bottom: 1.5rem;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.8rem;
+                }
+
+                ._course_SMALL_COL_ICON{
+                    margin-right: 0.1rem;
+                    font-size: 1.25rem;
+                    color: $ORANGE;
+
+                    @media only screen and (max-width: 1200px) { 
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            // END
+
+            // ==========================================================
+
+            // VALUE
+
+            ._course_SMALL_COL_VALUE{
+                margin-left: 0.6rem;
+                font-size: 1rem;
+                color: $BLACK;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.8rem;
+                }
+            }
+
+            // END
+
+            button{
+                all: unset;
+                cursor: pointer;
+                margin-top: 2rem;
+                font-size: 1rem;
+                background-color: $BLUE;
+                transition: all 0.2s ease-in-out;
+                color: white;
+                padding: 0.8rem 1rem;
+                border-radius: 5px;
+
+                &:hover{
+                    background-color: $VIOLET;
+                }
+
+
+
+
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.8rem;
+                }
+
+
+                ._course_SMALL_COL_BTN_ICON{
+                    font-size: 1rem;
+
+                    @media only screen and (max-width: 1200px) { 
+                        font-size: 0.8rem;
+                    }
+                }
+            }
 
         }
     }
@@ -61,12 +144,22 @@
             font-weight: 700;
             color: $BLACK;
             margin-top: 0.6rem;
+
+
+            @media only screen and (max-width: 1200px) { 
+                font-size: 2rem;
+            }
+
         }
 
         ._course_tag{
             font-size: 0.8rem;
             font-weight: 400;
             background-color: $RED !important; 
+
+            @media only screen and (max-width: 1200px) { 
+                font-size: 0.7rem;
+            }
         }
 
         ._course_contents{
@@ -77,12 +170,20 @@
                 margin-right: 1.25rem;
                 font-size: 1rem;
                 color: $GRAY;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.8rem;
+                }
             }
 
             ._course_contents_ICONS{
                 margin-right: 0.1rem;
                 font-size: 1.25rem;
                 color: $ORANGE;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 1rem;
+                }
             }
 
             h3{
@@ -91,6 +192,10 @@
                 font-weight: 600;
                 color: $VIOLET;
                 font-size: 2rem;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 1.25rem;
+                }
             }
         }
       }
@@ -115,6 +220,11 @@
                 font-weight: 500;
                 margin-bottom: 1.25rem;
                 color: $BLACK;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 1.3rem;
+                }
+
             }
             p{
                 margin: 0;
@@ -122,6 +232,11 @@
                 width: 100%;
                 font-size: 1rem;
                 color: $GRAY;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.85rem;
+                    max-width: 600px;
+                }
             }
 
             h3{
@@ -130,12 +245,21 @@
                 font-weight: 500;
                 margin-top: 2rem;
                 color: $BLACK;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 1rem;
+                }
             }
 
             ul{
                 margin-top: 1.25rem;
                 font-size: 1rem;
                 color: $GRAY;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.85rem;
+                }
+
                 li{
                     margin-bottom: 0.8rem;
                 }
@@ -153,25 +277,47 @@
                 margin-bottom: 1.25rem;
                 margin-top: 4rem;
                 color: $BLACK;
+
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 1.3rem;
+                }
+
             }
 
 
             ._course_videos_accordion_header > *{
                 font-size: 1.1rem;
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.9rem;
+                }
             }
 
             ._course_videos_BODY{
                 margin-bottom: 1.5rem;
+
+                @media only screen and (max-width: 1200px) { 
+                    margin-bottom: 1rem;
+                }
 
 
                 p{
                     margin: 0;
                     font-size: 1rem;
 
+                    @media only screen and (max-width: 1200px) { 
+                        font-size: 0.8rem;
+                    }
+
                     ._course_videos_BODY_ICON{
                         color: $RED;
                         font-size: 1.25rem;
                         margin-right: 0.6rem;
+
+                        @media only screen and (max-width: 1200px) { 
+                            font-size: 0.8rem;
+                        }
                     }
 
                     // LOCK ICON
@@ -180,6 +326,10 @@
                         color: $H_RED;
                         font-size: 1.25rem;
                         margin-left: 30rem;
+
+                        @media only screen and (max-width: 1200px) { 
+                            font-size: 0.8rem;
+                        }
                     }
                 }
 

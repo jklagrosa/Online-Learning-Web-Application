@@ -11,7 +11,7 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Copyright from "../../components/Copyright";
 
-import { AiFillStar, AiFillCaretRight } from "react-icons/ai";
+import { AiFillStar, AiFillCaretRight, AiOutlineCheck } from "react-icons/ai";
 import { BsPersonFill, BsPlayBtnFill } from "react-icons/bs";
 import {
   FaChalkboardTeacher,
@@ -98,11 +98,23 @@ const CourseID = () => {
                   <h3>What you&apos;ll learn in this course:</h3>
 
                   <ul>
-                    <li>Feel confident using Adobe InDesign</li>
-                    <li>All the useful shortcuts</li>
-                    <li>Be able to create Flyers, Brochures, Advertisements</li>
-                    <li>How to work with Images &amp; Text</li>
-                    <li>Work with color &amp;Gradients &amp; Grids</li>
+                    <li>
+                      <AiOutlineCheck /> Feel confident using Adobe InDesign
+                    </li>
+                    <li>
+                      <AiOutlineCheck /> All the useful shortcuts
+                    </li>
+                    <li>
+                      <AiOutlineCheck /> Be able to create Flyers, Brochures,
+                      Advertisements
+                    </li>
+                    <li>
+                      <AiOutlineCheck /> How to work with Images &amp; Text
+                    </li>
+                    <li>
+                      <AiOutlineCheck /> Work with color &amp;Gradients &amp;
+                      Grids
+                    </li>
                   </ul>
                 </div>
 
@@ -161,7 +173,81 @@ const CourseID = () => {
               <Col xs={12} md={4}>
                 <div className={styles._course_SMALL_COL_contents}>
                   <img src="/gs/1.png" />
-                  <div className={styles._course_SMALL_COL_details}></div>
+                  <div className={styles._course_SMALL_COL_details}>
+                    <span className={styles._course_SMALL_COL_KEY}>
+                      <FaSignal className={styles._course_SMALL_COL_ICON} />{" "}
+                      Course Level:
+                    </span>
+
+                    <span className={styles._course_SMALL_COL_VALUE}>
+                      Beginner
+                    </span>
+                    <br />
+                    {/*  */}
+                    <span className={styles._course_SMALL_COL_KEY}>
+                      <MdAccessTimeFilled
+                        className={styles._course_SMALL_COL_ICON}
+                      />{" "}
+                      Course Duration:
+                    </span>
+
+                    <span className={styles._course_SMALL_COL_VALUE}>
+                      3 days
+                    </span>
+                    <br />
+                    {/*  */}
+                    <span className={styles._course_SMALL_COL_KEY}>
+                      <MdPlayLesson className={styles._course_SMALL_COL_ICON} />{" "}
+                      Lessons:
+                    </span>
+
+                    <span className={styles._course_SMALL_COL_VALUE}>5</span>
+                    <br />
+                    {/*  */}
+                    <span className={styles._course_SMALL_COL_KEY}>
+                      <MdQuiz className={styles._course_SMALL_COL_ICON} />{" "}
+                      Quizzes:
+                    </span>
+
+                    <span className={styles._course_SMALL_COL_VALUE}>2</span>
+                    <br />
+                    {/*  */}
+                    <span className={styles._course_SMALL_COL_KEY}>
+                      <FaPercentage className={styles._course_SMALL_COL_ICON} />{" "}
+                      Pass Percentage:
+                    </span>
+
+                    <span className={styles._course_SMALL_COL_VALUE}>83</span>
+                    <br />
+                    {/*  */}
+                    <span className={styles._course_SMALL_COL_KEY}>
+                      <FaCertificate
+                        className={styles._course_SMALL_COL_ICON}
+                      />{" "}
+                      Certificate:
+                    </span>
+
+                    <span className={styles._course_SMALL_COL_VALUE}>Yes</span>
+                    <br />
+                    {/*  */}
+                    <span className={styles._course_SMALL_COL_KEY}>
+                      <FaLanguage className={styles._course_SMALL_COL_ICON} />{" "}
+                      Language:
+                    </span>
+
+                    <span className={styles._course_SMALL_COL_VALUE}>
+                      English
+                    </span>
+                    <br />
+                    {/*  */}
+
+                    <button>
+                      Enroll Now{" "}
+                      <AiFillCaretRight
+                        className={styles._course_SMALL_COL_BTN_ICON}
+                      />
+                    </button>
+                  </div>
                 </div>
               </Col>
             </Row>
