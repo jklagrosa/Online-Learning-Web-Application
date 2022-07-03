@@ -22,8 +22,53 @@
 
 
     // SEARCH INPUT
-    #_search_input{
+    ._auto_complete_input_wrapper{
+        input{
+            all: unset;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            padding: 1rem;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border: 1px solid darkgray;
+            border-right: none;
+            background-color: white;
+            font-size: 1rem;
 
+
+            &::placeholder{
+                font-size: 1rem;
+                color: gray;
+            }
+
+
+
+
+            // =======================================================
+
+
+
+
+        }
+
+        button{
+            all: unset;
+            cursor: pointer;
+            padding: 1rem;
+            font-size: 1rem;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: $ORANGE;
+            border: 1px solid $ORANGE;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                background-color: $H_ORANGE;
+                border: 1px solid $H_ORANGE;
+            }
+
+        }
     }
 
     // END

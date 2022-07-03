@@ -1,7 +1,16 @@
 import styles from "../../styles/SEARCH.module.scss";
-import { Container, Row, Col, Card, Badge } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Badge,
+  InputGroup,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import { AiFillStar, AiFillCaretRight } from "react-icons/ai";
-import { BsPersonFill } from "react-icons/bs";
+import { BsPersonFill, BsSearch } from "react-icons/bs";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdPlayLesson } from "react-icons/md";
 import { BsSuitHeartFill, BsCartFill } from "react-icons/bs";
@@ -17,11 +26,18 @@ const Search = () => {
       <div id={styles._search_wrapper}>
         <Container fluid="lg" className="p-0">
           <div className={styles._search_header_section}>
-            <input
-              type="text"
-              placeholder="Search course..."
-              id={styles._search_input}
-            />
+            <InputGroup className={styles._auto_complete_input_wrapper}>
+              <FormControl
+                placeholder="Search Courses"
+                aria-label="Search Courses"
+                className={styles._auto_complete_input}
+              />
+              <abbr title="Search" style={{ all: "unset" }}>
+                <Button variant="primary">
+                  <BsSearch color="white" />
+                </Button>
+              </abbr>
+            </InputGroup>
             <h1>
               Search Results:{" "}
               <span>

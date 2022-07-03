@@ -19,7 +19,7 @@ const Hero = () => {
                   aria-label="Search Courses"
                   className={styles._auto_complete_input}
                 />
-                <abbr title="Search" style={{all: "unset"}}>
+                <abbr title="Search" style={{ all: "unset" }}>
                   <Button variant="primary">
                     <BsSearch color="white" />
                   </Button>
