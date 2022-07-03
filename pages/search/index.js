@@ -28,7 +28,7 @@ const Search = () => {
           <div className={styles._search_header_section}>
             <InputGroup className={styles._auto_complete_input_wrapper}>
               <FormControl
-                placeholder="Search Courses"
+                placeholder="Search Courses..."
                 aria-label="Search Courses"
                 className={styles._auto_complete_input}
               />
