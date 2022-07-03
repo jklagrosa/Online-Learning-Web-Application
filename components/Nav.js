@@ -34,19 +34,26 @@ const Navigation = () => {
           <div className={styles._navbar_ACTIONS_BTNS_ONLY_SHOW_BELOW_99PX}>
             <Nav.Link href="#" className={styles._wish_n_cart}>
               <Tooltip title="Your Wishlist">
-                <BsSuitHeartFill id={styles._navbar_icon_wishlist} />
+                <BsSuitHeartFill
+                  id={styles._navbar_icon_wishlist}
+                  className={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                />
               </Tooltip>
             </Nav.Link>
             {/* === */}
             <Nav.Link href="#" className={styles._wish_n_cart}>
               <Tooltip title="Your Cart">
-                <BsCartFill id={styles._navbar_icon_cart} />
+                <BsCartFill
+                  id={styles._navbar_icon_cart}
+                  className={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                />
               </Tooltip>
             </Nav.Link>
             <Nav.Link
               href="#"
               onClick={() => router.push("/")}
               className={styles._navbar_links}
+              id={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
             >
               Login
             </Nav.Link>
