@@ -1,0 +1,601 @@
+@import "../styles/utils.module.scss";
+
+
+#_search_wrapper{
+    padding: 4rem 2rem;
+    background-color: whitesmoke;
+
+
+    width: 100vw;
+    min-height: 100vh;
+
+
+    @media only screen and (max-width: 768px) { 
+        padding: 2rem 1rem;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        padding: 2rem 0.6rem;
+    }
+
+
+
+    // CARDS
+
+    h1{
+        font-size: 2.25rem;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 4rem;
+        color: $BLACK;
+
+
+        span{
+            font-style: italic;
+            color: $RED;
+            font-weight: 500;
+        }
+        
+
+        @media only screen and (min-width: 2501px){
+            font-size: 3.5rem;
+            max-width: 1200px;
+            margin-bottom: 2.5rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 3rem;
+            max-width: 1000px;
+            margin-bottom: 2.5rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 2.75rem;
+            max-width: 1000px;
+            margin-bottom: 2.5rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 2.5rem;
+        }
+
+        // =================================================
+
+        @media only screen and (max-width: 991px) { 
+            margin-bottom: 2rem;
+          font-size: 1.75rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            margin-top: 1rem;
+            margin-left: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (max-width: 600px) { 
+            font-size: 1.3rem;
+        }
+
+        @media only screen and (max-width: 425px) { 
+            font-size: 1.1rem;
+        }
+
+    }
+
+
+
+
+
+    ._search_header_section{
+        padding: 5rem 0;
+        width: 100%;
+
+
+
+
+        @media only screen and (min-width: 2501px){
+            padding: 9rem 0rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            padding: 8rem 0rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            padding: 6rem 0rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           padding: 6rem 0rem;
+        }
+
+
+
+
+        // ============================================================
+
+
+        @media only screen and (max-width: 600px) { 
+           padding: 4rem 0rem;
+        }
+    }
+
+
+
+    ._featured_course_card{
+        position: relative;
+        margin: 0 auto;
+        display: block;
+        max-width: 500px;
+        width: 100%;
+        min-height: 500px;
+
+
+        @media only screen and (max-width: 1199px) {
+            min-height: 450px;
+        }
+
+       
+        @media only screen and (max-width: 767px) {
+            max-width: 550px;
+        }
+
+
+        img{
+            width: 100%;
+            display: block;
+            min-height: 200px;
+            object-fit: cover;
+            object-position: center;
+
+            // ==================================
+
+            @media only screen and (min-width: 2501px){
+                min-height: 400px;
+            }
+    
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                min-height: 350px;
+            }
+    
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                min-height: 300px;
+            }
+
+        }
+
+
+
+
+        ._featured_course_TAG{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            ._featured_course_TAG_BADGE{
+                font-size: 0.8rem;
+                font-weight: 400;
+                background-color: $RED !important;
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.3rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.25rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1rem;
+                }
+
+                // ==========================================
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 0.7rem;
+                }
+
+                @media only screen and (max-width: 991px) {
+                    font-size: 0.8rem;
+                 }
+
+                 @media only screen and (max-width: 576px) {
+                    font-size: 0.7rem;
+                 }
+                
+            }
+        }
+
+
+        ._featured_course_card_BODY{
+            ._H1_TAG{
+                max-width: 500px;
+                width: 100%;
+                margin: 0;
+                font-size: 1.5rem;
+                color: $BLACK;
+                margin-bottom: 1.25rem;
+
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.25rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.8rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.6rem;
+                }
+
+                // ==========================================
+
+
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 1rem;
+                    max-width: 250px;
+                 }
+
+                 @media only screen and (max-width: 991px) {
+                    font-size: 1.25rem;
+                 }
+
+
+                 @media only screen and (max-width: 767px) {
+                    max-width: 500px;
+                    font-size: 1.5rem;
+                 }
+
+
+                 @media only screen and (max-width: 576px) {
+                    font-size: 1.25rem;
+                 }
+
+            }
+
+
+            ._P_TAG{
+                margin: 0;
+                font-size: 1rem;
+                color: gray;
+                margin-bottom: 1rem;
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.25rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.1rem;
+                }
+
+                // ==========================================
+
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 0.8rem;
+                 }
+
+
+                 @media only screen and (max-width: 991px) {
+                    font-size: 1rem;
+                 }
+
+                 @media only screen and (max-width: 576px) {
+                    font-size: 0.8rem;
+                 }
+
+            }
+
+
+            ._featured_card_ICONS{
+                margin-right: 0.3rem;
+                font-size: 1.25rem;
+                color: $H_ORANGE;
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.25rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.4rem;
+                }
+
+                // ==========================================
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 1rem;
+                 }
+
+                 @media only screen and (max-width: 991px) {
+                    font-size: 1.25rem;
+                 }
+
+                 
+                 @media only screen and (max-width: 576px) {
+                    font-size: 1.25rem;
+                 }
+            }
+
+
+        }
+
+        ._featured_course_card_FOOTER{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+
+            @media only screen and (min-width: 2501px){
+                padding: 1rem;
+            }
+    
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                padding: 1rem;
+            }
+    
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+              padding: 1rem;
+            }
+
+
+
+
+
+
+
+
+            button{
+                all: unset;
+                cursor: pointer;
+                background-color: $BLUE;
+                color: white;
+                padding: 0.3rem 0.6rem;
+                border-radius: 5px;
+                font-size: 1rem;
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    background-color: $VIOLET;
+                }
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.25rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.1rem;
+                }
+
+                // ==========================================
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 0.8rem;
+                 }
+
+                 @media only screen and (max-width: 991px) {
+                    font-size: 1rem;
+                 }
+
+                 @media only screen and (max-width: 576px) {
+                    font-size: 0.8rem;
+                 }
+
+                ._featured_course_card_FOOTER_ICON{
+                    font-size: 1rem;
+
+                    @media only screen and (min-width: 2501px){
+                        font-size: 1.75rem;
+                    }
+            
+                    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                        font-size: 1.5rem;
+                    }
+            
+                    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                        font-size: 1.25rem;
+                    }
+            
+                    @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                       font-size: 1.1rem;
+                    }
+    
+                    // ==========================================
+
+                    @media only screen and (max-width: 1199px) {
+                        font-size: 0.8rem;
+                     }
+
+                     @media only screen and (max-width: 991px) {
+                        font-size: 1rem;
+                     }
+
+                     @media only screen and (max-width: 576px) {
+                        font-size: 0.8rem;
+                     }
+                }
+            }
+
+            span{
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: $BLACK;
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.25rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.8rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.6rem;
+                }
+
+                // ==========================================
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 1rem;
+                }
+
+                @media only screen and (max-width: 991px) {
+                    font-size: 1.25rem;
+                 }
+
+                 @media only screen and (max-width: 576px) {
+                    font-size: 1.1rem;
+                 }
+            }
+
+
+            // WISH & CART
+
+
+            ._featured_course_WISH_ICON{
+                cursor: pointer;
+                color: $RED;
+                font-size: 1.25rem;
+                margin-right: 0.8rem;
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    color: $H_RED;
+                }
+
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.25rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.5rem;
+                }
+
+
+
+
+
+                // ======================================================
+
+
+                @media only screen and (max-width: 1199px) { 
+                    font-size: 1rem;
+                }
+
+                @media only screen and (max-width: 991px) { 
+                    font-size: 1.25rem;
+                }
+
+                @media only screen and (max-width: 576px) { 
+                    font-size: 1rem;
+                }
+
+            }
+
+
+            ._featured_course_CART_ICON{
+                cursor: pointer;
+                color: $BLUE;
+                font-size: 1.25rem;
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    color: $H_BLUE;
+                }
+
+
+                
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.25rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.5rem;
+                }
+
+
+
+
+                // ======================================================
+
+                @media only screen and (max-width: 1199px) { 
+                    font-size: 1rem;
+                }
+
+                @media only screen and (max-width: 991px) { 
+                    font-size: 1.25rem;
+                }
+
+                @media only screen and (max-width: 576px) { 
+                    font-size: 1rem;
+                }
+            }
+
+
+
+            // END
+
+
+        }
+    }
+
+}

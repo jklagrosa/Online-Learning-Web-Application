@@ -15,16 +15,55 @@ const Navigation = () => {
     <>
       <Navbar expand="lg" id={styles._navbar_wrapper}>
         <Container fluid="lg" className="p-0">
+          {/* SHOW NAVBAR LOGO IN LARGE DEVICES 577PX UP! */}
           <Navbar.Brand href="#home" id={styles._navbar_logo}>
             <span>Edu</span>kasyon
           </Navbar.Brand>
+          {/* END */}
+
+          {/* ============================================================= */}
+
+          {/* SHOW NAVBAR LOGO IN SMALL DEVICES 576PX DOWN! */}
+          <Navbar.Brand href="#home" id={styles._navbar_logo_SMALL}>
+            <span>E</span>k
+          </Navbar.Brand>
+          {/* END */}
+
+          {/* =========================================================== */}
+          {/* <Nav className="mx-auto"> */}
+          <div className={styles._navbar_ACTIONS_BTNS_ONLY_SHOW_BELOW_99PX}>
+            <Nav.Link href="#" className={styles._wish_n_cart}>
+              <Tooltip title="Your Wishlist">
+                <BsSuitHeartFill id={styles._navbar_icon_wishlist} />
+              </Tooltip>
+            </Nav.Link>
+            {/* === */}
+            <Nav.Link href="#" className={styles._wish_n_cart}>
+              <Tooltip title="Your Cart">
+                <BsCartFill id={styles._navbar_icon_cart} />
+              </Tooltip>
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              onClick={() => router.push("/")}
+              className={styles._navbar_links}
+            >
+              Login
+            </Nav.Link>
+            {/* === */}
+          </div>
+          {/* </Nav> */}
+          {/* =========================================================== */}
+
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             style={{ outline: "none", border: "none" }}
           >
             <BiMenu id={styles._navbar_hamburger} />
           </Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav">
+
+          {/* NAVBAR DRAWER IS NOW DISABLED IN SMALL DEVICES 991PX */}
+          <Navbar.Collapse id={styles._navbar_COLLAPSE_HIDE}>
             <Nav className="mx-auto">
               <Nav.Link
                 href="#"

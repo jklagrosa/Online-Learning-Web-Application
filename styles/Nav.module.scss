@@ -33,6 +33,83 @@
 
 
 
+      // HIDE THE COLLAPSE ON SMALL DEVICES 991PX
+      #_navbar_COLLAPSE_HIDE{
+        @media only screen and (max-width: 991px) {
+          display: none;
+         }
+
+      }
+      // END
+
+
+
+
+      // HIDE ON LARGE DEVICES AND SHOW ON SMALL DEVICES
+        ._navbar_ACTIONS_BTNS_ONLY_SHOW_BELOW_99PX{
+          display: none;
+
+
+          @media only screen and (max-width: 991px) { 
+            display: flex;
+            justify-content: center;
+            align-items:center;
+          }
+
+        }
+      // END
+
+
+
+
+
+
+        #_navbar_logo_SMALL{
+          display: none;
+          font-size: 1.5rem;
+          color: $ORANGE;
+          font-weight: bolder;
+          text-transform: uppercase;
+          span{
+              color: $BLUE;
+          }
+  
+          @media only screen and (min-width: 2501px){
+              font-size: 2.3rem;
+            }
+    
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 2.25rem;
+            }
+    
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+              font-size: 2rem;
+            }
+    
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+               font-size: 1.75rem;
+            }
+  
+          @media only screen and (max-width: 768px) { 
+              font-size: 1.25rem;
+          }
+
+
+          // SHOW ON 576px
+
+          @media only screen and (max-width: 576px){
+            display: block;
+          }
+
+
+
+        }
+
+
+
+
+
+
     #_navbar_logo{
         font-size: 1.5rem;
         color: $ORANGE;
@@ -61,6 +138,17 @@
         @media only screen and (max-width: 768px) { 
             font-size: 1.25rem;
         }
+
+
+
+        // HIDE ON SMALL DEVICES 576px 
+
+
+        @media only screen and (max-width: 576px){
+          display: none;
+        }
+
+
     }
 
     #_navbar_hamburger{
