@@ -17,6 +17,11 @@ const Search = () => {
       <div id={styles._search_wrapper}>
         <Container fluid="lg" className="p-0">
           <div className={styles._search_header_section}>
+            <input
+              type="text"
+              placeholder="Search course..."
+              id={styles._search_input}
+            />
             <h1>
               Search Results:{" "}
               <span>
