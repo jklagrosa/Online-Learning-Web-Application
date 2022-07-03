@@ -120,9 +120,43 @@
 
         }
 
+
+
+
+        // WISH N CART
+
+        ._course_SMALL_COL_wish_n_cart{
+            margin-bottom: 2rem;
+
+            ._course_SMALL_COL_wish_ICONS{
+                margin-right: 1rem;
+                cursor: pointer;
+                color: $RED;
+                font-size: 1.25rem;
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    color: $H_RED;
+                }
+            }
+
+            ._course_SMALL_COL_cart_ICONS{
+                cursor: pointer;
+                color: $BLUE;
+                font-size: 1.25rem;
+                transition: all 0.2s ease-in-out;
+
+                &:hover{
+                    color: $H_BLUE;
+                }
+            }
+        }
+
+        // END
+
+
+
         ._course_SMALL_COL_details{
-
-
             // KEY
             ._course_SMALL_COL_KEY{
                 font-size: 1rem;

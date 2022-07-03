@@ -22,6 +22,7 @@ import {
   FaLanguage,
 } from "react-icons/fa";
 import { MdPlayLesson, MdAccessTimeFilled, MdQuiz } from "react-icons/md";
+import { BsSuitHeartFill, BsCartFill } from "react-icons/bs";
 
 const CourseID = () => {
   return (
@@ -190,6 +191,25 @@ const CourseID = () => {
               <Col xs={12} md={4}>
                 <div className={styles._course_SMALL_COL_contents}>
                   <img src="/gs/1.png" />
+
+                  {/* WISH N CART */}
+                  <div className={styles._course_SMALL_COL_wish_n_cart}>
+                    <abbr title="Your Wishlist" style={{ all: "unset" }}>
+                      <BsSuitHeartFill
+                        className={styles._course_SMALL_COL_wish_ICONS}
+                      />
+                    </abbr>
+                    {/* ================= */}
+
+                    <abbr title="Your Cart" style={{ all: "unset" }}>
+                      <BsCartFill
+                        className={styles._course_SMALL_COL_cart_ICONS}
+                      />
+                    </abbr>
+                  </div>
+
+                  {/* END */}
+
                   <div className={styles._course_SMALL_COL_details}>
                     <span className={styles._course_SMALL_COL_KEY}>
                       <FaSignal className={styles._course_SMALL_COL_ICON} />{" "}
