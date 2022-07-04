@@ -4,7 +4,7 @@
 
 #_enrolled_course_wrapper{
     padding: 4rem 2rem;
-    background-color: white;
+    background-color: whitesmoke;
 
 
     
@@ -115,10 +115,25 @@
 
 
 
+        // COURSE CONTENTS VIDS
+        ._enrolled_course_contents{
+            background-color: white;
+            padding: 1rem 0.8rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        // END
+
+
+
+
+
+
+
         ._enrolled_video_section{
             // width: 100%;
             iframe{
-                width: 700px;
+                width: 740px;
                 min-height: 500px;
             }
 

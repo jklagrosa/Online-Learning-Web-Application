@@ -18,7 +18,7 @@ const EnrolledCourse = () => {
             className="gx-3 gy-4 mx-auto"
             id={styles._enrolled_header_section}
           >
-            <Col xs={12} md={7}>
+            <Col xs={12} md={8}>
               <div className={styles._enrolled_video_section}>
                 <iframe
                   src="https://www.youtube.com/embed/bJd4SJV0d5w"
@@ -65,9 +65,9 @@ const EnrolledCourse = () => {
               </div>
             </Col>
             {/* ========================= */}
-            <Col xs={12} md={5}>
-              <div className={}>
-
+            <Col xs={12} md={4}>
+              <div className={styles._enrolled_course_contents}>
+                <h5>Lessons</h5>
               </div>
             </Col>
           </Row>
