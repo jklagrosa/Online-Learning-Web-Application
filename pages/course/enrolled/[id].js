@@ -3,6 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import Nav from "../../../components/Nav";
 import Footer from "../../../components/Footer";
 import Copyright from "../../../components/Copyright";
+import { MdPlayLesson } from "react-icons/md";
+import { BsPersonFill } from "react-icons/bs";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { AiFillStar } from "react-icons/ai";
 
 const EnrolledCourse = () => {
   return (
@@ -16,11 +20,56 @@ const EnrolledCourse = () => {
           >
             <Col xs={12} md={7}>
               <div className={styles._enrolled_video_section}>
-                <iframe title="iFrame Example"></iframe>
+                <iframe
+                  src="https://www.youtube.com/embed/bJd4SJV0d5w"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+
+                <div className={styles._enrolled_video_section_DETAILS}>
+                  <h2>Intro to Web Development</h2>
+
+                  <div className={styles._enrolled_video_section_ICONS}>
+                    <span>
+                      <FaChalkboardTeacher
+                        className={styles._enrolled_video_section_SPAN_ICONS}
+                      />{" "}
+                      David Sopas
+                    </span>
+                    {/*  */}
+                    <span>
+                      <AiFillStar
+                        className={styles._enrolled_video_section_SPAN_ICONS}
+                      />{" "}
+                      4.2/5
+                    </span>
+                    {/*  */}
+                    <span>
+                      <MdPlayLesson
+                        className={styles._enrolled_video_section_SPAN_ICONS}
+                      />{" "}
+                      3 Lessons
+                    </span>
+                    {/*  */}
+                    <span>
+                      <BsPersonFill
+                        className={styles._enrolled_video_section_SPAN_ICONS}
+                      />{" "}
+                      25 Enrolled students
+                    </span>
+                    {/*  */}
+                  </div>
+                </div>
               </div>
             </Col>
             {/* ========================= */}
-            <Col xs={12} md={5}></Col>
+            <Col xs={12} md={5}>
+              <div className={}>
+
+              </div>
+            </Col>
           </Row>
         </Container>
       </div>

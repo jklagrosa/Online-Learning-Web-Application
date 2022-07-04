@@ -116,10 +116,51 @@
 
 
         ._enrolled_video_section{
-            width: 100%;
+            // width: 100%;
             iframe{
-                width: 100px
+                width: 700px;
+                min-height: 500px;
             }
+
+
+
+
+            ._enrolled_video_section_DETAILS{
+                margin-top: 0.6rem;
+
+                h2{
+                    margin: 0;
+                    max-width: 700px;
+                    width: 100%;
+                    // background-color: red;
+                    color: $BLACK;
+                    font-size: 2rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+
+
+
+                ._enrolled_video_section_ICONS{
+                    span{
+                        margin-right: 1rem;
+                        font-size: 1rem;
+                        color: $GRAY;
+                    }   
+
+                    ._enrolled_video_section_SPAN_ICONS{
+                        color: $ORANGE;
+                        font-size: 1.25rem;
+                    }
+                }
+
+
+            }
+
+
+
+
         }
 
 
