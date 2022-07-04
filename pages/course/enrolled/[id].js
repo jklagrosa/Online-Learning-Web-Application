@@ -4,7 +4,7 @@ import Nav from "../../../components/Nav";
 import Footer from "../../../components/Footer";
 import Copyright from "../../../components/Copyright";
 import { MdPlayLesson } from "react-icons/md";
-import { BsPersonFill } from "react-icons/bs";
+import { BsPersonFill, BsPlayBtnFill } from "react-icons/bs";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 
@@ -18,7 +18,7 @@ const EnrolledCourse = () => {
             className="gx-3 gy-4 mx-auto"
             id={styles._enrolled_header_section}
           >
-            <Col xs={12} md={8}>
+            <Col xs={12} lg={8}>
               <div className={styles._enrolled_video_section}>
                 <iframe
                   src="https://www.youtube.com/embed/bJd4SJV0d5w"
@@ -65,9 +65,60 @@ const EnrolledCourse = () => {
               </div>
             </Col>
             {/* ========================= */}
-            <Col xs={12} md={4}>
+            <Col xs={12} lg={4}>
               <div className={styles._enrolled_course_contents}>
-                <h5>Lessons</h5>
+                <h5>Course Lessons</h5>
+
+                <div className={styles._enrolled_course_contents_VIDS}>
+                  <span>
+                    <BsPlayBtnFill
+                      className={styles._enrolled_course_contents_VIDS_ICONS}
+                    />{" "}
+                    Intro to Web development
+                  </span>
+                  <br />
+                  {/* =========== */}
+                  <span>
+                    <BsPlayBtnFill
+                      className={styles._enrolled_course_contents_VIDS_ICONS}
+                    />{" "}
+                    Intro to Web development
+                  </span>
+                  <br />
+                  {/* =========== */}
+                  <span>
+                    <BsPlayBtnFill
+                      className={styles._enrolled_course_contents_VIDS_ICONS}
+                    />{" "}
+                    Intro to Web development
+                  </span>
+                  <br />
+                  {/* =========== */}
+                  <span>
+                    <BsPlayBtnFill
+                      className={styles._enrolled_course_contents_VIDS_ICONS}
+                    />{" "}
+                    Intro to Web development
+                  </span>
+                  <br />
+                  {/* =========== */}
+                  <span>
+                    <BsPlayBtnFill
+                      className={styles._enrolled_course_contents_VIDS_ICONS}
+                    />{" "}
+                    Intro to Web development
+                  </span>
+                  <br />
+                  {/* =========== */}
+                  <span>
+                    <BsPlayBtnFill
+                      className={styles._enrolled_course_contents_VIDS_ICONS}
+                    />{" "}
+                    Intro to Web development
+                  </span>
+                  <br />
+                  {/* =========== */}
+                </div>
               </div>
             </Col>
           </Row>
