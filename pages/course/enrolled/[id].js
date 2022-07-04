@@ -25,7 +25,7 @@ const EnrolledCourse = () => {
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
 
                 <div className={styles._enrolled_video_section_DETAILS}>
