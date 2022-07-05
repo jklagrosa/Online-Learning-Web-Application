@@ -6,7 +6,7 @@
 
 
   @media only screen and (min-width: 2501px){
-          
+    width: 800px;       
   }
 
   @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
@@ -30,6 +30,34 @@
   #_navbar_offcanvas_title{
     color: $BLACK;
     font-size: 1.25rem;
+
+
+
+    @media only screen and (min-width: 2501px){
+      font-size: 2.5rem;  
+    }
+
+    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+      font-size: 2rem;
+    }
+
+    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+      font-size: 1.75rem;
+    }
+
+    @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+       font-size: 1.5rem;
+    }
+
+
+
+
+
+
+
+
+
+
   }
 
   #_navbar_offcanvas_body{
@@ -60,7 +88,7 @@
 
           
       @media only screen and (min-width: 2501px){
-          
+        min-height: 350px;
       }
     
       @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
@@ -95,7 +123,7 @@
 
           
         @media only screen and (min-width: 2501px){
-          
+          font-size: 2.25rem;
         }
       
         @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
@@ -138,7 +166,7 @@
 
 
         @media only screen and (min-width: 2501px){
-          
+          min-height: 350px;
         }
       
         @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
@@ -176,7 +204,7 @@
 
 
         @media only screen and (min-width: 2501px){
-          
+          font-size: 2rem;
         }
       
         @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
@@ -214,7 +242,8 @@
           color: gray;
 
         @media only screen and (min-width: 2501px){
-          
+          margin-bottom: 0.5rem;
+          font-size: 1.75rem;
         }
       
         @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
@@ -256,7 +285,7 @@
 
           
         @media only screen and (min-width: 2501px){
-          
+          font-size: 2rem;
         }
       
         @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
