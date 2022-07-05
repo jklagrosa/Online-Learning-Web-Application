@@ -3,13 +3,40 @@
 
 // WISHLIST & CART OFFCANVAS
 #_navbar_offcanvas_wrapper{
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
   #_navbar_offcanvas_title{
     color: $BLACK;
     font-size: 1.25rem;
   }
 
   #_navbar_offcanvas_body{
+
+
+
+   
+
+
+
+
     #_navbar_offcanvas_body_COLS{
+      position: relative;
+      width: 100%;
+      min-height: 180px;
       margin-bottom: 1rem;
       background-color: $BLACK;
       border-radius: 5px;
@@ -21,10 +48,36 @@
       }
 
 
+
+
+       // CLOSE ICON
+       #_navbar_offcanvas_body_close_icons{
+        #_navbar_offcanvas_body_close_icons_ICON{
+          position: absolute;
+          top: 1px;
+          right: 1px;
+          color: red;
+          font-size: 1.25rem;
+          cursor: pointer;
+        }
+      }
+    // END
+
+
+
+
       img{
         width: 100%;
+        min-height: 180px;
         object-fit: cover;
         object-position: center;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover{
+          transform: scale(0.96);
+        }
+
       }
 
 
@@ -34,12 +87,42 @@
         font-size: 1rem;
         font-weight: 600;
         color: #d3d3d3;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+
+        @media only screen and (max-width: 576px) {
+          font-size: 0.8rem;
+         }
+
+
       }
 
 
 
       #_navbar_offcanvas_body_ICONS{
-        
+        span{
+          display: inline-block;
+          margin-bottom: 0.3rem;
+          font-size: 0.8rem;
+          color: gray;
+
+
+          @media only screen and (max-width: 576px) {
+            font-size: 0.7rem;
+           }
+
+
+        }
+        #_navbar_offcanvas_body_main_icons{
+          font-size: 1rem;
+          color: $ORANGE;
+
+          @media only screen and (max-width: 576px) {
+            font-size: 0.9rem;
+           }
+
+        }
       }
 
     }

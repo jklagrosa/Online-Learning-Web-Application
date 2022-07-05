@@ -10,7 +10,7 @@ import { BiMenu } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { Tooltip } from "antd";
 
-import { AiFillStar, AiFillCaretRight } from "react-icons/ai";
+import { AiFillStar, AiOutlineClose } from "react-icons/ai";
 import { BsPersonFill } from "react-icons/bs";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdPlayLesson } from "react-icons/md";
@@ -151,6 +151,73 @@ const Navigation = () => {
           <div id={styles._navbar_offcanvas_body_COLS}>
             <Row className="gx-2 gy-0">
               <Col xs={6}>
+                <abbr
+                  title="Click to see more details"
+                  style={{ all: "unset" }}
+                >
+                  <img src="/gs/1.png" />
+                </abbr>
+              </Col>
+              {/* ====== */}
+              <Col xs={6}>
+                <h6>{`${text.substring(0, 18)}...`}</h6>
+
+                <div id={styles._navbar_offcanvas_body_ICONS}>
+                  <span>
+                    <FaChalkboardTeacher
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    David Sopas
+                  </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <AiFillStar id={styles._navbar_offcanvas_body_main_icons} />{" "}
+                    4.2/5
+                  </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <MdPlayLesson
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    3 Lessons
+                  </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <BsPersonFill
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    25 Enrolled students
+                  </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <IoMdPricetag
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    ₱300
+                  </span>
+                  {/*  */}
+                </div>
+              </Col>
+            </Row>
+
+            {/* CLOSE ICON */}
+            <div id={styles._navbar_offcanvas_body_close_icons}>
+              <AiOutlineClose
+                id={styles._navbar_offcanvas_body_close_icons_ICON}
+              />
+            </div>
+            {/* END */}
+          </div>
+
+          {/* ========================================== */}
+
+          <div id={styles._navbar_offcanvas_body_COLS}>
+            <Row className="gx-2 gy-0">
+              <Col xs={6}>
                 <img src="/gs/1.png" />
               </Col>
               {/* ====== */}
@@ -159,11 +226,53 @@ const Navigation = () => {
 
                 <div id={styles._navbar_offcanvas_body_ICONS}>
                   <span>
-                    
+                    <FaChalkboardTeacher
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    David Sopas
                   </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <AiFillStar id={styles._navbar_offcanvas_body_main_icons} />{" "}
+                    4.2/5
+                  </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <MdPlayLesson
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    3 Lessons
+                  </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <BsPersonFill
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    25 Enrolled students
+                  </span>
+                  <br />
+                  {/*  */}
+                  <span>
+                    <IoMdPricetag
+                      id={styles._navbar_offcanvas_body_main_icons}
+                    />{" "}
+                    ₱300
+                  </span>
+                  {/*  */}
                 </div>
               </Col>
             </Row>
+
+            {/* CLOSE ICON */}
+            <div id={styles._navbar_offcanvas_body_close_icons}>
+              <AiOutlineClose
+                id={styles._navbar_offcanvas_body_close_icons_ICON}
+              />
+            </div>
+            {/* END */}
           </div>
         </Offcanvas.Body>
       </Offcanvas>
