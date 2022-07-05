@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import styles from "../styles/Nav.module.scss";
 import { BsSuitHeartFill, BsCartFill } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
@@ -9,6 +10,11 @@ import { useRouter } from "next/router";
 import { Tooltip } from "antd";
 
 const Navigation = () => {
+  const [showWishlist, setShowWishlist] = useState(false);
+
+  const handleCloseWishlist = () => setShowWishlist(false);
+  const handleShowWishlist = () => setShowWishlist(true);
+
   const router = useRouter();
 
   return (
@@ -101,7 +107,11 @@ const Navigation = () => {
                 Login
               </Nav.Link>
               {/* === */}
-              <Nav.Link href="#" className={styles._wish_n_cart}>
+              <Nav.Link
+                href="#"
+                className={styles._wish_n_cart}
+                onClick={handleShowWishlist}
+              >
                 <Tooltip title="Your Wishlist">
                   <BsSuitHeartFill id={styles._navbar_icon_wishlist} />
                 </Tooltip>
@@ -116,6 +126,24 @@ const Navigation = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* WISHLIST OFFCANVAS */}
+      <Offcanvas show={showWishlist} onHide={handleCloseWishlist}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Wishlist</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+      {/* END */}
+
+      {/* ===================================================================== */}
+
+      {/* CART OFFCANVAS */}
+
+      {/* END */}
     </>
   );
 };
