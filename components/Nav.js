@@ -10,7 +10,7 @@ import { BiMenu } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { Tooltip } from "antd";
 
-import { AiFillStar, AiOutlineClose } from "react-icons/ai";
+import { AiFillStar, AiOutlineClose, AiOutlineCheck } from "react-icons/ai";
 import { BsPersonFill } from "react-icons/bs";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdPlayLesson } from "react-icons/md";
@@ -20,7 +20,17 @@ const Navigation = () => {
   const [showWishlist, setShowWishlist] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
+  const [showDrawer, setShowDrawer] = useState(false);
+
   const [text, setText] = useState("Intro to Web Development");
+
+  // DRAWER LINKS
+  const handleCloseDrawer = () => setShowDrawer(false);
+  const handleShowDrawerOpen = () => setShowDrawer(true);
+
+  // END
+
+  // ===================================================================
 
   // WISHLIST
   const handleCloseWishlist = () => setShowWishlist(false);
@@ -61,6 +71,7 @@ const Navigation = () => {
                 <BsSuitHeartFill
                   id={styles._navbar_icon_wishlist}
                   className={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                  onClick={handleShowWishlist}
                 />
               </Tooltip>
             </Nav.Link>
@@ -70,6 +81,7 @@ const Navigation = () => {
                 <BsCartFill
                   id={styles._navbar_icon_cart}
                   className={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                  onClick={handleShowCart}
                 />
               </Tooltip>
             </Nav.Link>
@@ -89,6 +101,7 @@ const Navigation = () => {
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             style={{ outline: "none", border: "none" }}
+            onClick={handleShowDrawerOpen}
           >
             <BiMenu id={styles._navbar_hamburger} />
           </Navbar.Toggle>
@@ -308,10 +321,7 @@ const Navigation = () => {
           <div id={styles._navbar_offcanvas_body_COLS}>
             <Row className="gx-2 gy-0">
               <Col xs={6}>
-                <abbr
-                  title="Click to see more details"
-                  style={{ all: "unset" }}
-                >
+                <abbr title="Click to watch course" style={{ all: "unset" }}>
                   <img src="/gs/1.png" />
                 </abbr>
               </Col>
@@ -321,15 +331,29 @@ const Navigation = () => {
 
                 <div id={styles._navbar_offcanvas_body_ICONS}>
                   <span>
+                    <AiOutlineCheck
+                      id={styles._navbar_offcanvas_body_main_icons}
+                      style={{ color: "#e6c229" }}
+                    />{" "}
+                    Enrolled
+                  </span>
+                  <br />
+                  {/*  */}
+
+                  <span>
                     <FaChalkboardTeacher
                       id={styles._navbar_offcanvas_body_main_icons}
+                      style={{ color: "#e6c229" }}
                     />{" "}
                     David Sopas
                   </span>
                   <br />
                   {/*  */}
                   <span>
-                    <AiFillStar id={styles._navbar_offcanvas_body_main_icons} />{" "}
+                    <AiFillStar
+                      id={styles._navbar_offcanvas_body_main_icons}
+                      style={{ color: "#e6c229" }}
+                    />{" "}
                     4.2/5
                   </span>
                   <br />
@@ -337,25 +361,22 @@ const Navigation = () => {
                   <span>
                     <MdPlayLesson
                       id={styles._navbar_offcanvas_body_main_icons}
+                      style={{ color: "#e6c229" }}
                     />{" "}
                     3 Lessons
                   </span>
                   <br />
+
                   {/*  */}
+
                   <span>
                     <BsPersonFill
                       id={styles._navbar_offcanvas_body_main_icons}
+                      style={{ color: "#e6c229" }}
                     />{" "}
                     25 Enrolled students
                   </span>
                   <br />
-                  {/*  */}
-                  <span>
-                    <IoMdPricetag
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    ₱300
-                  </span>
                   {/*  */}
                 </div>
               </Col>
@@ -371,69 +392,27 @@ const Navigation = () => {
           </div>
 
           {/* ========================================== */}
-
-          <div id={styles._navbar_offcanvas_body_COLS}>
-            <Row className="gx-2 gy-0">
-              <Col xs={6}>
-                <img src="/gs/1.png" />
-              </Col>
-              {/* ====== */}
-              <Col xs={6}>
-                <h6>{`${text.substring(0, 18)}...`}</h6>
-
-                <div id={styles._navbar_offcanvas_body_ICONS}>
-                  <span>
-                    <FaChalkboardTeacher
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    David Sopas
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <AiFillStar id={styles._navbar_offcanvas_body_main_icons} />{" "}
-                    4.2/5
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <MdPlayLesson
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    3 Lessons
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <BsPersonFill
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    25 Enrolled students
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <IoMdPricetag
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    ₱300
-                  </span>
-                  {/*  */}
-                </div>
-              </Col>
-            </Row>
-
-            {/* CLOSE ICON */}
-            <div id={styles._navbar_offcanvas_body_close_icons}>
-              <AiOutlineClose
-                id={styles._navbar_offcanvas_body_close_icons_ICON}
-              />
-            </div>
-            {/* END */}
-          </div>
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
+
+      {/* ================================================================================ */}
+      {/* ==========================OFFCANVAS SMALL DEVICES DRAWER========================= */}
+      {/* ================================================================================ */}
+
+      <Offcanvas show={showDrawer} onHide={handleCloseDrawer}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>EDUKASYON</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+
+      {/* ================================================================================ */}
+      {/* ==============================END============================================== */}
+      {/* ================================================================================ */}
     </>
   );
 };
