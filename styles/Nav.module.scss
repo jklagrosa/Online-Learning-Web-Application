@@ -2,7 +2,50 @@
 
 
 // WISHLIST & CART OFFCANVAS
+#_navbar_offcanvas_wrapper{
+  #_navbar_offcanvas_title{
+    color: $BLACK;
+    font-size: 1.25rem;
+  }
 
+  #_navbar_offcanvas_body{
+    #_navbar_offcanvas_body_COLS{
+      margin-bottom: 1rem;
+      background-color: $BLACK;
+      border-radius: 5px;
+      padding: 0.3rem;
+      transition: all 0.2s ease-in-out;
+
+      &:hover{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+
+
+      img{
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+
+
+      h6{
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #d3d3d3;
+      }
+
+
+
+      #_navbar_offcanvas_body_ICONS{
+        
+      }
+
+    }
+  }
+
+}
 
 // END
 

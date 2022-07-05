@@ -3,14 +3,23 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { Row, Col } from "react-bootstrap";
 import styles from "../styles/Nav.module.scss";
 import { BsSuitHeartFill, BsCartFill } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { Tooltip } from "antd";
 
+import { AiFillStar, AiFillCaretRight } from "react-icons/ai";
+import { BsPersonFill } from "react-icons/bs";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { MdPlayLesson } from "react-icons/md";
+import { IoMdPricetag } from "react-icons/io";
+
 const Navigation = () => {
   const [showWishlist, setShowWishlist] = useState(false);
+
+  const [text, setText] = useState("Intro to Web Development");
 
   const handleCloseWishlist = () => setShowWishlist(false);
   const handleShowWishlist = () => setShowWishlist(true);
@@ -128,13 +137,34 @@ const Navigation = () => {
       </Navbar>
 
       {/* WISHLIST OFFCANVAS */}
-      <Offcanvas show={showWishlist} onHide={handleCloseWishlist}>
+      <Offcanvas
+        show={showWishlist}
+        onHide={handleCloseWishlist}
+        id={styles._navbar_offcanvas_wrapper}
+      >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Wishlist</Offcanvas.Title>
+          <Offcanvas.Title id={styles._navbar_offcanvas_title}>
+            Wishlist
+          </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+        <Offcanvas.Body id={styles._navbar_offcanvas_body}>
+          <div id={styles._navbar_offcanvas_body_COLS}>
+            <Row className="gx-2 gy-0">
+              <Col xs={6}>
+                <img src="/gs/1.png" />
+              </Col>
+              {/* ====== */}
+              <Col xs={6}>
+                <h6>{`${text.substring(0, 18)}...`}</h6>
+
+                <div id={styles._navbar_offcanvas_body_ICONS}>
+                  <span>
+                    
+                  </span>
+                </div>
+              </Col>
+            </Row>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
