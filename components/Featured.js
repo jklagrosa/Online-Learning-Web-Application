@@ -13,6 +13,9 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../config/others";
+
 const Featured = () => {
   // USER STATE STATUS
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -41,6 +44,14 @@ const Featured = () => {
     });
   };
   // END
+
+  // ###########################################################
+
+  // *********** ADD TO WISHLIST ***************
+  const ADD_TO_WISH_LIST = async (id) => {
+    const response = await axios.post(`${BASE_URL}`, { id }, headersOpts);
+  };
+  // ************* END **************************
 
   return (
     <>
@@ -194,6 +205,7 @@ const Featured = () => {
                                     className={
                                       styles._featured_course_WISH_ICON
                                     }
+                                    onClick={() => ADD_TO_WISH_LIST(course._id)}
                                   />
                                 </abbr>
                                 {/* ======================================================= */}
