@@ -131,6 +131,13 @@ const Featured = () => {
                               }
                             />
                           </button>
+
+                          {/* BTN LOADING */}
+                          <button className={styles._btn_is_clicked}>
+                            Please wait...
+                          </button>
+                          {/* END */}
+
                           {/* <abbr title="Course price" style={{ all: "unset" }}>
              <span>₱300</span>
            </abbr> */}

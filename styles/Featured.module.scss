@@ -330,7 +330,85 @@
 
 
 
+            // THE BTN IS CLICKED
+            ._btn_is_clicked{
+                all: unset;
+                cursor: not-allowed;
+                background-color: gray;
+                color: white;
+                padding: 0.3rem 0.6rem;
+                border-radius: 5px;
+                font-size: 1rem;
+                transition: all 0.2s ease-in-out;
 
+               
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.25rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.1rem;
+                }
+
+                // ==========================================
+
+                @media only screen and (max-width: 1199px) {
+                    font-size: 0.8rem;
+                 }
+
+                 @media only screen and (max-width: 991px) {
+                    font-size: 1rem;
+                 }
+
+                 @media only screen and (max-width: 576px) {
+                    font-size: 0.8rem;
+                 }
+
+                ._featured_course_card_FOOTER_ICON{
+                    font-size: 1rem;
+
+                    @media only screen and (min-width: 2501px){
+                        font-size: 1.75rem;
+                    }
+            
+                    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                        font-size: 1.5rem;
+                    }
+            
+                    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                        font-size: 1.25rem;
+                    }
+            
+                    @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                       font-size: 1.1rem;
+                    }
+    
+                    // ==========================================
+
+                    @media only screen and (max-width: 1199px) {
+                        font-size: 0.8rem;
+                     }
+
+                     @media only screen and (max-width: 991px) {
+                        font-size: 1rem;
+                     }
+
+                     @media only screen and (max-width: 576px) {
+                        font-size: 0.8rem;
+                     }
+                }
+            }
+
+            // END
 
 
 
