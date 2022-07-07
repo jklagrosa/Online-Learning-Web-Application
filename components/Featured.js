@@ -84,6 +84,19 @@ const Featured = () => {
       { id },
       headersOpts
     );
+
+    if (response.data.isExist) {
+      return toast.info("Already in Wishlist.", {
+        position: "top-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
     if (!response.data.success) {
       return toast.error("Please try again later.", {
         position: "top-right",

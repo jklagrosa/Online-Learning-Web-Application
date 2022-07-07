@@ -16,6 +16,8 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdPlayLesson } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
 
+import { useSelector } from "react-redux";
+
 const Navigation = () => {
   const [showWishlist, setShowWishlist] = useState(false);
   const [showCart, setShowCart] = useState(false);
@@ -23,6 +25,12 @@ const Navigation = () => {
   const [showDrawer, setShowDrawer] = useState(false);
 
   const [text, setText] = useState("Intro to Web Development");
+
+  // GET ALL WISHLIST FROM STORE
+  const { wishlist } = useSelector((state) => state?.wishlist);
+  // END
+
+  // #########################################
 
   // DRAWER LINKS
   const handleCloseDrawer = () => setShowDrawer(false);
