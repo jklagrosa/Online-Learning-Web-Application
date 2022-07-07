@@ -3,6 +3,27 @@ import Course from "../../../models/course";
 import Wishlist from "../../../models/wishlist";
 
 export default async function handler(req, res) {
+  if (req.method === "GET") {
+    await dbConnection();
+
+    const REFRESH_DATA = await Wishlist.find({});
+    if (!REFRESH_DATA) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: "Cannot get all your Wishlist",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: null,
+      message: "Updated Wishlist",
+    });
+  }
+
+  // #################################################
+
   if (req.method === "POST") {
     await dbConnection();
 

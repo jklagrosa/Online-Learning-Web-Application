@@ -10,7 +10,7 @@ import { IoMdPricetag } from "react-icons/io";
 import { useRouter } from "next/router";
 
 // GET THE DATA FROM STORE
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
 import axios from "axios";
@@ -25,6 +25,7 @@ const Featured = () => {
   const [loading, setLoading] = useState(false);
 
   const { courses } = useSelector((state) => state?.course);
+  const dispatch = useDispatch();
   const router = useRouter();
 
   const handleSeeMore = (id) => {
@@ -50,9 +51,16 @@ const Featured = () => {
   // ###########################################################
 
   // *********** GET UPDATED WISHLIST DATA *********************
-  // const GET_UPDATED_WISHLIST_DATA = async () => {
-  //   const response
-  // }
+  const GET_UPDATED_WISHLIST_DATA = async () => {
+    const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
+    if (!response.data.success) {
+      dispatch();
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch()
+    }
+  };
   // ************************ END ******************************
 
   // *********** ADD TO WISHLIST ***************
