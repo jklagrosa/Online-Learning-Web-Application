@@ -34,7 +34,7 @@ const Featured = () => {
               <Row className="gx-3 gy-4 mx-auto">
                 {courses?.map((course) => (
                   <>
-                    <Col xs={12} md={6} lg={4}>
+                    <Col xs={12} md={6} lg={4} key={course._id}>
                       <Card className={styles._featured_course_card}>
                         <Card.Img
                           variant="top"

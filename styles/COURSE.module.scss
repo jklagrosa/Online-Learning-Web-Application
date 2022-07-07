@@ -359,6 +359,98 @@
 
             // END
 
+
+            // LOADING BTN
+            #_loading_btn_course{
+                all: unset;
+                cursor: not-allowed;
+                margin-top: 2rem;
+                font-size: 1rem;
+                background-color: gray;
+                transition: all 0.2s ease-in-out;
+                color: white;
+                padding: 0.8rem 1rem;
+                border-radius: 5px;
+
+              
+
+
+
+
+
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                    padding: 1rem 2rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                    padding: 1rem 2rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 1.5rem;
+                    padding: 1rem 2rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                    font-size: 1.25rem;
+                }
+
+
+
+
+
+
+
+                // ======================================================
+
+
+
+                @media only screen and (max-width: 1200px) { 
+                    font-size: 0.8rem;
+                }
+
+
+                ._course_SMALL_COL_BTN_ICON{
+                    font-size: 1rem;
+
+
+                    @media only screen and (min-width: 2501px){
+                        font-size: 2rem;
+                
+                    }
+            
+                    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                        font-size: 1.75rem;
+                     
+                    }
+            
+                    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                        font-size: 1.5rem;
+                     
+                    }
+            
+                    @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                        font-size: 1.25rem;
+                    }
+
+
+                    // =====================================
+
+                    @media only screen and (max-width: 1200px) { 
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+            // END
+
+
+
+
+
             button{
                 all: unset;
                 cursor: pointer;

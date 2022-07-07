@@ -32,6 +32,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../../config/others";
 
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 export async function getStaticPaths() {
   await Dbconnection();
@@ -79,27 +80,54 @@ export async function getStaticProps(context) {
 }
 
 const CourseID = ({ data }) => {
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
   const parsed_course = data ? JSON.parse(data) : null;
 
   // ENROLL NOW HANDLE
-  const handleEnrollNow = async (id) => {
-    // const response = await axios.post(
-    //   `${BASE_URL}/api/enroll`,
-    //   { id },
-    //   headersOpts
-    // );
-    // if(!response.data.success){
-    // }
-    toast.error("Please try again later.", {
-      position: "top-right",
-      autoClose: 2000000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+  const handleEnrollNow = async (cid) => {
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/enroll`,
+        { cid },
+        headersOpts
+      );
+      if (!response.data.success) {
+        return toast.error("Please try again later.", {
+          position: "top-right",
+          autoClose: 8000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+
+      if (response && response.data && response.data.success) {
+        router.push({
+          pathname: "/course/enrolled/id",
+          query: { id: response.data.data._id },
+        });
+      }
+
+      return response.data;
+    } catch (error) {
+      toast.error("Please try again later.", {
+        position: "top-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
   // END
 
@@ -195,8 +223,8 @@ const CourseID = ({ data }) => {
                       <h3>What you&apos;ll learn in this course:</h3>
 
                       <ul>
-                        {parsed_course.learning.map((learn) => (
-                          <li>
+                        {parsed_course.learning.map((learn, index) => (
+                          <li key={index}>
                             <AiOutlineCheck
                               className={styles._course_learn_checks}
                             />{" "}
@@ -220,11 +248,12 @@ const CourseID = ({ data }) => {
                             Lessons
                           </Accordion.Header>
                           <Accordion.Body>
-                            {parsed_course.vids.map((vid) => (
+                            {parsed_course.vids.map((vid, index) => (
                               <>
                                 <abbr
                                   title="Enroll now to unlock this course."
                                   style={{ all: "unset" }}
+                                  key={index}
                                 >
                                   <div className={styles._course_videos_BODY}>
                                     <p>
@@ -354,14 +383,28 @@ const CourseID = ({ data }) => {
                         <br />
                         {/*  */}
 
-                        <button
-                          onClick={() => handleEnrollNow(parsed_course._id)}
-                        >
-                          Enroll Now{" "}
-                          <AiFillCaretRight
-                            className={styles._course_SMALL_COL_BTN_ICON}
-                          />
-                        </button>
+                        {/* LOADING IS FALSE */}
+                        {!loading && (
+                          <button
+                            onClick={() => handleEnrollNow(parsed_course._id)}
+                          >
+                            Enroll Now{" "}
+                            <AiFillCaretRight
+                              className={styles._course_SMALL_COL_BTN_ICON}
+                            />
+                          </button>
+                        )}
+                        {/* END - LOADING IS FALSE */}
+
+                        {/* ================================================== */}
+
+                        {/* LOADING IS FALSE */}
+                        {loading && (
+                          <button id={styles._loading_btn_course}>
+                            Please wait...
+                          </button>
+                        )}
+                        {/* END - LOADING IS FALSE */}
                       </div>
                     </div>
                   </Col>
