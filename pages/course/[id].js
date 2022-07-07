@@ -32,7 +32,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../../config/others";
 
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export async function getStaticPaths() {
   await Dbconnection();
@@ -61,6 +61,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   await Dbconnection();
   const { params } = context;
+
   const find_course = await Course.findOne({ _id: `${params.id}` });
   if (!find_course) {
     return {
@@ -70,20 +71,51 @@ export async function getStaticProps(context) {
     };
   }
 
-  console.log(find_course);
-
-  return {
-    props: {
-      data: JSON.stringify(find_course),
-    },
-  };
+  if (find_course) {
+    // IF USE IS ALREADY ENROLLED IN THIS COURSE
+    // REDIRECT TO WATCH
+    if (find_course.is_enrolled) {
+      return {
+        props: {
+          isEnrolled: true,
+          isEnrolled_ID: JSON.stringify(find_course._id),
+        },
+      };
+    }
+    // END
+    // ====================================
+    else {
+      return {
+        props: {
+          data: JSON.stringify(find_course),
+        },
+      };
+    }
+  }
 }
 
-const CourseID = ({ data }) => {
+const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
   const parsed_course = data ? JSON.parse(data) : null;
+
+  // IF USER IS ALREADY ENROLLED IN THIS COURSE
+  // REDIRECT TO WATCH
+  const parsed_isEnrolled = isEnrolled ? JSON.parse(isEnrolled) : false;
+  const parsed_isEnrolled_ID = isEnrolled_ID ? JSON.parse(isEnrolled_ID) : null;
+
+  useEffect(() => {
+    if (parsed_isEnrolled) {
+      console.log("YEHEY! TRUE");
+      router.push({
+        pathname: "/course/enrolled/[id]",
+        query: { id: parsed_isEnrolled_ID },
+      });
+    }
+  }, []);
+
+  // END
 
   // ENROLL NOW HANDLE
   const handleEnrollNow = async (cid) => {

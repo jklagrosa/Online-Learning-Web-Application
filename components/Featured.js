@@ -23,6 +23,15 @@ const Featured = () => {
     });
   };
 
+  // IF USER IS ENROLLED TO THE COURSE
+  const handleWatchCourse = (id) => {
+    router.push({
+      pathname: "/course/enrolled/[id]",
+      query: { id },
+    });
+  };
+  // END
+
   return (
     <>
       <div id={styles._featured_wrapper}>
@@ -42,7 +51,13 @@ const Featured = () => {
                         />
                         <Card.Body
                           className={styles._featured_course_card_BODY}
-                          onClick={() => handleSeeMore(course._id)}
+                          onClick={() => {
+                            if (course.is_enrolled) {
+                              handleWatchCourse(course._id);
+                            } else {
+                              handleSeeMore(course._id);
+                            }
+                          }}
                         >
                           <abbr title="Course title" style={{ all: "unset" }}>
                             <Card.Title className={styles._H1_TAG}>
