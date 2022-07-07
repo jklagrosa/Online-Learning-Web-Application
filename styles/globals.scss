@@ -1,3 +1,7 @@
+@import "../styles/utils.module.scss";
+
+
+
 html,
 body {
   padding: 0;
@@ -12,3 +16,82 @@ body {
   box-sizing: border-box;
 }
 
+
+
+
+// REACT TOASTIFY
+.Toastify__toast-container {
+
+  @media only screen and (min-width: 2501px){
+    width: 550px !important;      
+  }
+
+  @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+    width: 500px !important;
+  }
+
+  @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+    width: 400px !important;
+  }
+
+
+
+
+
+  .Toastify__toast-body {
+      font-size: 1rem;
+      color: $BLACK;
+  
+      @media only screen and (min-width: 2501px){
+        font-size: 2rem;
+        padding: 1rem;
+      }
+    
+      @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+        font-size: 1.75rem;
+        padding: 1rem;
+      }
+    
+      @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+        font-size: 1.5rem;
+        padding: 1rem;
+      }
+    
+      @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+        font-size: 1.15rem;
+      }
+  
+
+  
+
+
+
+
+  }
+
+  // ICON
+
+  
+  .Toastify__toast-icon {
+  
+    @media only screen and (min-width: 2501px){
+      width: 45px;
+    }
+  
+    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+      width: 40px;
+    }
+  
+    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+      width: 35px;
+    }
+  
+    @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+      width: 25px;
+    }
+
+  }
+
+}
+
+// END

@@ -28,6 +28,11 @@ import { useRouter } from "next/router";
 import Dbconnection from "../../db/conn";
 import Course from "../../models/course";
 
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../../config/others";
+
+import { toast } from "react-toastify";
+
 export async function getStaticPaths() {
   await Dbconnection();
   const get_id = await Course.find({});
@@ -77,6 +82,27 @@ const CourseID = ({ data }) => {
   const router = useRouter();
   const parsed_course = data ? JSON.parse(data) : null;
 
+  // ENROLL NOW HANDLE
+  const handleEnrollNow = async (id) => {
+    // const response = await axios.post(
+    //   `${BASE_URL}/api/enroll`,
+    //   { id },
+    //   headersOpts
+    // );
+    // if(!response.data.success){
+    // }
+    toast.error("Please try again later.", {
+      position: "top-right",
+      autoClose: 2000000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  // END
+
   return (
     <>
       <Nav />
@@ -85,7 +111,7 @@ const CourseID = ({ data }) => {
           {/* ====================== */}
 
           {/* IF COURSE IS AVAILABLE */}
-          {
+          {parsed_course !== null && (
             <>
               <div className={styles._course_header_section}>
                 <Row className="gx-3 gy-5 mx-auto">
@@ -101,7 +127,7 @@ const CourseID = ({ data }) => {
                         Course
                       </Breadcrumb.Item>
                       <Breadcrumb.Item className={styles._course_links} active>
-                        Take A Course For Web Development
+                        {parsed_course.title}
                       </Breadcrumb.Item>
                     </Breadcrumb>
 
@@ -109,15 +135,15 @@ const CourseID = ({ data }) => {
 
                     <div className={styles._course_header_details}>
                       <Badge className={styles._course_tag}>
-                        Web Development
+                        {parsed_course.tag}
                       </Badge>{" "}
-                      <h1>Take A Course For Web Development</h1>
+                      <h1>{parsed_course.title}</h1>
                       <div className={styles._course_contents}>
                         <span>
                           <FaChalkboardTeacher
                             className={styles._course_contents_ICONS}
                           />{" "}
-                          David Sopas
+                          {parsed_course.inst}
                         </span>
 
                         <div
@@ -129,7 +155,7 @@ const CourseID = ({ data }) => {
                           <AiFillStar
                             className={styles._course_contents_ICONS}
                           />{" "}
-                          4.2/5
+                          {parsed_course.star}/5
                         </span>
 
                         <div
@@ -141,7 +167,7 @@ const CourseID = ({ data }) => {
                           <MdPlayLesson
                             className={styles._course_contents_ICONS}
                           />{" "}
-                          3 Lessons
+                          {parsed_course.lessons} Lessons
                         </span>
 
                         <div
@@ -152,10 +178,10 @@ const CourseID = ({ data }) => {
                           <BsPersonFill
                             className={styles._course_contents_ICONS}
                           />{" "}
-                          25 Enrolled Students
+                          {parsed_course.enrolled_students} Enrolled Students
                         </span>
 
-                        <h3>₱300</h3>
+                        <h3>₱{parsed_course.price}</h3>
                       </div>
                     </div>
 
@@ -164,49 +190,19 @@ const CourseID = ({ data }) => {
 
                     <div className={styles._course_contents_overview}>
                       <h2>Course Overview</h2>
-                      <p>
-                        Youll learn how to build a Kubernetes cluster, and how
-                        to deploy and manage applications on it. Along the way,
-                        youll learn the internals of how Kubernetes works, as
-                        well as best-practices such as managing applications
-                        declaratively. By the end of the course youll have all
-                        the tools you need to get started with Kubernetes and
-                        take your career to the next level.
-                      </p>
+                      <p>{parsed_course.desc}</p>
                       {/* WHAT YOU`LL LEARN IN THIS COURSE */}
                       <h3>What you&apos;ll learn in this course:</h3>
 
                       <ul>
-                        <li>
-                          <AiOutlineCheck
-                            className={styles._course_learn_checks}
-                          />{" "}
-                          Feel confident using Adobe InDesign
-                        </li>
-                        <li>
-                          <AiOutlineCheck
-                            className={styles._course_learn_checks}
-                          />{" "}
-                          All the useful shortcuts
-                        </li>
-                        <li>
-                          <AiOutlineCheck
-                            className={styles._course_learn_checks}
-                          />{" "}
-                          Be able to create Flyers, Brochures, Advertisements
-                        </li>
-                        <li>
-                          <AiOutlineCheck
-                            className={styles._course_learn_checks}
-                          />{" "}
-                          How to work with Images &amp; Text
-                        </li>
-                        <li>
-                          <AiOutlineCheck
-                            className={styles._course_learn_checks}
-                          />{" "}
-                          Work with color &amp;Gradients &amp; Grids
-                        </li>
+                        {parsed_course.learning.map((learn) => (
+                          <li>
+                            <AiOutlineCheck
+                              className={styles._course_learn_checks}
+                            />{" "}
+                            {learn}
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
@@ -224,46 +220,30 @@ const CourseID = ({ data }) => {
                             Lessons
                           </Accordion.Header>
                           <Accordion.Body>
-                            <div className={styles._course_videos_BODY}>
-                              <p>
-                                <BsPlayBtnFill
-                                  className={styles._course_videos_BODY_ICON}
-                                />
-                                Intreoduction Copy{" "}
-                                <FaLock
-                                  className={
-                                    styles._course_videos_BODY_ICON_LOCK
-                                  }
-                                />
-                              </p>
-                            </div>
-                            {/*  */}
-                            <div className={styles._course_videos_BODY}>
-                              <p>
-                                <BsPlayBtnFill
-                                  className={styles._course_videos_BODY_ICON}
-                                />
-                                Intreoduction Copy{" "}
-                                <FaLock
-                                  className={
-                                    styles._course_videos_BODY_ICON_LOCK
-                                  }
-                                />
-                              </p>
-                            </div>
-                            <div className={styles._course_videos_BODY}>
-                              <p>
-                                <BsPlayBtnFill
-                                  className={styles._course_videos_BODY_ICON}
-                                />
-                                Intreoduction Copy{" "}
-                                <FaLock
-                                  className={
-                                    styles._course_videos_BODY_ICON_LOCK
-                                  }
-                                />
-                              </p>
-                            </div>
+                            {parsed_course.vids.map((vid) => (
+                              <>
+                                <abbr
+                                  title="Enroll now to unlock this course."
+                                  style={{ all: "unset" }}
+                                >
+                                  <div className={styles._course_videos_BODY}>
+                                    <p>
+                                      <BsPlayBtnFill
+                                        className={
+                                          styles._course_videos_BODY_ICON
+                                        }
+                                      />
+                                      {"Course Lecture"}{" "}
+                                      <FaLock
+                                        className={
+                                          styles._course_videos_BODY_ICON_LOCK
+                                        }
+                                      />
+                                    </p>
+                                  </div>
+                                </abbr>
+                              </>
+                            ))}
                           </Accordion.Body>
                         </Accordion.Item>
                       </Accordion>
@@ -272,7 +252,7 @@ const CourseID = ({ data }) => {
                   {/* ================================================ */}
                   <Col xs={12} md={4}>
                     <div className={styles._course_SMALL_COL_contents}>
-                      <img src="/img/c1.jpg" />
+                      <img src={`/img/${parsed_course.course_img}`} />
 
                       {/* WISH N CART */}
                       <div className={styles._course_SMALL_COL_wish_n_cart}>
@@ -299,7 +279,7 @@ const CourseID = ({ data }) => {
                         </span>
 
                         <span className={styles._course_SMALL_COL_VALUE}>
-                          Beginner
+                          {parsed_course.course_level}
                         </span>
                         <br />
                         {/*  */}
@@ -311,7 +291,7 @@ const CourseID = ({ data }) => {
                         </span>
 
                         <span className={styles._course_SMALL_COL_VALUE}>
-                          3 days
+                          {parsed_course.course_duration} minutes
                         </span>
                         <br />
                         {/*  */}
@@ -323,7 +303,7 @@ const CourseID = ({ data }) => {
                         </span>
 
                         <span className={styles._course_SMALL_COL_VALUE}>
-                          5
+                          {parsed_course.lessons}
                         </span>
                         <br />
                         {/*  */}
@@ -333,7 +313,7 @@ const CourseID = ({ data }) => {
                         </span>
 
                         <span className={styles._course_SMALL_COL_VALUE}>
-                          2
+                          {parsed_course.course_quiz}
                         </span>
                         <br />
                         {/*  */}
@@ -345,7 +325,7 @@ const CourseID = ({ data }) => {
                         </span>
 
                         <span className={styles._course_SMALL_COL_VALUE}>
-                          83
+                          {parsed_course.course_percent}
                         </span>
                         <br />
                         {/*  */}
@@ -357,7 +337,7 @@ const CourseID = ({ data }) => {
                         </span>
 
                         <span className={styles._course_SMALL_COL_VALUE}>
-                          Yes
+                          {parsed_course.course_cert}
                         </span>
                         <br />
                         {/*  */}
@@ -369,12 +349,14 @@ const CourseID = ({ data }) => {
                         </span>
 
                         <span className={styles._course_SMALL_COL_VALUE}>
-                          English
+                          {parsed_course.course_lang}
                         </span>
                         <br />
                         {/*  */}
 
-                        <button>
+                        <button
+                          onClick={() => handleEnrollNow(parsed_course._id)}
+                        >
                           Enroll Now{" "}
                           <AiFillCaretRight
                             className={styles._course_SMALL_COL_BTN_ICON}
@@ -386,7 +368,7 @@ const CourseID = ({ data }) => {
                 </Row>
               </div>
             </>
-          }
+          )}
           {/* END */}
 
           {/* ====================== */}
