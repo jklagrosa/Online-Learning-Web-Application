@@ -109,7 +109,7 @@ const CourseID = ({ data }) => {
 
       if (response && response.data && response.data.success) {
         router.push({
-          pathname: "/course/enrolled/id",
+          pathname: "/course/enrolled/[id]",
           query: { id: response.data.data._id },
         });
       }
@@ -262,7 +262,7 @@ const CourseID = ({ data }) => {
                                           styles._course_videos_BODY_ICON
                                         }
                                       />
-                                      {"Course Lecture"}{" "}
+                                      {`Lecture ${index + 1}`}{" "}
                                       <FaLock
                                         className={
                                           styles._course_videos_BODY_ICON_LOCK

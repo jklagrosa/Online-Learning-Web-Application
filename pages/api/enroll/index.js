@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
     const enroll_to_this_course = await Course.findOneAndUpdate(
       { _id: cid },
-      { is_enrolled: false }, // CHANGE TO TRUE AFTER TEST
+      { is_enrolled: true }, // CHANGE TO TRUE AFTER TEST
       {
         new: true,
       }
