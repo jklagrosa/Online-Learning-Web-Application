@@ -190,7 +190,7 @@ const CourseID = () => {
               {/* ================================================ */}
               <Col xs={12} md={4}>
                 <div className={styles._course_SMALL_COL_contents}>
-                  <img src="/gs/1.png" />
+                  <img src="/img/c1.jpg" />
 
                   {/* WISH N CART */}
                   <div className={styles._course_SMALL_COL_wish_n_cart}>

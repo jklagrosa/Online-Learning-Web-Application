@@ -16,11 +16,11 @@ const Featured = () => {
           <Row className="gx-3 gy-4 mx-auto">
             <Col xs={12} md={6} lg={4}>
               <Card className={styles._featured_course_card}>
-                <Card.Img variant="top" src="/gs/1.png" />
+                <Card.Img variant="top" src="/img/c1.jpg" />
                 <Card.Body className={styles._featured_course_card_BODY}>
                   <abbr title="Course title" style={{ all: "unset" }}>
                     <Card.Title className={styles._H1_TAG}>
-                      Take A Course For Web Development
+                      HTML Course | From Beginners to Advance
                     </Card.Title>
                   </abbr>
 

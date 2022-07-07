@@ -21,7 +21,7 @@ const EnrolledCourse = () => {
             <Col xs={12} lg={8}>
               <div className={styles._enrolled_video_section}>
                 <iframe
-                  src="https://www.youtube.com/embed/bJd4SJV0d5w"
+                  src="https://www.youtube.com/embed/Rek0NWPCNOc"
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
