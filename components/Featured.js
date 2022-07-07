@@ -16,6 +16,8 @@ import { useState } from "react";
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../config/others";
 
+import { toast } from "react-toastify";
+
 const Featured = () => {
   // USER STATE STATUS
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -47,9 +49,44 @@ const Featured = () => {
 
   // ###########################################################
 
+  // *********** GET UPDATED WISHLIST DATA *********************
+  // const GET_UPDATED_WISHLIST_DATA = async () => {
+  //   const response
+  // }
+  // ************************ END ******************************
+
   // *********** ADD TO WISHLIST ***************
   const ADD_TO_WISH_LIST = async (id) => {
-    const response = await axios.post(`${BASE_URL}`, { id }, headersOpts);
+    const response = await axios.post(
+      `${BASE_URL}/api/wishlist`,
+      { id },
+      headersOpts
+    );
+    if (!response.data.success) {
+      return toast.error("Please try again later.", {
+        position: "top-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (response && response.data && response.data.success) {
+      toast.success("Added to your Wishlist.", {
+        position: "top-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    return response.data;
   };
   // ************* END **************************
 
@@ -192,7 +229,8 @@ const Featured = () => {
 
                           {/* WISH & CART */}
                           <div>
-                            {isLoggedIn !== null && (
+                            {/* CHANGED TO: isLoggedIn !== null */}
+                            {isLoggedIn === null && (
                               <>
                                 {/* ========================================================== */}
                                 {/* ============IF USER IS LOGGED IN====== */}
@@ -226,8 +264,8 @@ const Featured = () => {
                             )}
 
                             {/* ############################################################################## */}
-
-                            {isLoggedIn === null && (
+                            {/* CHANGED TO: isLoggedIn === null */}
+                            {isLoggedIn !== null && (
                               <>
                                 {/* ========================================================== */}
                                 {/* ============IF USER IS NOT LOGGED IN====== */}
