@@ -182,132 +182,92 @@ const Navigation = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body id={styles._navbar_offcanvas_body}>
-          <div id={styles._navbar_offcanvas_body_COLS}>
-            <Row className="gx-2 gy-0">
-              <Col xs={6}>
-                <abbr
-                  title="Click to see more details"
-                  style={{ all: "unset" }}
-                >
-                  <img src="/gs/1.png" />
-                </abbr>
-              </Col>
-              {/* ====== */}
-              <Col xs={6}>
-                <h6>{`${text.substring(0, 18)}...`}</h6>
+          {/* IF DATA IS AVAILABLE */}
+          {wishlist?.length > 0 && (
+            <>
+              {wishlist?.map((wish) => (
+                <>
+                  <div id={styles._navbar_offcanvas_body_COLS}>
+                    <Row className="gx-2 gy-0">
+                      <Col xs={6}>
+                        <abbr
+                          title="Click to see more details"
+                          style={{ all: "unset" }}
+                        >
+                          <img src={`/img/${wish.course_img}`} />
+                        </abbr>
+                      </Col>
+                      {/* ====== */}
+                      <Col xs={6}>
+                        <h6>{`${wish.title.substring(0, 18)}...`}</h6>
 
-                <div id={styles._navbar_offcanvas_body_ICONS}>
-                  <span>
-                    <FaChalkboardTeacher
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    David Sopas
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <AiFillStar id={styles._navbar_offcanvas_body_main_icons} />{" "}
-                    4.2/5
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <MdPlayLesson
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    3 Lessons
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <BsPersonFill
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    25 Enrolled students
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <IoMdPricetag
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    ₱300
-                  </span>
-                  {/*  */}
-                </div>
-              </Col>
-            </Row>
+                        <div id={styles._navbar_offcanvas_body_ICONS}>
+                          <span>
+                            <FaChalkboardTeacher
+                              id={styles._navbar_offcanvas_body_main_icons}
+                            />{" "}
+                            {wish.inst}
+                          </span>
+                          <br />
+                          {/*  */}
+                          <span>
+                            <AiFillStar
+                              id={styles._navbar_offcanvas_body_main_icons}
+                            />{" "}
+                            {wish.star}/5
+                          </span>
+                          <br />
+                          {/*  */}
+                          <span>
+                            <MdPlayLesson
+                              id={styles._navbar_offcanvas_body_main_icons}
+                            />{" "}
+                            {wish.lessons} Lessons
+                          </span>
+                          <br />
+                          {/*  */}
+                          <span>
+                            <BsPersonFill
+                              id={styles._navbar_offcanvas_body_main_icons}
+                            />{" "}
+                            {wish.enrolled_students} Enrolled students
+                          </span>
+                          <br />
+                          {/*  */}
+                          <span>
+                            <IoMdPricetag
+                              id={styles._navbar_offcanvas_body_main_icons}
+                            />{" "}
+                            ₱{wish.price}
+                          </span>
+                          {/*  */}
+                        </div>
+                      </Col>
+                    </Row>
 
-            {/* CLOSE ICON */}
-            <div id={styles._navbar_offcanvas_body_close_icons}>
-              <AiOutlineClose
-                id={styles._navbar_offcanvas_body_close_icons_ICON}
-              />
-            </div>
-            {/* END */}
-          </div>
+                    {/* CLOSE ICON */}
+                    <div id={styles._navbar_offcanvas_body_close_icons}>
+                      <AiOutlineClose
+                        id={styles._navbar_offcanvas_body_close_icons_ICON}
+                      />
+                    </div>
+                    {/* END */}
+                  </div>
+                </>
+              ))}
+            </>
+          )}
+          {/* END */}
+
+          {/* ############################################# */}
+
+          {wishlist?.length === 0 && (
+            <>
+              <h6>Your Wishlist is Empty</h6>
+            </>
+          )}
 
           {/* ========================================== */}
-
-          <div id={styles._navbar_offcanvas_body_COLS}>
-            <Row className="gx-2 gy-0">
-              <Col xs={6}>
-                <img src="/gs/1.png" />
-              </Col>
-              {/* ====== */}
-              <Col xs={6}>
-                <h6>{`${text.substring(0, 18)}...`}</h6>
-
-                <div id={styles._navbar_offcanvas_body_ICONS}>
-                  <span>
-                    <FaChalkboardTeacher
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    David Sopas
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <AiFillStar id={styles._navbar_offcanvas_body_main_icons} />{" "}
-                    4.2/5
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <MdPlayLesson
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    3 Lessons
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <BsPersonFill
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    25 Enrolled students
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <IoMdPricetag
-                      id={styles._navbar_offcanvas_body_main_icons}
-                    />{" "}
-                    ₱300
-                  </span>
-                  {/*  */}
-                </div>
-              </Col>
-            </Row>
-
-            {/* CLOSE ICON */}
-            <div id={styles._navbar_offcanvas_body_close_icons}>
-              <AiOutlineClose
-                id={styles._navbar_offcanvas_body_close_icons_ICON}
-              />
-            </div>
-            {/* END */}
-          </div>
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
