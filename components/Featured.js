@@ -18,6 +18,15 @@ import { BASE_URL, headersOpts } from "../config/others";
 
 import { toast } from "react-toastify";
 
+// WISHLIST
+import { GET_WISHLIST } from "../store/wishlist";
+// END
+// ###########################
+// CART
+import { GET_CART } from "../store/cart";
+
+// END
+
 const Featured = () => {
   // USER STATE STATUS
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -54,13 +63,18 @@ const Featured = () => {
   const GET_UPDATED_WISHLIST_DATA = async () => {
     const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
     if (!response.data.success) {
-      dispatch();
+      dispatch(GET_WISHLIST(null));
     }
 
     if (response && response.data && response.data.success) {
-      dispatch()
+      dispatch(GET_WISHLIST(response.data.data));
     }
+
+    // console.log(`Hello from Wishlist: ${JSON.stringify(response.data.data)}`);
+
+    return response.data;
   };
+
   // ************************ END ******************************
 
   // *********** ADD TO WISHLIST ***************
@@ -83,6 +97,8 @@ const Featured = () => {
     }
 
     if (response && response.data && response.data.success) {
+      await GET_UPDATED_WISHLIST_DATA();
+
       toast.success("Added to your Wishlist.", {
         position: "top-right",
         autoClose: 8000,

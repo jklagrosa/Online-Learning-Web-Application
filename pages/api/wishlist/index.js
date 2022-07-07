@@ -15,9 +15,11 @@ export default async function handler(req, res) {
       });
     }
 
+    console.log(REFRESH_DATA);
+
     return res.status(200).json({
       success: true,
-      data: null,
+      data: REFRESH_DATA,
       message: "Updated Wishlist",
     });
   }
