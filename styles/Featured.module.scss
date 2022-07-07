@@ -79,6 +79,14 @@
         min-height: 500px;
 
 
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+
+
         @media only screen and (max-width: 1199px) {
             min-height: 450px;
         }
@@ -159,6 +167,10 @@
 
 
         ._featured_course_card_BODY{
+
+            cursor: pointer;
+
+
             ._H1_TAG{
                 max-width: 500px;
                 width: 100%;
@@ -166,6 +178,8 @@
                 font-size: 1.5rem;
                 color: $BLACK;
                 margin-bottom: 1.25rem;
+
+               
 
 
 
