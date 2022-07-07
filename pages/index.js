@@ -14,6 +14,10 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { GET_ALL_COURSE } from "../store/course";
 
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../config/others";
+import { GET_WISHLIST } from "../store/wishlist";
+
 export async function getStaticProps() {
   await Dbconnection();
 
@@ -42,6 +46,28 @@ export default function Home({ course_data }) {
       dispatch(GET_ALL_COURSE(parsed_data));
     }
   }, []);
+
+  // *********** GET UPDATED WISHLIST DATA *********************
+  const GET_UPDATED_WISHLIST_DATA = async () => {
+    const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
+    if (!response.data.success) {
+      dispatch(GET_WISHLIST(null));
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_WISHLIST(response.data.data));
+    }
+
+    // console.log(`Hello from Wishlist: ${JSON.stringify(response.data.data)}`);
+
+    return response.data;
+  };
+
+  useEffect(() => {
+    GET_UPDATED_WISHLIST_DATA();
+  }, []);
+
+  // ************************ END ******************************
 
   return (
     <>

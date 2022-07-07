@@ -16,7 +16,12 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdPlayLesson } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../config/others";
+import { toast } from "react-toastify";
+import { GET_WISHLIST } from "../store/wishlist";
 
 const Navigation = () => {
   const [showWishlist, setShowWishlist] = useState(false);
@@ -24,11 +29,25 @@ const Navigation = () => {
 
   const [showDrawer, setShowDrawer] = useState(false);
 
-  const [text, setText] = useState("Intro to Web Development");
+  // WISHLIST STATE
+  const [newWishlist, setNewWishlist] = useState(null);
+  // END
 
   // GET ALL WISHLIST FROM STORE
   const { wishlist } = useSelector((state) => state?.wishlist);
+
   // END
+
+  useEffect(() => {
+    if (wishlist) {
+      let new_arr = Array.from(wishlist).reverse();
+      setNewWishlist(new_arr);
+    }
+
+    console.log("WISHLIST!");
+  }, [wishlist]);
+
+  const dispatch = useDispatch();
 
   // #########################################
 
@@ -52,6 +71,67 @@ const Navigation = () => {
   // END
 
   const router = useRouter();
+
+  // ################################################################################
+
+  const handleSeeMore = (id) => {
+    router.push({
+      pathname: "/please-wait",
+      query: { id },
+    });
+  };
+
+  // *********** GET UPDATED WISHLIST DATA *********************
+
+  // const GET_UPDATED_WISHLIST_DATA = async () => {
+  //   const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
+  //   if (!response.data.success) {
+  //     dispatch(GET_WISHLIST(null));
+  //   }
+
+  //   if (response && response.data && response.data.success) {
+  //     dispatch(GET_WISHLIST(response.data.data));
+  //   }
+
+  //   // console.log(`Hello from Wishlist: ${JSON.stringify(response.data.data)}`);
+
+  //   return response.data;
+  // };
+
+  // ************************ END ******************************
+
+  // ########### REMOVE FROM YOUR WISHLIST ###################
+
+  const REMOVE_FROM_YOUR_WISHLIST = async (id) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/del-wishlist`,
+      { id },
+      headersOpts
+    );
+
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (response && response.data && response.data.success) {
+      // await GET_UPDATED_WISHLIST_DATA();
+
+      console.log(response.data.data);
+
+      dispatch(GET_WISHLIST(response.data.data));
+    }
+
+    return response.data;
+  };
+  // ############ END ########################
 
   return (
     <>
@@ -182,19 +262,30 @@ const Navigation = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body id={styles._navbar_offcanvas_body}>
-          {/* IF DATA IS AVAILABLE */}
-          {wishlist?.length > 0 && (
+          {newWishlist?.length === 0 && (
             <>
-              {wishlist?.map((wish) => (
+              <h6>Your Wishlist is Empty</h6>
+            </>
+          )}
+          {/* ========================================== */}
+
+          {/* IF DATA IS AVAILABLE */}
+          {newWishlist?.length > 0 && (
+            <>
+              {newWishlist?.map((wish) => (
                 <>
-                  <div id={styles._navbar_offcanvas_body_COLS}>
+                  <div id={styles._navbar_offcanvas_body_COLS} key={wish._id}>
                     <Row className="gx-2 gy-0">
                       <Col xs={6}>
                         <abbr
                           title="Click to see more details"
                           style={{ all: "unset" }}
                         >
-                          <img src={`/img/${wish.course_img}`} />
+                          <img
+                            src={`/img/${wish.course_img}`}
+                            alt={wish.title}
+                            onClick={() => handleSeeMore(wish._id)}
+                          />
                         </abbr>
                       </Col>
                       {/* ====== */}
@@ -247,9 +338,15 @@ const Navigation = () => {
 
                     {/* CLOSE ICON */}
                     <div id={styles._navbar_offcanvas_body_close_icons}>
-                      <AiOutlineClose
-                        id={styles._navbar_offcanvas_body_close_icons_ICON}
-                      />
+                      <abbr
+                        title={`Remove ${wish.title} from your wishlist`}
+                        style={{ all: "unset" }}
+                      >
+                        <AiOutlineClose
+                          id={styles._navbar_offcanvas_body_close_icons_ICON}
+                          onClick={() => REMOVE_FROM_YOUR_WISHLIST(wish._id)}
+                        />
+                      </abbr>
                     </div>
                     {/* END */}
                   </div>
@@ -258,16 +355,7 @@ const Navigation = () => {
             </>
           )}
           {/* END */}
-
           {/* ############################################# */}
-
-          {wishlist?.length === 0 && (
-            <>
-              <h6>Your Wishlist is Empty</h6>
-            </>
-          )}
-
-          {/* ========================================== */}
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
@@ -295,7 +383,7 @@ const Navigation = () => {
               </Col>
               {/* ====== */}
               <Col xs={6}>
-                <h6>{`${text.substring(0, 18)}...`}</h6>
+                {/* <h6>{`${text.substring(0, 18)}...`}</h6> */}
 
                 <div id={styles._navbar_offcanvas_body_ICONS}>
                   <span>

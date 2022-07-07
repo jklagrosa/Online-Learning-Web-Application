@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 
 // GET THE DATA FROM STORE
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../config/others";
@@ -41,7 +41,7 @@ const Featured = () => {
     setLoading(true);
 
     router.push({
-      pathname: "/course/[id]",
+      pathname: "/please-wait",
       query: { id },
     });
   };
@@ -87,7 +87,7 @@ const Featured = () => {
 
     if (response.data.isExist) {
       return toast.info("Already in Wishlist.", {
-        position: "top-right",
+        position: "top-center",
         autoClose: 8000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -99,7 +99,7 @@ const Featured = () => {
 
     if (!response.data.success) {
       return toast.error("Please try again later.", {
-        position: "top-right",
+        position: "top-center",
         autoClose: 8000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -113,7 +113,7 @@ const Featured = () => {
       await GET_UPDATED_WISHLIST_DATA();
 
       toast.success("Added to your Wishlist.", {
-        position: "top-right",
+        position: "top-center",
         autoClose: 8000,
         hideProgressBar: false,
         closeOnClick: true,
