@@ -375,6 +375,12 @@
 
         ._enrolled_video_section{
             // width: 100%;
+
+
+          
+
+
+
             iframe{
                 width: 740px;
                 min-height: 500px;
@@ -448,6 +454,61 @@
             ._enrolled_video_section_DETAILS{
                 margin-top: 0.6rem;
 
+
+
+
+                  // BTN
+            button{
+                all: unset;
+                cursor: pointer;
+                margin-bottom: 1rem;
+                display: block;
+                font-size: 1rem;
+                text-decoration: underline;
+                color: gray;
+                font-weight: 500;
+
+
+                &:hover{
+                    color: $RED;
+              
+                }
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.25rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                   font-size: 1.1rem;
+                }
+
+
+                // ==========================================
+
+
+                @media only screen and (max-width: 992px) {
+                    font-size: 0.8rem;
+                 }
+
+
+            }
+        // END
+// ==============================================================
+
+
+
+
+
+
                 h2{
                     margin: 0;
                     max-width: 700px;
@@ -511,6 +572,10 @@
 
 
                 ._enrolled_video_section_ICONS{
+
+                    
+
+
                     span{
                         margin-right: 1rem;
                         font-size: 1rem;

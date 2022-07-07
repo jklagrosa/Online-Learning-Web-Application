@@ -12,6 +12,12 @@ import Dbconnection from "../../../db/conn";
 import Course from "../../../models/course";
 import { useEffect, useState } from "react";
 
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../../../config/others";
+
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+
 export async function getStaticPaths() {
   await Dbconnection();
   const get_id = await Course.find({});
@@ -62,6 +68,8 @@ const EnrolledCourse = ({ data }) => {
 
   const parsed_data = data ? JSON.parse(data) : null;
 
+  const router = useRouter();
+
   useEffect(() => {
     setVideo(parsed_data.vids[0]);
   }, []);
@@ -69,6 +77,34 @@ const EnrolledCourse = ({ data }) => {
   const handleWatchLessons = (vid) => {
     setVideo(vid);
   };
+
+  // UN-ENROLL
+  const UN_ENROLLED = async (id) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/un-enroll`,
+      { id },
+      headersOpts
+    );
+
+    if (!response.data.success) {
+      return toast.error("Please try again later.", {
+        position: "top-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (response && response.data && response.data.success) {
+      router.replace("/");
+    }
+
+    return response.data;
+  };
+  // END
 
   return (
     <>
@@ -93,6 +129,16 @@ const EnrolledCourse = ({ data }) => {
                     ></iframe>
 
                     <div className={styles._enrolled_video_section_DETAILS}>
+                      {/* UN-ENROLL TO THIS COURSE */}
+                      <button
+                        id={styles._unenrolled_btn}
+                        onClick={() => UN_ENROLLED(parsed_data._id)}
+                      >
+                        Unenroll from this course
+                      </button>
+                      {/* END */}
+                      {/* ======================================================= */}
+
                       <h2>{parsed_data.title}</h2>
 
                       <div className={styles._enrolled_video_section_ICONS}>

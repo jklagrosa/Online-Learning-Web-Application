@@ -11,12 +11,20 @@ import { useRouter } from "next/router";
 
 // GET THE DATA FROM STORE
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const Featured = () => {
+  // USER STATE STATUS
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  // END
+  const [loading, setLoading] = useState(false);
+
   const { courses } = useSelector((state) => state?.course);
   const router = useRouter();
 
   const handleSeeMore = (id) => {
+    setLoading(true);
+
     router.push({
       pathname: "/course/[id]",
       query: { id },
@@ -25,6 +33,8 @@ const Featured = () => {
 
   // IF USER IS ENROLLED TO THE COURSE
   const handleWatchCourse = (id) => {
+    setLoading(true);
+
     router.push({
       pathname: "/course/enrolled/[id]",
       query: { id },
@@ -123,19 +133,46 @@ const Featured = () => {
                         <Card.Footer
                           className={styles._featured_course_card_FOOTER}
                         >
-                          <button>
-                            Enroll Now{" "}
-                            <AiFillCaretRight
-                              className={
-                                styles._featured_course_card_FOOTER_ICON
-                              }
-                            />
-                          </button>
+                          {/* if (course.is_enrolled) {
+                              handleWatchCourse(course._id);
+                            } 
+
+                            else {
+                              handleSeeMore(course._id);
+                            } */}
+                          {/* IF USER IS ENROLLED */}
+                          {course.is_enrolled && !loading && (
+                            <button
+                              onClick={() => handleWatchCourse(course._id)}
+                            >
+                              Watch Now{" "}
+                              <AiFillCaretRight
+                                className={
+                                  styles._featured_course_card_FOOTER_ICON
+                                }
+                              />
+                            </button>
+                          )}
+                          {/* END */}
+                          {/* ================================ */}
+                          {!course.is_enrolled && !loading && (
+                            <button onClick={() => handleSeeMore(course._id)}>
+                              Enroll Now{" "}
+                              <AiFillCaretRight
+                                className={
+                                  styles._featured_course_card_FOOTER_ICON
+                                }
+                              />
+                            </button>
+                          )}
 
                           {/* BTN LOADING */}
-                          <button className={styles._btn_is_clicked}>
-                            Please wait...
-                          </button>
+                          {loading && (
+                            <button id={styles._btn_is_clicked}>
+                              Please wait...
+                            </button>
+                          )}
+
                           {/* END */}
 
                           {/* <abbr title="Course price" style={{ all: "unset" }}>
@@ -144,20 +181,73 @@ const Featured = () => {
 
                           {/* WISH & CART */}
                           <div>
-                            <abbr
-                              title="Your Wishlist"
-                              style={{ all: "unset" }}
-                            >
-                              <BsSuitHeartFill
-                                className={styles._featured_course_WISH_ICON}
-                              />
-                            </abbr>
-                            {/* ======================================================= */}
-                            <abbr title="Your Cart" style={{ all: "unset" }}>
-                              <BsCartFill
-                                className={styles._featured_course_CART_ICON}
-                              />
-                            </abbr>
+                            {isLoggedIn !== null && (
+                              <>
+                                {/* ========================================================== */}
+                                {/* ============IF USER IS LOGGED IN====== */}
+                                {/* ========================================================== */}
+                                <abbr
+                                  title="Your Wishlist"
+                                  style={{ all: "unset" }}
+                                >
+                                  <BsSuitHeartFill
+                                    className={
+                                      styles._featured_course_WISH_ICON
+                                    }
+                                  />
+                                </abbr>
+                                {/* ======================================================= */}
+                                <abbr
+                                  title="Your Cart"
+                                  style={{ all: "unset" }}
+                                >
+                                  <BsCartFill
+                                    className={
+                                      styles._featured_course_CART_ICON
+                                    }
+                                  />
+                                </abbr>
+                                {/* ========================================================== */}
+                                {/* ============END=============== */}
+                                {/* ========================================================== */}
+                              </>
+                            )}
+
+                            {/* ############################################################################## */}
+
+                            {isLoggedIn === null && (
+                              <>
+                                {/* ========================================================== */}
+                                {/* ============IF USER IS NOT LOGGED IN====== */}
+                                {/* ========================================================== */}
+                                <abbr
+                                  title="Your Wishlist"
+                                  style={{ all: "unset" }}
+                                >
+                                  <BsSuitHeartFill
+                                    className={
+                                      styles._featured_course_WISH_ICON
+                                    }
+                                    onClick={() => router.replace("/login")}
+                                  />
+                                </abbr>
+                                {/* ======================================================= */}
+                                <abbr
+                                  title="Your Cart"
+                                  style={{ all: "unset" }}
+                                >
+                                  <BsCartFill
+                                    className={
+                                      styles._featured_course_CART_ICON
+                                    }
+                                    onClick={() => router.replace("/login")}
+                                  />
+                                </abbr>
+                                {/* ========================================================== */}
+                                {/* ============END=============== */}
+                                {/* ========================================================== */}
+                              </>
+                            )}
                           </div>
 
                           {/* END */}
