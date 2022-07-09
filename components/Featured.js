@@ -168,6 +168,7 @@ const Featured = () => {
                               {course.inst}
                             </Card.Text>
                           </abbr>
+                          <br />
                           {/*  */}
                           <abbr
                             title={`${course.star} out of 5 stars`}
@@ -180,6 +181,7 @@ const Featured = () => {
                               {course.star}/5
                             </Card.Text>
                           </abbr>
+                          <br />
                           {/*  */}
                           <abbr
                             title={`${course.lessons} Lessons`}
@@ -192,6 +194,7 @@ const Featured = () => {
                               {course.lessons} Lessons
                             </Card.Text>
                           </abbr>
+                          <br />
                           {/*  */}
                           <abbr
                             title={`${course.enrolled_students} Enrolled students`}
@@ -204,8 +207,14 @@ const Featured = () => {
                               {course.enrolled_students} Students
                             </Card.Text>
                           </abbr>
+                          <br />
                           {/*  */}
-                          <abbr title="Price" style={{ all: "unset" }}>
+                          <abbr
+                            title="Price"
+                            style={{
+                              all: "unset",
+                            }}
+                          >
                             <Card.Text className={styles._P_TAG}>
                               <IoMdPricetag
                                 className={styles._featured_card_ICONS}
@@ -213,6 +222,7 @@ const Featured = () => {
                               ₱{course.price}
                             </Card.Text>
                           </abbr>
+
                           {/*  */}
                         </Card.Body>
                         <Card.Footer

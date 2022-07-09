@@ -170,6 +170,15 @@
 
             cursor: pointer;
 
+            transition: all 0.2s ease-in;
+
+            &:hover{
+                ._H1_TAG{
+                    transition: all 0.2s ease-out;
+                    color: $BLUE;
+                }
+            }
+
 
             ._H1_TAG{
                 max-width: 500px;
@@ -231,6 +240,8 @@
                 font-size: 1rem;
                 color: gray;
                 margin-bottom: 1rem;
+                display: inline-block;
+
 
 
                 @media only screen and (min-width: 2501px){

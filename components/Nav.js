@@ -43,8 +43,6 @@ const Navigation = () => {
       let new_arr = Array.from(wishlist).reverse();
       setNewWishlist(new_arr);
     }
-
-    console.log("WISHLIST!");
   }, [wishlist]);
 
   const dispatch = useDispatch();
@@ -80,25 +78,6 @@ const Navigation = () => {
       query: { id },
     });
   };
-
-  // *********** GET UPDATED WISHLIST DATA *********************
-
-  // const GET_UPDATED_WISHLIST_DATA = async () => {
-  //   const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
-  //   if (!response.data.success) {
-  //     dispatch(GET_WISHLIST(null));
-  //   }
-
-  //   if (response && response.data && response.data.success) {
-  //     dispatch(GET_WISHLIST(response.data.data));
-  //   }
-
-  //   // console.log(`Hello from Wishlist: ${JSON.stringify(response.data.data)}`);
-
-  //   return response.data;
-  // };
-
-  // ************************ END ******************************
 
   // ########### REMOVE FROM YOUR WISHLIST ###################
 
