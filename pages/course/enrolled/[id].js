@@ -18,6 +18,9 @@ import { BASE_URL, headersOpts } from "../../../config/others";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
+import { useDispatch, useSelector } from "react-redux";
+import { GET_CART, CART_COURSE_ID } from "../../../store/cart";
+
 export async function getStaticPaths() {
   await Dbconnection();
   const get_id = await Course.find({});
@@ -66,12 +69,58 @@ export async function getStaticProps(context) {
 const EnrolledCourse = ({ data }) => {
   const [video, setVideo] = useState("");
 
+  const [id_is_equal, setID_IS_EQUAL] = useState(null);
+
   const parsed_data = data ? JSON.parse(data) : null;
 
+  const { cartId } = useSelector((state) => state?.cart);
+
   const router = useRouter();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setVideo(parsed_data.vids[0]);
+  }, []);
+
+  // REDIRECT TO HOME IF COURSE IDs ARE EQUAL
+  useEffect(() => {
+    if (parsed_data !== null && cartId !== null) {
+      if (parsed_data._id === cartId) {
+        toast.info("Please wait...", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        router.replace("/");
+        dispatch(CART_COURSE_ID(null));
+      }
+    }
+  }, [parsed_data]);
+  // END
+
+  // *********** GET UPDATED CART DATA *********************
+  const GET_UPDATED_CART_DATA = async () => {
+    const response = await axios.get(`${BASE_URL}/api/cart`, headersOpts);
+    if (!response.data.success) {
+      dispatch(GET_CART(null));
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_CART(response.data.data));
+    }
+
+    // console.log(`Hello from Wishlist: ${JSON.stringify(response.data.data)}`);
+
+    return response.data;
+  };
+  // ************************ END ******************************
+
+  useEffect(() => {
+    GET_UPDATED_CART_DATA();
   }, []);
 
   const handleWatchLessons = (vid) => {

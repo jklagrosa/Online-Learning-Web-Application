@@ -22,7 +22,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../config/others";
 import { toast } from "react-toastify";
 import { GET_WISHLIST } from "../store/wishlist";
-import { GET_CART } from "../store/cart";
+import { GET_CART, CART_COURSE_ID } from "../store/cart";
 
 const Navigation = () => {
   const [showWishlist, setShowWishlist] = useState(false);
@@ -170,6 +170,7 @@ const Navigation = () => {
       console.log(response.data.data);
 
       dispatch(GET_CART(response.data.data));
+      dispatch(CART_COURSE_ID(response.data.data._id));
     }
 
     return response.data;
@@ -501,7 +502,7 @@ const Navigation = () => {
                     {/* CLOSE ICON */}
                     <div id={styles._navbar_offcanvas_body_close_icons}>
                       <abbr
-                        title={`Remove ${cart.title} from your cart.`}
+                        title={`Unenroll from this course titled "${cart.title}."`}
                         style={{ all: "unset" }}
                       >
                         <AiOutlineClose
