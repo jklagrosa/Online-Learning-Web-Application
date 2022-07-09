@@ -57,29 +57,59 @@ export async function getStaticProps(context) {
     };
   }
 
-  console.log(find_course);
-
-  return {
-    props: {
-      data: JSON.stringify(find_course),
-    },
-  };
+  if (find_course) {
+    // IF USE IS ALREADY ENROLLED IN THIS COURSE
+    // REDIRECT TO WATCH
+    if (find_course.is_enrolled) {
+      return {
+        props: {
+          data: JSON.stringify(find_course),
+        },
+      };
+    }
+    // END
+    // ====================================
+    else {
+      return {
+        props: {
+          notEnrolled: true,
+          notEnrolled_ID: JSON.stringify(find_course._id),
+        },
+      };
+    }
+  }
 }
 
-const EnrolledCourse = ({ data }) => {
+const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
   const [video, setVideo] = useState("");
 
   const [id_is_equal, setID_IS_EQUAL] = useState(null);
 
   const parsed_data = data ? JSON.parse(data) : null;
 
+  const parsed_notEnrolled_ID = notEnrolled_ID
+    ? JSON.parse(notEnrolled_ID)
+    : null;
+
   const { cartId } = useSelector((state) => state?.cart);
 
   const router = useRouter();
   const dispatch = useDispatch();
 
+  // ########### IF USER IS NOT ENROLLED GO BACK TO "COURSE/[ID]" ###############
   useEffect(() => {
-    setVideo(parsed_data.vids[0]);
+    if (notEnrolled && parsed_notEnrolled_ID !== null) {
+      router.push({
+        pathname: "/course/[id]",
+        query: { id: parsed_notEnrolled_ID },
+      });
+    }
+  }, []);
+
+  // ############ END ##########################
+
+  useEffect(() => {
+    setVideo(parsed_data?.vids[0]);
   }, []);
 
   // REDIRECT TO HOME IF COURSE IDs ARE EQUAL

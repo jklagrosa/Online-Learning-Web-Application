@@ -61,9 +61,50 @@
   }
 
   #_navbar_offcanvas_body{
+    position: relative;
+
+    // IF DATA IS NOT AVAILABLE
+    #_NO_DATA_AVAILABLE_{
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      h6{
+        text-align: center;
+        width: 500px;
+        color: gray;
+        font-size: 1rem;
 
 
 
+        @media only screen and (min-width: 2501px){
+          font-size: 1.75rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+          font-size: 1.5rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+          font-size: 1.25rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+           font-size: 1.16rem;
+        }
+
+
+
+        // ====================================================
+
+
+        @media only screen and (max-width: 768px) { 
+          font-size: 0.9rem;
+        }
+
+      }
+    }
+    // END
    
 
 

@@ -37,7 +37,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { GET_WISHLIST } from "../../store/wishlist";
 import { GET_CART } from "../../store/cart";
-import { OPEN_WISHLIST, OPEN_CART } from "../../store/offcanvas";
+import { OPEN_CART } from "../../store/offcanvas";
 
 export async function getStaticPaths() {
   await Dbconnection();
@@ -265,18 +265,11 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
 
   // ############################################
 
-  // OPEN WISHLIST OFFCANVAS
-  const handleOpenWishlist = () => {
-    console.log("wish wish");
-    dispatch(OPEN_WISHLIST({ wish: true, cart: false }));
-  };
-  // END
-
   // ############################################
 
   // OPEN WISHLIST OFFCANVAS
   const handleOpenCart = () => {
-    dispatch(OPEN_CART({ wish: false, cart: true }));
+    dispatch(OPEN_CART(true));
   };
   // END
 

@@ -23,6 +23,7 @@ import { BASE_URL, headersOpts } from "../config/others";
 import { toast } from "react-toastify";
 import { GET_WISHLIST } from "../store/wishlist";
 import { GET_CART, CART_COURSE_ID } from "../store/cart";
+import { RESET_OFFCANVAS } from "../store/offcanvas";
 
 const Navigation = () => {
   const [showWishlist, setShowWishlist] = useState(false);
@@ -53,7 +54,7 @@ const Navigation = () => {
   // #############################
 
   // GET ALL OFFCANVAS STATE
-  const { wish_oc, cart_oc } = useSelector((state) => state?.drawer);
+  const { cart_oc } = useSelector((state) => state?.drawer);
   // END
 
   useEffect(() => {
@@ -71,6 +72,13 @@ const Navigation = () => {
       setNewCart(new_arr);
     }
   }, [cart]);
+
+  // ########################################
+  useEffect(() => {
+    if (cart_oc) {
+      setShowCart(true);
+    }
+  }, [cart_oc]);
 
   const dispatch = useDispatch();
 
@@ -91,7 +99,10 @@ const Navigation = () => {
   // ===========================================================
 
   // CART
-  const handleCloseCart = () => setShowCart(false);
+  const handleCloseCart = () => {
+    setShowCart(false);
+    dispatch(RESET_OFFCANVAS(false));
+  };
   const handleShowCart = () => setShowCart(true);
   // END
 
@@ -314,7 +325,9 @@ const Navigation = () => {
         <Offcanvas.Body id={styles._navbar_offcanvas_body}>
           {newWishlist?.length === 0 && (
             <>
-              <h6>Your Wishlist is Empty</h6>
+              <div id={styles._NO_DATA_AVAILABLE_}>
+                <h6>Your Wishlist is Empty.</h6>
+              </div>
             </>
           )}
           {/* ========================================== */}
@@ -426,7 +439,9 @@ const Navigation = () => {
         <Offcanvas.Body id={styles._navbar_offcanvas_body}>
           {newCart?.length === 0 && (
             <>
-              <h6>Enrolled courses are shown here.</h6>
+              <div id={styles._NO_DATA_AVAILABLE_}>
+                <h6>Enrolled courses are shown here.</h6>
+              </div>
             </>
           )}
           {/* ========================================== */}
