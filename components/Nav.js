@@ -22,6 +22,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../config/others";
 import { toast } from "react-toastify";
 import { GET_WISHLIST } from "../store/wishlist";
+import { GET_CART } from "../store/cart";
 
 const Navigation = () => {
   const [showWishlist, setShowWishlist] = useState(false);
@@ -33,9 +34,20 @@ const Navigation = () => {
   const [newWishlist, setNewWishlist] = useState(null);
   // END
 
+  // #################
+
+  // CART STATE
+  const [newCart, setNewCart] = useState(null);
+  // END
+
   // GET ALL WISHLIST FROM STORE
   const { wishlist } = useSelector((state) => state?.wishlist);
+  // END
 
+  // #############################
+
+  // GET ALL CART FROM STORE
+  const { cart } = useSelector((state) => state?.cart);
   // END
 
   useEffect(() => {
@@ -44,6 +56,15 @@ const Navigation = () => {
       setNewWishlist(new_arr);
     }
   }, [wishlist]);
+
+  // ####################
+
+  useEffect(() => {
+    if (cart) {
+      let new_arr = Array.from(cart).reverse();
+      setNewCart(new_arr);
+    }
+  }, [cart]);
 
   const dispatch = useDispatch();
 
@@ -353,78 +374,96 @@ const Navigation = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body id={styles._navbar_offcanvas_body}>
-          <div id={styles._navbar_offcanvas_body_COLS}>
-            <Row className="gx-2 gy-0">
-              <Col xs={6}>
-                <abbr title="Click to watch course" style={{ all: "unset" }}>
-                  <img src="/gs/1.png" />
-                </abbr>
-              </Col>
-              {/* ====== */}
-              <Col xs={6}>
-                {/* <h6>{`${text.substring(0, 18)}...`}</h6> */}
+          {newCart?.length === 0 && (
+            <>
+              <h6>Your Wishlist is Empty</h6>
+            </>
+          )}
+          {/* ========================================== */}
 
-                <div id={styles._navbar_offcanvas_body_ICONS}>
-                  <span>
-                    <AiOutlineCheck
-                      id={styles._navbar_offcanvas_body_main_icons}
-                      style={{ color: "#e6c229" }}
-                    />{" "}
-                    Enrolled
-                  </span>
-                  <br />
-                  {/*  */}
+          {newCart?.length > 0 && (
+            <>
+              {newCart?.map((cart) => (
+                <>
+                  <div id={styles._navbar_offcanvas_body_COLS}>
+                    <Row className="gx-2 gy-0">
+                      <Col xs={6}>
+                        <abbr
+                          title="Click to watch course"
+                          style={{ all: "unset" }}
+                        >
+                          <img src="/gs/1.png" />
+                        </abbr>
+                      </Col>
+                      {/* ====== */}
+                      <Col xs={6}>
+                        {/* <h6>{`${text.substring(0, 18)}...`}</h6> */}
 
-                  <span>
-                    <FaChalkboardTeacher
-                      id={styles._navbar_offcanvas_body_main_icons}
-                      style={{ color: "#e6c229" }}
-                    />{" "}
-                    David Sopas
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <AiFillStar
-                      id={styles._navbar_offcanvas_body_main_icons}
-                      style={{ color: "#e6c229" }}
-                    />{" "}
-                    4.2/5
-                  </span>
-                  <br />
-                  {/*  */}
-                  <span>
-                    <MdPlayLesson
-                      id={styles._navbar_offcanvas_body_main_icons}
-                      style={{ color: "#e6c229" }}
-                    />{" "}
-                    3 Lessons
-                  </span>
-                  <br />
+                        <div id={styles._navbar_offcanvas_body_ICONS}>
+                          <span>
+                            <AiOutlineCheck
+                              id={styles._navbar_offcanvas_body_main_icons}
+                              style={{ color: "#e6c229" }}
+                            />{" "}
+                            Enrolled
+                          </span>
+                          <br />
+                          {/*  */}
 
-                  {/*  */}
+                          <span>
+                            <FaChalkboardTeacher
+                              id={styles._navbar_offcanvas_body_main_icons}
+                              style={{ color: "#e6c229" }}
+                            />{" "}
+                            David Sopas
+                          </span>
+                          <br />
+                          {/*  */}
+                          <span>
+                            <AiFillStar
+                              id={styles._navbar_offcanvas_body_main_icons}
+                              style={{ color: "#e6c229" }}
+                            />{" "}
+                            4.2/5
+                          </span>
+                          <br />
+                          {/*  */}
+                          <span>
+                            <MdPlayLesson
+                              id={styles._navbar_offcanvas_body_main_icons}
+                              style={{ color: "#e6c229" }}
+                            />{" "}
+                            3 Lessons
+                          </span>
+                          <br />
 
-                  <span>
-                    <BsPersonFill
-                      id={styles._navbar_offcanvas_body_main_icons}
-                      style={{ color: "#e6c229" }}
-                    />{" "}
-                    25 Enrolled students
-                  </span>
-                  <br />
-                  {/*  */}
-                </div>
-              </Col>
-            </Row>
+                          {/*  */}
 
-            {/* CLOSE ICON */}
-            <div id={styles._navbar_offcanvas_body_close_icons}>
-              <AiOutlineClose
-                id={styles._navbar_offcanvas_body_close_icons_ICON}
-              />
-            </div>
-            {/* END */}
-          </div>
+                          <span>
+                            <BsPersonFill
+                              id={styles._navbar_offcanvas_body_main_icons}
+                              style={{ color: "#e6c229" }}
+                            />{" "}
+                            25 Enrolled students
+                          </span>
+                          <br />
+                          {/*  */}
+                        </div>
+                      </Col>
+                    </Row>
+
+                    {/* CLOSE ICON */}
+                    <div id={styles._navbar_offcanvas_body_close_icons}>
+                      <AiOutlineClose
+                        id={styles._navbar_offcanvas_body_close_icons_ICON}
+                      />
+                    </div>
+                    {/* END */}
+                  </div>
+                </>
+              ))}
+            </>
+          )}
 
           {/* ========================================== */}
         </Offcanvas.Body>

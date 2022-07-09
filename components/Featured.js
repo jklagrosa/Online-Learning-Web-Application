@@ -4,7 +4,7 @@ import { AiFillStar, AiFillCaretRight } from "react-icons/ai";
 import { BsPersonFill } from "react-icons/bs";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdPlayLesson } from "react-icons/md";
-import { BsSuitHeartFill, BsCartFill } from "react-icons/bs";
+import { BsSuitHeartFill, BsCartFill, BsBookmarksFill } from "react-icons/bs";
 import { IoMdPricetag } from "react-icons/io";
 
 import { useRouter } from "next/router";
@@ -22,10 +22,7 @@ import { toast } from "react-toastify";
 import { GET_WISHLIST } from "../store/wishlist";
 // END
 // ###########################
-// CART
-import { GET_CART } from "../store/cart";
 
-// END
 
 const Featured = () => {
   // USER STATE STATUS
@@ -126,6 +123,8 @@ const Featured = () => {
     return response.data;
   };
   // ************* END **************************
+
+  // ##############################################################################
 
   return (
     <>
@@ -294,16 +293,45 @@ const Featured = () => {
                                   />
                                 </abbr>
                                 {/* ======================================================= */}
-                                <abbr
-                                  title="Your Cart"
-                                  style={{ all: "unset" }}
-                                >
-                                  <BsCartFill
-                                    className={
-                                      styles._featured_course_CART_ICON
-                                    }
-                                  />
-                                </abbr>
+
+                                {course.is_enrolled && (
+                                  <>
+                                    <abbr
+                                      title="Your Cart"
+                                      style={{ all: "unset" }}
+                                    >
+                                      <BsCartFill
+                                        className={
+                                          styles._featured_course_CART_ICON
+                                        }
+                                        onClick={() =>
+                                          handleWatchCourse(course._id)
+                                        }
+                                      />
+                                    </abbr>
+                                  </>
+                                )}
+
+                                {/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */}
+
+                                {!course.is_enrolled && (
+                                  <>
+                                    <abbr
+                                      title="Add this course to your cart by enrolling in it."
+                                      style={{ all: "unset" }}
+                                    >
+                                      <BsBookmarksFill
+                                        className={
+                                          styles._featured_course_CART_ICON
+                                        }
+                                        onClick={() =>
+                                          handleSeeMore(course._id)
+                                        }
+                                      />
+                                    </abbr>
+                                  </>
+                                )}
+
                                 {/* ========================================================== */}
                                 {/* ============END=============== */}
                                 {/* ========================================================== */}

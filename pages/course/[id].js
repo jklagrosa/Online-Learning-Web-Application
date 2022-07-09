@@ -158,7 +158,9 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
         progress: undefined,
       });
     } finally {
-      setLoading(false);
+      if (router.pathname !== "/course/[id]") {
+        setLoading(false);
+      }
     }
   };
   // END
