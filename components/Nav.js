@@ -22,7 +22,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../config/others";
 import { toast } from "react-toastify";
 import { GET_WISHLIST } from "../store/wishlist";
-import { GET_CART, CART_COURSE_ID } from "../store/cart";
+import { GET_CART, CART_COURSE_ID, RAN_GET_CART_AGAIN } from "../store/cart";
 import { RESET_OFFCANVAS } from "../store/offcanvas";
 
 const Navigation = () => {
@@ -188,6 +188,8 @@ const Navigation = () => {
 
       dispatch(GET_CART(response.data.data));
       dispatch(CART_COURSE_ID(response.data.data._id));
+
+      dispatch(RAN_GET_CART_AGAIN(true));
     }
 
     return response.data;

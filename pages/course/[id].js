@@ -38,6 +38,7 @@ import { useDispatch } from "react-redux";
 import { GET_WISHLIST } from "../../store/wishlist";
 import { GET_CART } from "../../store/cart";
 import { OPEN_CART } from "../../store/offcanvas";
+import { GET_ALL_COURSE } from "../../store/course";
 
 export async function getStaticPaths() {
   await Dbconnection();
@@ -114,7 +115,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   useEffect(() => {
     if (parsed_isEnrolled) {
       console.log("YEHEY! TRUE");
-      router.push({
+      router.replace({
         pathname: "/course/enrolled/[id]",
         query: { id: parsed_isEnrolled_ID },
       });
@@ -158,9 +159,25 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   };
   // ************************ END ******************************
 
+  // *********** GET UPDATED COURSE DATA *********************
+  const RETURN_UPDATED_COURSE_DATA = async () => {
+    const response = await axios.get(`${BASE_URL}/api/all-course`, headersOpts);
+    if (!response.data.success) {
+      dispatch(GET_ALL_COURSE(null));
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_ALL_COURSE(response.data.data));
+    }
+
+    return response.data;
+  };
+  // ************************ END ******************************
+
   useEffect(() => {
     GET_UPDATED_WISHLIST_DATA();
     GET_UPDATED_CART_DATA();
+    RETURN_UPDATED_COURSE_DATA();
   }, []);
 
   // ************************ END ******************************

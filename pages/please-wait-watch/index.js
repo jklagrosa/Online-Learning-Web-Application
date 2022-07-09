@@ -6,7 +6,7 @@ const PleaseWaitWatch = () => {
 
   useEffect(() => {
     if (router.query.id) {
-      router.push({
+      router.replace({
         pathname: "/course/enrolled/[id]",
         query: { id: router.query.id },
       });

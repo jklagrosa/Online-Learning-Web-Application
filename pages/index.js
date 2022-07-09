@@ -10,7 +10,7 @@ import Latest from "../components/Latest";
 
 import Dbconnection from "../db/conn";
 import Course from "../models/course";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET_ALL_COURSE } from "../store/course";
 
@@ -42,11 +42,50 @@ export default function Home({ course_data }) {
   const dispatch = useDispatch();
   const parsed_data = course_data ? JSON.parse(course_data) : false;
 
+  // ###################
+  const { ran_again } = useSelector((state) => state?.cart);
+  // ###################
+
   useEffect(() => {
     if (parsed_data) {
       dispatch(GET_ALL_COURSE(parsed_data));
     }
   }, []);
+
+  // ########### IF ANY CART IS REMOVED RUN THE
+  //"GET_UPDATED_CART_DATA" AGAIN #############
+
+  const RETURN_UPDATED_COURSE_DATA = async () => {
+    const response = await axios.get(`${BASE_URL}/api/all-course`, headersOpts);
+    if (!response.data.success) {
+      dispatch(GET_ALL_COURSE(null));
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_ALL_COURSE(response.data.data));
+    }
+
+    return response.data;
+  };
+
+  // ###########################################
+
+  useEffect(() => {
+    let isCanceled = false;
+    if (!isCanceled) {
+      if (ran_again) {
+        RETURN_UPDATED_COURSE_DATA();
+        console.log("GET_ALL_COURSE RAN AGAIN");
+        // dispatch(GET_ALL_COURSE(parsed_data));
+      }
+    }
+
+    return () => {
+      isCanceled = true;
+    };
+  }, [ran_again]);
+
+  // ##########################################
 
   // *********** GET UPDATED WISHLIST DATA *********************
   const GET_UPDATED_WISHLIST_DATA = async () => {

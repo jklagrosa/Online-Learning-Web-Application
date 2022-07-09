@@ -99,7 +99,7 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
   // ########### IF USER IS NOT ENROLLED GO BACK TO "COURSE/[ID]" ###############
   useEffect(() => {
     if (notEnrolled && parsed_notEnrolled_ID !== null) {
-      router.push({
+      router.replace({
         pathname: "/course/[id]",
         query: { id: parsed_notEnrolled_ID },
       });
