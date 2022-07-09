@@ -50,6 +50,12 @@ const Navigation = () => {
   const { cart } = useSelector((state) => state?.cart);
   // END
 
+  // #############################
+
+  // GET ALL OFFCANVAS STATE
+  const { wish_oc, cart_oc } = useSelector((state) => state?.drawer);
+  // END
+
   useEffect(() => {
     if (wishlist) {
       let new_arr = Array.from(wishlist).reverse();

@@ -34,6 +34,11 @@ import { BASE_URL, headersOpts } from "../../config/others";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
+import { useDispatch } from "react-redux";
+import { GET_WISHLIST } from "../../store/wishlist";
+import { GET_CART } from "../../store/cart";
+import { OPEN_WISHLIST, OPEN_CART } from "../../store/offcanvas";
+
 export async function getStaticPaths() {
   await Dbconnection();
   const get_id = await Course.find({});
@@ -104,6 +109,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   // REDIRECT TO WATCH
   const parsed_isEnrolled = isEnrolled ? JSON.parse(isEnrolled) : false;
   const parsed_isEnrolled_ID = isEnrolled_ID ? JSON.parse(isEnrolled_ID) : null;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (parsed_isEnrolled) {
@@ -116,6 +122,98 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   }, []);
 
   // END
+
+  // *********** GET UPDATED WISHLIST DATA *********************
+  const GET_UPDATED_WISHLIST_DATA = async () => {
+    const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
+    if (!response.data.success) {
+      dispatch(GET_WISHLIST(null));
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_WISHLIST(response.data.data));
+    }
+
+    // console.log(`Hello from Wishlist: ${JSON.stringify(response.data.data)}`);
+
+    return response.data;
+  };
+
+  // ************************ END ******************************
+
+  // *********** GET UPDATED CART DATA *********************
+  const GET_UPDATED_CART_DATA = async () => {
+    const response = await axios.get(`${BASE_URL}/api/cart`, headersOpts);
+    if (!response.data.success) {
+      dispatch(GET_CART(null));
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_CART(response.data.data));
+    }
+
+    // console.log(`Hello from Wishlist: ${JSON.stringify(response.data.data)}`);
+
+    return response.data;
+  };
+  // ************************ END ******************************
+
+  useEffect(() => {
+    GET_UPDATED_WISHLIST_DATA();
+    GET_UPDATED_CART_DATA();
+  }, []);
+
+  // ************************ END ******************************
+
+  // *********** ADD TO WISHLIST ***************
+  const ADD_TO_WISH_LIST = async (id) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/wishlist`,
+      { id },
+      headersOpts
+    );
+
+    if (response.data.isExist) {
+      return toast.info("Already in Wishlist.", {
+        position: "top-center",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (!response.data.success) {
+      return toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (response && response.data && response.data.success) {
+      await GET_UPDATED_WISHLIST_DATA();
+
+      toast.success("Added to your Wishlist.", {
+        position: "top-center",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    return response.data;
+  };
+  // ************* END **************************
 
   // ENROLL NOW HANDLE
   const handleEnrollNow = async (cid) => {
@@ -162,6 +260,23 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
         setLoading(false);
       }
     }
+  };
+  // END
+
+  // ############################################
+
+  // OPEN WISHLIST OFFCANVAS
+  const handleOpenWishlist = () => {
+    console.log("wish wish");
+    dispatch(OPEN_WISHLIST({ wish: true, cart: false }));
+  };
+  // END
+
+  // ############################################
+
+  // OPEN WISHLIST OFFCANVAS
+  const handleOpenCart = () => {
+    dispatch(OPEN_CART({ wish: false, cart: true }));
   };
   // END
 
@@ -322,6 +437,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                         <abbr title="Your Wishlist" style={{ all: "unset" }}>
                           <BsSuitHeartFill
                             className={styles._course_SMALL_COL_wish_ICONS}
+                            onClick={() => ADD_TO_WISH_LIST(parsed_course._id)}
                           />
                         </abbr>
                         {/* ================= */}
@@ -329,6 +445,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                         <abbr title="Your Cart" style={{ all: "unset" }}>
                           <BsCartFill
                             className={styles._course_SMALL_COL_cart_ICONS}
+                            onClick={handleOpenCart}
                           />
                         </abbr>
                       </div>

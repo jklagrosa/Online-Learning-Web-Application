@@ -148,6 +148,15 @@ const EnrolledCourse = ({ data }) => {
     }
 
     if (response && response.data && response.data.success) {
+      toast.info("Please wait...", {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       router.replace("/");
     }
 

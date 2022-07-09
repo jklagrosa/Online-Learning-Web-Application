@@ -23,7 +23,6 @@ import { GET_WISHLIST } from "../store/wishlist";
 // END
 // ###########################
 
-
 const Featured = () => {
   // USER STATE STATUS
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -297,7 +296,7 @@ const Featured = () => {
                                 {course.is_enrolled && (
                                   <>
                                     <abbr
-                                      title="Your Cart"
+                                      title="This course is already added to your cart."
                                       style={{ all: "unset" }}
                                     >
                                       <BsCartFill
