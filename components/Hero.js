@@ -1,7 +1,21 @@
 import styles from "../styles/Hero.module.scss";
-import { Container, InputGroup, FormControl, Button } from "react-bootstrap";
-import { BsSearch } from "react-icons/bs";
+import { Container } from "react-bootstrap";
+import Select from "react-select";
+
+import { useEffect, useState } from "react";
+
 const Hero = () => {
+  const options = [
+    { value: "HTML TYPE SHIT", label: "HTML TYPE SHIT" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
+  const handleSearchCourse = (value) => {
+    console.log(value?.value);
+    // console.log(searchCourse);
+  };
+
   return (
     <>
       <div id={styles._hero_wrapper}>
@@ -13,18 +27,19 @@ const Hero = () => {
               worldwide network and economy
             </p>
             <div className={styles._auto_complete_wrapper}>
-              <InputGroup className={styles._auto_complete_input_wrapper}>
-                <FormControl
-                  placeholder="Search Courses"
-                  aria-label="Search Courses"
-                  className={styles._auto_complete_input}
+              <div className={styles._auto_complete_input_wrapper}>
+                {/* ########### */}
+                <Select
+                  options={options}
+                  isClearable={true}
+                  isSearchable={true}
+                  placeholder="Search for anything"
+                  className="react-select-container"
+                  classNamePrefix="react-select"
+                  onChange={handleSearchCourse}
                 />
-                <abbr title="Search" style={{ all: "unset" }}>
-                  <Button variant="primary">
-                    <BsSearch color="white" />
-                  </Button>
-                </abbr>
-              </InputGroup>
+                {/* ########### */}
+              </div>
             </div>
             <div className={styles._auto_complete_suggestions}>
               <p className={styles._auto_complete_suggestions_title}>

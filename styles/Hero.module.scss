@@ -251,127 +251,127 @@
         ._auto_complete_input_wrapper{
             margin: 0 auto;
             display: block;
-            input{
-                all: unset;
-                background-color: white;
-                max-width: 500px;
-                width: 100%;
-                padding: 1rem;
-                border-top-left-radius: 5px;
-                border-bottom-left-radius: 5px;
-                text-align: left;
-                font-size: 1rem;
-                &::placeholder{
-                    color: grey;
-                    text-align: left;
-                    font-size: 1rem;
+            // ._react_select_input{
+            //     all: unset;
+            //     background-color: white;
+            //     max-width: 500px;
+            //     width: 100%;
+            //     padding: 1rem;
+            //     border-top-left-radius: 5px;
+            //     border-bottom-left-radius: 5px;
+            //     text-align: left;
+            //     font-size: 1rem;
+            //     &::placeholder{
+            //         color: grey;
+            //         text-align: left;
+            //         font-size: 1rem;
 
-                    @media only screen and (min-width: 2501px){
-                        font-size: 2rem;
-                    }
+            //         @media only screen and (min-width: 2501px){
+            //             font-size: 2rem;
+            //         }
             
-                    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
-                        font-size: 1.75rem;
-                    }
+            //         @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            //             font-size: 1.75rem;
+            //         }
             
-                    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
-                        font-size: 1.5rem;
-                    }
+            //         @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            //             font-size: 1.5rem;
+            //         }
             
-                    @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
-                       font-size: 1.25rem;
-                    }
+            //         @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            //            font-size: 1.25rem;
+            //         }
 
-                      // =====================================
+            //           // =====================================
 
-                    @media only screen and (max-width: 768px) { 
-                        font-size: 0.8rem;
-                    }
-                }
-
-
+            //         @media only screen and (max-width: 768px) { 
+            //             font-size: 0.8rem;
+            //         }
+            //     }
 
 
-                @media only screen and (min-width: 2501px){
-                    font-size: 2rem;
-                    max-width: 900px;
-                }
+
+
+            //     @media only screen and (min-width: 2501px){
+            //         font-size: 2rem;
+            //         max-width: 900px;
+            //     }
         
-                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
-                    font-size: 1.75rem;
-                    max-width: 800px;
-                }
+            //     @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            //         font-size: 1.75rem;
+            //         max-width: 800px;
+            //     }
         
-                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
-                    font-size: 1.5rem;
-                    max-width: 700px;
-                }
+            //     @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            //         font-size: 1.5rem;
+            //         max-width: 700px;
+            //     }
         
-                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
-                   font-size: 1.25rem;
-                }
+            //     @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            //        font-size: 1.25rem;
+            //     }
 
 
-                // =====================================
+            //     // =====================================
 
-                @media only screen and (max-width: 768px) { 
-                    font-size: 0.8rem;
-                    max-width: 400px;
-                    width: 100%;
-                }
+            //     @media only screen and (max-width: 768px) { 
+            //         font-size: 0.8rem;
+            //         max-width: 400px;
+            //         width: 100%;
+            //     }
 
-                @media only screen and (max-width: 600px) { 
-                    max-width: 250px;
-                    width: 100%;
-                }
+            //     @media only screen and (max-width: 600px) { 
+            //         max-width: 250px;
+            //         width: 100%;
+            //     }
 
-                @media only screen and (max-width: 375px) { 
-                    max-width: 200px;
-                    width: 100%;
-                }
-            }
+            //     @media only screen and (max-width: 375px) { 
+            //         max-width: 200px;
+            //         width: 100%;
+            //     }
+            // }
 
-            button{
-                all: unset;
-                cursor: pointer;
-                padding: 1rem;
-                border-top-right-radius: 5px;
-                border-bottom-right-radius: 5px; 
-                background-color: $ORANGE;
-                font-size: 1rem;
+            // button{
+            //     all: unset;
+            //     cursor: pointer;
+            //     padding: 1rem;
+            //     border-top-right-radius: 5px;
+            //     border-bottom-right-radius: 5px; 
+            //     background-color: $ORANGE;
+            //     font-size: 1rem;
 
-                transition: all 0.2s ease-in-out;
+            //     transition: all 0.2s ease-in-out;
 
-                &:hover{
-                    background-color: $H_ORANGE;
-                }
-
-
+            //     &:hover{
+            //         background-color: $H_ORANGE;
+            //     }
 
 
-                @media only screen and (min-width: 2501px){
-                    font-size: 2rem;
-                    max-width: 100px;
-                    width: 100%;
-                }
+
+
+            //     @media only screen and (min-width: 2501px){
+            //         font-size: 2rem;
+            //         max-width: 100px;
+            //         width: 100%;
+            //     }
         
-                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
-                    font-size: 1.75rem;
-                    max-width: 80px;
-                   width: 100%;
-                }
+            //     @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            //         font-size: 1.75rem;
+            //         max-width: 80px;
+            //        width: 100%;
+            //     }
         
-                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
-                    font-size: 1.5rem;
-                    max-width: 60px;
-                   width: 100%;
-                }
+            //     @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            //         font-size: 1.5rem;
+            //         max-width: 60px;
+            //        width: 100%;
+            //     }
         
-                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
-                   font-size: 1.25rem;
-                   max-width: 40px;
-                   width: 100%;
-                }
+            //     @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            //        font-size: 1.25rem;
+            //        max-width: 40px;
+            //        width: 100%;
+            //     }
 
 
 
@@ -379,12 +379,12 @@
 
 
 
-                // ======================================
+            //     // ======================================
 
-                @media only screen and (max-width: 768px) { 
-                    font-size: 0.8rem;
-                }
-            }
+            //     @media only screen and (max-width: 768px) { 
+            //         font-size: 0.8rem;
+            //     }
+            // }
         }
           
     }
