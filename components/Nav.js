@@ -100,6 +100,15 @@ const Navigation = () => {
     });
   };
 
+  // @@@@@@@@@@@@@@@@@
+
+  const handleWatchCourseFromCart = (id) => {
+    router.push({
+      pathname: "/please-wait-watch",
+      query: { id },
+    });
+  };
+
   // ########### REMOVE FROM YOUR WISHLIST ###################
 
   const REMOVE_FROM_YOUR_WISHLIST = async (id) => {
@@ -127,6 +136,40 @@ const Navigation = () => {
       console.log(response.data.data);
 
       dispatch(GET_WISHLIST(response.data.data));
+    }
+
+    return response.data;
+  };
+  // ############ END ########################
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  // ########### REMOVE FROM YOUR CART ###################
+  const REMOVE_FROM_CART = async (id) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/del-cart`,
+      { id },
+      headersOpts
+    );
+
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    if (response && response.data && response.data.success) {
+      // await GET_UPDATED_WISHLIST_DATA();
+
+      console.log(response.data.data);
+
+      dispatch(GET_CART(response.data.data));
     }
 
     return response.data;
@@ -339,7 +382,7 @@ const Navigation = () => {
                     {/* CLOSE ICON */}
                     <div id={styles._navbar_offcanvas_body_close_icons}>
                       <abbr
-                        title={`Remove ${wish.title} from your wishlist`}
+                        title={`Remove ${wish.title} from your wishlist.`}
                         style={{ all: "unset" }}
                       >
                         <AiOutlineClose
@@ -376,7 +419,7 @@ const Navigation = () => {
         <Offcanvas.Body id={styles._navbar_offcanvas_body}>
           {newCart?.length === 0 && (
             <>
-              <h6>Your Wishlist is Empty</h6>
+              <h6>Enrolled courses are shown here.</h6>
             </>
           )}
           {/* ========================================== */}
@@ -385,19 +428,22 @@ const Navigation = () => {
             <>
               {newCart?.map((cart) => (
                 <>
-                  <div id={styles._navbar_offcanvas_body_COLS}>
+                  <div id={styles._navbar_offcanvas_body_COLS} key={cart._id}>
                     <Row className="gx-2 gy-0">
                       <Col xs={6}>
                         <abbr
                           title="Click to watch course"
                           style={{ all: "unset" }}
                         >
-                          <img src="/gs/1.png" />
+                          <img
+                            src={`/img/${cart.course_img}`}
+                            onClick={() => handleWatchCourseFromCart(cart._id)}
+                          />
                         </abbr>
                       </Col>
                       {/* ====== */}
                       <Col xs={6}>
-                        {/* <h6>{`${text.substring(0, 18)}...`}</h6> */}
+                        <h6>{`${cart.title.substring(0, 18)}...`}</h6>
 
                         <div id={styles._navbar_offcanvas_body_ICONS}>
                           <span>
@@ -405,7 +451,7 @@ const Navigation = () => {
                               id={styles._navbar_offcanvas_body_main_icons}
                               style={{ color: "#e6c229" }}
                             />{" "}
-                            Enrolled
+                            {cart.status ? "Enrolled" : "Not Enrolled"}
                           </span>
                           <br />
                           {/*  */}
@@ -415,7 +461,7 @@ const Navigation = () => {
                               id={styles._navbar_offcanvas_body_main_icons}
                               style={{ color: "#e6c229" }}
                             />{" "}
-                            David Sopas
+                            {cart.inst}
                           </span>
                           <br />
                           {/*  */}
@@ -424,7 +470,7 @@ const Navigation = () => {
                               id={styles._navbar_offcanvas_body_main_icons}
                               style={{ color: "#e6c229" }}
                             />{" "}
-                            4.2/5
+                            {cart.star}/5
                           </span>
                           <br />
                           {/*  */}
@@ -433,7 +479,7 @@ const Navigation = () => {
                               id={styles._navbar_offcanvas_body_main_icons}
                               style={{ color: "#e6c229" }}
                             />{" "}
-                            3 Lessons
+                            {cart.lessons} Lessons
                           </span>
                           <br />
 
@@ -444,7 +490,7 @@ const Navigation = () => {
                               id={styles._navbar_offcanvas_body_main_icons}
                               style={{ color: "#e6c229" }}
                             />{" "}
-                            25 Enrolled students
+                            {cart.enrolled_students} Enrolled students
                           </span>
                           <br />
                           {/*  */}
@@ -454,9 +500,15 @@ const Navigation = () => {
 
                     {/* CLOSE ICON */}
                     <div id={styles._navbar_offcanvas_body_close_icons}>
-                      <AiOutlineClose
-                        id={styles._navbar_offcanvas_body_close_icons_ICON}
-                      />
+                      <abbr
+                        title={`Remove ${cart.title} from your cart.`}
+                        style={{ all: "unset" }}
+                      >
+                        <AiOutlineClose
+                          id={styles._navbar_offcanvas_body_close_icons_ICON}
+                          onClick={() => REMOVE_FROM_CART(cart._id)}
+                        />
+                      </abbr>
                     </div>
                     {/* END */}
                   </div>
