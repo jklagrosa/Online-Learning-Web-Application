@@ -134,7 +134,7 @@ const Featured = () => {
             <>
               <h1>Our Featured Courses</h1>
               <Row className="gx-3 gy-4 mx-auto">
-                {courses?.slice(0, 3)?.map((course) => (
+                {courses?.slice(3, 9)?.map((course) => (
                   <>
                     <Col xs={12} md={6} lg={4} key={course._id}>
                       <Card className={styles._featured_course_card}>

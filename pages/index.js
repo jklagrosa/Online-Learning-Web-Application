@@ -75,7 +75,7 @@ export default function Home({ course_data }) {
     if (!isCanceled) {
       if (ran_again) {
         RETURN_UPDATED_COURSE_DATA();
-        console.log("GET_ALL_COURSE RAN AGAIN");
+        // console.log("GET_ALL_COURSE RAN AGAIN");
         // dispatch(GET_ALL_COURSE(parsed_data));
       }
     }

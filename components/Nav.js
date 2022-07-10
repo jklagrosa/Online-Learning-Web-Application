@@ -187,7 +187,10 @@ const Navigation = () => {
       // console.log(response.data.data);
 
       dispatch(GET_CART(response.data.data));
-      dispatch(CART_COURSE_ID(response.data.data._id));
+
+
+
+      dispatch(CART_COURSE_ID(response.data.course_id._id));
 
       dispatch(RAN_GET_CART_AGAIN(true));
     }

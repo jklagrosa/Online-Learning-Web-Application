@@ -48,6 +48,7 @@ export default async function handler(req, res) {
     return res.status(200).json({
       success: true,
       data: UPDATED_CART_DATA,
+      course_id: un_enroll_to_this_course,
       message: "Yehey! Course is now deleted from your Cart",
     });
   }

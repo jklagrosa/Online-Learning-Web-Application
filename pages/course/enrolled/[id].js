@@ -113,6 +113,8 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
   }, []);
 
   // REDIRECT TO HOME IF COURSE IDs ARE EQUAL
+  // #########################################
+
   useEffect(() => {
     if (parsed_data !== null && cartId !== null) {
       if (parsed_data._id === cartId) {
@@ -127,10 +129,15 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
         });
         router.replace("/");
         dispatch(CART_COURSE_ID(null));
+
+        console.log("COURSE DELETED!");
       }
     }
   }, [cartId]);
+  // #########################################
   // END
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
   // *********** GET UPDATED CART DATA *********************
   const GET_UPDATED_CART_DATA = async () => {
@@ -218,13 +225,28 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
 
                     <div className={styles._enrolled_video_section_DETAILS}>
                       {/* UN-ENROLL TO THIS COURSE */}
-                      <button
-                        id={styles._unenrolled_btn}
-                        onClick={() => UN_ENROLLED(parsed_data._id)}
-                      >
-                        Unenroll from this course
-                      </button>
+
+                      {parsed_data.is_enrolled && (
+                        <>
+                          <button
+                            id={styles._unenrolled_btn}
+                            onClick={() => UN_ENROLLED(parsed_data._id)}
+                          >
+                            Unenroll from this course
+                          </button>
+                        </>
+                      )}
+
                       {/* END */}
+
+                      {!parsed_data.is_enrolled && (
+                        <>
+                          <button id={styles._unenrolled_btn}>
+                            Back to homepage
+                          </button>
+                        </>
+                      )}
+
                       {/* ======================================================= */}
 
                       <h2>{parsed_data.title}</h2>
