@@ -70,7 +70,7 @@ export default async function handler(req, res) {
           if (result) {
             return res.status(200).json({
               success: true,
-              data: null,
+              data: result,
               message: "Added to your Wishlist",
             });
           }

@@ -36,9 +36,18 @@ export default async function handler(req, res) {
       });
     }
 
+    const UPDATED_CART_DATA = await Cart.find({});
+    if (!UPDATED_CART_DATA) {
+      return res.status(400).json({
+        success: false,
+        data: null,
+        message: "Cannot Delete From Cart",
+      });
+    }
+
     return res.status(200).json({
       success: true,
-      data: un_enroll_to_this_course,
+      data: UPDATED_CART_DATA,
       message: "Yehey! Course is now deleted from your Cart",
     });
   }
