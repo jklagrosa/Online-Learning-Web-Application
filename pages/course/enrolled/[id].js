@@ -129,7 +129,7 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
         dispatch(CART_COURSE_ID(null));
       }
     }
-  }, [parsed_data]);
+  }, [cartId]);
   // END
 
   // *********** GET UPDATED CART DATA *********************

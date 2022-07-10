@@ -150,7 +150,7 @@ const Navigation = () => {
     if (response && response.data && response.data.success) {
       // await GET_UPDATED_WISHLIST_DATA();
 
-      console.log(response.data.data);
+      // console.log(response.data.data);
 
       dispatch(GET_WISHLIST(response.data.data));
     }
@@ -184,7 +184,7 @@ const Navigation = () => {
     if (response && response.data && response.data.success) {
       // await GET_UPDATED_WISHLIST_DATA();
 
-      console.log(response.data.data);
+      // console.log(response.data.data);
 
       dispatch(GET_CART(response.data.data));
       dispatch(CART_COURSE_ID(response.data.data._id));

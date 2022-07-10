@@ -36,7 +36,7 @@ import { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { GET_WISHLIST } from "../../store/wishlist";
-import { GET_CART } from "../../store/cart";
+import { GET_CART, CART_COURSE_ID } from "../../store/cart";
 import { OPEN_CART } from "../../store/offcanvas";
 import { GET_ALL_COURSE } from "../../store/course";
 
@@ -111,6 +111,13 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   const parsed_isEnrolled = isEnrolled ? JSON.parse(isEnrolled) : false;
   const parsed_isEnrolled_ID = isEnrolled_ID ? JSON.parse(isEnrolled_ID) : null;
   const dispatch = useDispatch();
+
+  // ######################################################
+  useEffect(() => {
+    dispatch(CART_COURSE_ID(null));
+  }, [dispatch]);
+
+  // ##############################################
 
   useEffect(() => {
     if (parsed_isEnrolled) {
