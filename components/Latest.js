@@ -20,7 +20,7 @@ const Latest = () => {
                 <Card.Body className={styles._featured_course_card_BODY}>
                   <abbr title="Course title" style={{ all: "unset" }}>
                     <Card.Title className={styles._H1_TAG}>
-                    Beginner Nikon Digital SLR Photography
+                      Filipino Course: Learn Filipino for Beginners
                     </Card.Title>
                   </abbr>
 

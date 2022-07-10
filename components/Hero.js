@@ -46,7 +46,7 @@ const Hero = () => {
                 Suggestions:
               </p>
               <span className={styles._auto_complete_suggestions_tags}>
-                Programming
+                Photography
               </span>
               <span className={styles._auto_complete_suggestions_tags}>
                 Web Design

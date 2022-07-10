@@ -443,7 +443,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                         </Accordion.Item>
                       </Accordion>
                     </div>
-                  </Col>
+                  </Col> 
                   {/* ================================================ */}
                   <Col xs={12} md={4}>
                     <div className={styles._course_SMALL_COL_contents}>
