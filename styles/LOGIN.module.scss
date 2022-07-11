@@ -1,0 +1,83 @@
+@import "../styles/utils.module.scss";
+
+
+#_login_wrapper{
+    position: relative;
+    padding: 4rem 2rem;
+background-color: white;
+
+    width: 100vw;
+    min-height: 100vh;
+
+
+@media only screen and (max-width: 768px) { 
+    padding: 2rem 1rem;
+}
+
+
+    ._login_box_{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+        max-width: 450px;
+        width: 100%;
+        padding: 2rem;
+        background-color: whitesmoke;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 10px;
+
+
+        h3{
+            margin: 0;
+            color: $BLUE;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            span{
+                color: $ORANGE;
+            }
+        }
+
+
+
+        ._login_form_{
+            input, button{
+                all: unset;
+                margin: 0 auto;
+                display: block;
+                border: none;
+                outline: none;
+                box-shadow: none;
+                max-width: 375px;
+                width: 100%;
+            }
+
+            label{
+                margin-bottom: 0.3rem;
+                color: black;
+                font-size: 1rem;
+            }
+
+            input{
+                margin-bottom: 1.25rem;
+                background-color: white;
+                color: $BLACK;
+                border: 1px solid darkgray;
+                padding: 0.6rem 0.3rem;
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+
+            button{
+                margin: 0 auto;
+                padding: 0.6rem 0.3rem;
+                background-color: $BLUE;
+                color: white;
+            }
+
+        }
+
+    }
+
+}

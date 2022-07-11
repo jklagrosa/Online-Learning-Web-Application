@@ -1,14 +1,26 @@
+import styles from "../../styles/LOGIN.module.scss";
+import { Container } from "react-bootstrap";
+
 const LogIn = () => {
   return (
     <>
-      <h1>LOG-IN COMPONENT</h1>
-      <p>
-        Irure sint excepteur adipisicing ullamco est amet labore sint nisi
-        proident esse commodo elit. Culpa pariatur tempor mollit nulla ut
-        laborum. Qui cupidatat eu cupidatat tempor veniam. Lorem esse veniam qui
-        ipsum elit consequat. Nisi duis veniam anim veniam amet ullamco ad
-        deserunt esse non commodo.
-      </p>
+      <div id={styles._login_wrapper}>
+        <Container fluid="lg" className="p-0">
+          <div className={styles._login_box_}>
+            <h3>
+              Edu<span>kasyon</span>
+            </h3>
+            <div className={styles._login_form_}>
+              <label>Username</label>
+              <input type="text" placeholder="Username" />
+
+              <label>Password</label>
+              <input type="password" placeholder="Password" />
+              <button type="submit">Login</button>
+            </div>
+          </div>
+        </Container>
+      </div>
     </>
   );
 };
