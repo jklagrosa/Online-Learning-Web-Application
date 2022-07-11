@@ -17,7 +17,7 @@ background-color: white;
 
     ._login_box_{
         position: absolute;
-        top: 40%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         margin: 0 auto;
@@ -29,6 +29,41 @@ background-color: white;
         border-radius: 10px;
 
 
+
+
+
+
+
+        @media only screen and (min-width: 2501px){
+            max-width: 800px;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            max-width: 700px;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            max-width: 600px;
+        }
+
+
+
+
+
+
+
+
+
+        @media only screen and (max-width: 600px) {
+            max-width: 300px;
+        }
+
+
+        @media only screen and (max-width: 375px) {
+            max-width: 270px;
+        }
+
+
         h3{
             margin: 0;
             color: $BLUE;
@@ -37,6 +72,37 @@ background-color: white;
             span{
                 color: $ORANGE;
             }
+
+
+
+
+
+
+            @media only screen and (min-width: 2501px){
+                font-size: 4rem;
+            }
+    
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 3.25rem;
+            }
+    
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+              font-size: 2.5rem;
+            }
+    
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 1.75rem;
+            }
+
+
+            // ===============================================
+
+
+
+            @media only screen and (max-width: 600px) {
+                font-size: 1.25rem;
+             }
+
         }
 
 
@@ -51,12 +117,65 @@ background-color: white;
                 box-shadow: none;
                 max-width: 375px;
                 width: 100%;
+
+
+                @media only screen and (min-width: 2501px){
+                    max-width: 710px;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    max-width: 610px;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  max-width: 525px;
+                }
+                
+                // ####################################################
+
+                @media only screen and (max-width: 600px){
+                    max-width: 225px;
+                }
+
+                @media only screen and (max-width: 375px) {
+                    max-width: 195px;
+                }
+
             }
 
             label{
                 margin-bottom: 0.3rem;
-                color: black;
+                color: $GRAY;
                 font-size: 1rem;
+
+
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                  font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                    font-size: 1.16rem;
+                }
+
+
+                // ===============================================
+
+
+                
+            @media only screen and (max-width: 600px) {
+                font-size: 0.8rem;
+             }
+
             }
 
             input{
@@ -67,13 +186,217 @@ background-color: white;
                 padding: 0.6rem 0.3rem;
                 border-radius: 5px;
                 font-size: 1rem;
+                color: $BLACK;
+
+
+
+
+
+                @media only screen and (min-width: 2501px){
+                    margin-bottom: 2rem;
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    margin-bottom: 2rem;
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    margin-bottom: 2rem;
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                    font-size: 1.16rem;
+                }
+
+
+                // ===============================================
+
+
+                @media only screen and (max-width: 600px) {
+                    font-size: 0.8rem;
+                 }
             }
 
-            button{
+
+
+
+
+
+
+            #_login_btn_submit_loading{
+                cursor: not-allowed;
                 margin: 0 auto;
+                text-align: center;
+                padding: 0.6rem 0.3rem;
+                background-color: $GRAY;
+                color: #d3d3d3;
+                font-size: 1rem;
+                border-radius: 5px;
+               
+
+
+
+
+
+
+
+
+                
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                    font-size: 1.16rem;
+                }
+
+
+                // ===============================================
+
+
+
+
+
+
+
+
+
+                @media only screen and (max-width: 600px) {
+                    font-size: 0.8rem;
+                 }
+            }
+
+
+
+
+
+
+
+
+
+            button{
+                cursor: pointer;
+                margin: 0 auto;
+                text-align: center;
                 padding: 0.6rem 0.3rem;
                 background-color: $BLUE;
                 color: white;
+                font-size: 1rem;
+                border-radius: 5px;
+                transition: all 0.2s ease-in-out;
+
+
+                &:hover{
+                    background-color: $H_BLUE;
+                }
+
+
+
+
+
+
+
+
+                
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                    font-size: 1.16rem;
+                }
+
+
+                // ===============================================
+
+
+
+
+
+
+
+
+
+                @media only screen and (max-width: 600px) {
+                    font-size: 0.8rem;
+                 }
+
+            }
+
+
+            ._divider_{
+                margin: 2rem 0;
+            }
+
+            a{
+                color: $BLUE;
+                text-decoration: underline;
+                font-size: 1rem;
+                
+                
+
+
+                &:hover{
+                    color: $H_BLUE;
+                }
+
+
+
+
+
+                
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                }
+        
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                }
+        
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 1.5rem;
+                }
+        
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                    font-size: 1.16rem;
+                }
+
+
+                // ===============================================
+
+
+
+
+
+
+
+
+
+
+
+                @media only screen and (max-width: 600px) {
+                    font-size: 0.8rem;
+                 }
+
             }
 
         }
