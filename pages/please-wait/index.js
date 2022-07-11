@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import styles from "../../styles/PLEASE_WAIT.module.scss";
 
 const PleaseWait = () => {
   const router = useRouter();
@@ -15,7 +16,9 @@ const PleaseWait = () => {
 
   return (
     <>
-      <h1>Please wait...</h1>
+      <div id={styles._please_wait_wrapper}>
+        <p id={styles._user_is_logged_in}>Please wait...</p>
+      </div>
     </>
   );
 };

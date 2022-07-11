@@ -13,6 +13,8 @@ const LogIn = () => {
   const [password, setPassword] = useState("demouser123");
   const [loading, setLoading] = useState(false);
 
+  const [isUser, setIsUser] = useState(false);
+
   const dispatch = useDispatch();
 
   const router = useRouter();
@@ -23,6 +25,7 @@ const LogIn = () => {
       : null;
 
     if (parsed_uid !== null) {
+      setIsUser(true);
       router.replace("/");
     }
   }, []);
@@ -57,6 +60,7 @@ const LogIn = () => {
 
     if (response && response.data && response.data.success) {
       dispatch(USER_DATA(response.data.data._id));
+
       router.replace("/");
     }
 
@@ -67,53 +71,68 @@ const LogIn = () => {
     <>
       <div id={styles._login_wrapper}>
         <Container fluid="lg" className="p-0">
-          <div className={styles._login_box_}>
-            <form onSubmit={handleLoginUser}>
-              <h3>
-                Edu<span>kasyon</span>
-              </h3>
-              <div className={styles._login_form_}>
-                <label>Username</label>
-                <input
-                  type="text"
-                  placeholder="Username"
-                  defaultValue={username}
-                  readOnly
-                />
+          {/* IF USER IS NOT LOGGED IN */}
+          {!isUser && (
+            <>
+              <div className={styles._login_box_}>
+                <form onSubmit={handleLoginUser}>
+                  <h3>
+                    Edu<span>kasyon</span>
+                  </h3>
+                  <div className={styles._login_form_}>
+                    <label>Username</label>
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      defaultValue={username}
+                      readOnly
+                    />
 
-                <label>Password</label>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  defaultValue={password}
-                  readOnly
-                />
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      defaultValue={password}
+                      readOnly
+                    />
 
-                {!loading && (
-                  <>
-                    <button type="submit">Login</button>
-                  </>
-                )}
+                    {!loading && (
+                      <>
+                        <button type="submit">Login</button>
+                      </>
+                    )}
 
-                {/* ################## */}
+                    {/* ################## */}
 
-                {loading && (
-                  <>
-                    <button id={styles._login_btn_submit_loading}>
-                      Please wait...
-                    </button>
-                  </>
-                )}
+                    {loading && (
+                      <>
+                        <button id={styles._login_btn_submit_loading}>
+                          Please wait...
+                        </button>
+                      </>
+                    )}
 
-                {/* ################## */}
+                    {/* ################## */}
 
-                <hr className={styles._divider_} />
-                <center>
-                  <a onClick={() => router.replace("/")}>Back to home</a>
-                </center>
+                    <hr className={styles._divider_} />
+                    <center>
+                      <a onClick={() => router.replace("/")}>Back to home</a>
+                    </center>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
+            </>
+          )}
+
+          {/* IF USER IS LOGGED IN */}
+          {isUser && (
+            <>
+              <p id={styles._user_is_logged_in}>Please wait...</p>
+            </>
+          )}
+          {/* END */}
+
+          {/* END */}
         </Container>
       </div>
     </>

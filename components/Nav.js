@@ -26,6 +26,8 @@ import { GET_CART, CART_COURSE_ID, RAN_GET_CART_AGAIN } from "../store/cart";
 import { RESET_OFFCANVAS } from "../store/offcanvas";
 
 const Navigation = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
   const [showWishlist, setShowWishlist] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
@@ -56,6 +58,22 @@ const Navigation = () => {
   // GET ALL OFFCANVAS STATE
   const { cart_oc } = useSelector((state) => state?.drawer);
   // END
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  useEffect(() => {
+    const parsed_uid = window.localStorage.getItem("uid")
+      ? JSON.parse(window.localStorage.getItem("uid"))
+      : null;
+
+    if (parsed_uid === null) {
+      setIsLoggedIn(null);
+    } else {
+      setIsLoggedIn(parsed_uid);
+    }
+  }, [isLoggedIn]);
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
   useEffect(() => {
     if (wishlist) {
@@ -188,8 +206,6 @@ const Navigation = () => {
 
       dispatch(GET_CART(response.data.data));
 
-
-
       dispatch(CART_COURSE_ID(response.data.course_id._id));
 
       dispatch(RAN_GET_CART_AGAIN(true));
@@ -239,14 +255,46 @@ const Navigation = () => {
                 />
               </Tooltip>
             </Nav.Link>
-            <Nav.Link
-              href="#"
-              onClick={() => router.push("/")}
-              className={styles._navbar_links}
-              id={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
-            >
-              Login
-            </Nav.Link>
+
+            {/* IF USER IS LOGGED IN */}
+            {isLoggedIn === null && (
+              <>
+                <Nav.Link
+                  href="#"
+                  onClick={() => {
+                    window.location.href = "/login";
+                    // router.replace("/login")
+                  }}
+                  className={styles._navbar_links}
+                  id={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                >
+                  Login
+                </Nav.Link>
+              </>
+            )}
+            {/* END */}
+
+            {/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */}
+
+            {/* IF USER IS NOT LOGGED IN */}
+            {isLoggedIn !== null && (
+              <>
+                <Nav.Link
+                  href="#"
+                  onClick={() => {
+                    window.localStorage.removeItem("uid");
+                    window.location.href = "/login";
+                    // router.replace("/login");
+                  }}
+                  className={styles._navbar_links}
+                  id={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                >
+                  Logout
+                </Nav.Link>
+              </>
+            )}
+            {/* END */}
+
             {/* === */}
           </div>
           {/* </Nav> */}
@@ -284,13 +332,45 @@ const Navigation = () => {
               </Nav.Link>
             </Nav>
             <Nav className="mx-auto">
-              <Nav.Link
-                href="#"
-                onClick={() => router.push("/")}
-                className={styles._navbar_links}
-              >
-                Login
-              </Nav.Link>
+              {/* IF USER IS LOGGED IN */}
+              {isLoggedIn === null && (
+                <>
+                  <Nav.Link
+                    href="#"
+                    onClick={() => {
+                      window.location.href = "/login";
+                      // router.replace("/login")
+                    }}
+                    className={styles._navbar_links}
+                    id={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                  >
+                    Login
+                  </Nav.Link>
+                </>
+              )}
+              {/* END */}
+
+              {/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */}
+
+              {/* IF USER IS NOT LOGGED IN */}
+              {isLoggedIn !== null && (
+                <>
+                  <Nav.Link
+                    href="#"
+                    onClick={() => {
+                      window.localStorage.removeItem("uid");
+                      window.location.href = "/login";
+                      // router.replace("/login");
+                    }}
+                    className={styles._navbar_links}
+                    id={styles._navbar_icon_ONLY_SHOW_BELOW_99PX}
+                  >
+                    Logout
+                  </Nav.Link>
+                </>
+              )}
+              {/* END */}
+
               {/* === */}
               <Nav.Link
                 href="#"
