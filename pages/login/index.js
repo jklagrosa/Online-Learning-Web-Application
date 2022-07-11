@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../../styles/LOGIN.module.scss";
 import { Container } from "react-bootstrap";
 import { useRouter } from "next/router";
@@ -15,14 +15,28 @@ const LogIn = () => {
 
   const dispatch = useDispatch();
 
-  const handleLoginUser = async () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const parsed_uid = window.localStorage.getItem("uid")
+      ? JSON.parse(window.localStorage.getItem("uid"))
+      : null;
+
+    if (parsed_uid !== null) {
+      router.replace("/");
+    }
+  }, []);
+
+  const handleLoginUser = async (e) => {
+    e.preventDefault();
+
     setLoading(true);
 
     const response = await axios.post(
       `${BASE_URL}/api/user`,
       {
-        username,
-        password,
+        username: username,
+        password: password,
       },
       headersOpts
     );
@@ -43,12 +57,11 @@ const LogIn = () => {
 
     if (response && response.data && response.data.success) {
       dispatch(USER_DATA(response.data.data._id));
+      router.replace("/");
     }
 
     return response.data;
   };
-
-  const router = useRouter();
 
   return (
     <>
@@ -75,13 +88,23 @@ const LogIn = () => {
                   defaultValue={password}
                   readOnly
                 />
-                <button type="submit">Login</button>
+
+                {!loading && (
+                  <>
+                    <button type="submit">Login</button>
+                  </>
+                )}
 
                 {/* ################## */}
 
-                <button id={styles._login_btn_submit_loading}>
-                  Please wait...
-                </button>
+                {loading && (
+                  <>
+                    <button id={styles._login_btn_submit_loading}>
+                      Please wait...
+                    </button>
+                  </>
+                )}
+
                 {/* ################## */}
 
                 <hr className={styles._divider_} />

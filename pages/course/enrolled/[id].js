@@ -96,6 +96,16 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const parsed_uid = window.localStorage.getItem("uid")
+      ? JSON.parse(window.localStorage.getItem("uid"))
+      : null;
+
+    if (parsed_uid === null) {
+      router.replace("/");
+    }
+  }, []);
+
   // ########### IF USER IS NOT ENROLLED GO BACK TO "COURSE/[ID]" ###############
   useEffect(() => {
     if (notEnrolled && parsed_notEnrolled_ID !== null) {

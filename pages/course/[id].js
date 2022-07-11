@@ -124,8 +124,9 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
       : null;
 
     if (parsed_uid === null) {
-      dispatch(USER_DATA(null));
       SET_IS_USER(null);
+    } else {
+      SET_IS_USER(parsed_uid);
     }
   }, [IS_USER]);
 

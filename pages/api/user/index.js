@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         });
       }
 
-      return res.status(400).json({
+      return res.status(200).json({
         success: true,
         data: GET_USER,
         message: "User Is Now LoggedIn.",

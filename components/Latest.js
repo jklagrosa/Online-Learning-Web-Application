@@ -31,10 +31,20 @@ const Latest = () => {
 
   const { courses } = useSelector((state) => state?.course);
 
-  const { user } = useSelector((state) => state?.user);
-
   const dispatch = useDispatch();
   const router = useRouter();
+
+  useEffect(() => {
+    const parsed_uid = window.localStorage.getItem("uid")
+      ? JSON.parse(window.localStorage.getItem("uid"))
+      : null;
+
+    if (parsed_uid === null) {
+      setIsLoggedIn(null);
+    } else {
+      setIsLoggedIn(parsed_uid);
+    }
+  }, [isLoggedIn]);
 
   const handleSeeMore = (id) => {
     setLoading(true);
