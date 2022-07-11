@@ -18,6 +18,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../config/others";
 import { GET_WISHLIST } from "../store/wishlist";
 import { GET_CART } from "../store/cart";
+import { USER_DATA } from "../store/user";
 
 export async function getStaticProps() {
   await Dbconnection();
@@ -45,6 +46,26 @@ export default function Home({ course_data }) {
   // ###################
   const { ran_again } = useSelector((state) => state?.cart);
   // ###################
+
+  // @@@@@@@@@@@@@@@@@@@
+  const { user } = useSelector((state) => state?.user);
+  // @@@@@@@@@@@@@@@@@@@
+
+  useEffect(() => {
+    if (user !== null) {
+      window.localStorage.setItem("uid", JSON.stringify(user));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    const parsed_uid = window.localStorage.getItem("uid")
+      ? JSON.parse(window.localStorage.getItem("uid"))
+      : null;
+
+    if (parsed_uid === null) {
+      dispatch(USER_DATA(null));
+    }
+  }, []);
 
   useEffect(() => {
     if (parsed_data) {

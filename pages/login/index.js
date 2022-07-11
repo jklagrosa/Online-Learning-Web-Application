@@ -6,7 +6,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../../config/others";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { USER } from "../../store/user";
+import { USER_DATA } from "../../store/user";
 
 const LogIn = () => {
   const [username, setUsername] = useState("DemoUser");
@@ -42,7 +42,7 @@ const LogIn = () => {
     }
 
     if (response && response.data && response.data.success) {
-      dispatch(USER(response.data.data._id));
+      dispatch(USER_DATA(response.data.data._id));
     }
 
     return response.data;

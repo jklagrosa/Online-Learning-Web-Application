@@ -30,6 +30,9 @@ const Latest = () => {
   const [loading, setLoading] = useState(false);
 
   const { courses } = useSelector((state) => state?.course);
+
+  const { user } = useSelector((state) => state?.user);
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -275,7 +278,7 @@ const Latest = () => {
                           {/* WISH & CART */}
                           <div>
                             {/* CHANGED TO: isLoggedIn !== null */}
-                            {isLoggedIn === null && (
+                            {isLoggedIn !== null && (
                               <>
                                 {/* ========================================================== */}
                                 {/* ============IF USER IS LOGGED IN====== */}
@@ -339,7 +342,7 @@ const Latest = () => {
 
                             {/* ############################################################################## */}
                             {/* CHANGED TO: isLoggedIn === null */}
-                            {isLoggedIn !== null && (
+                            {isLoggedIn === null && (
                               <>
                                 {/* ========================================================== */}
                                 {/* ============IF USER IS NOT LOGGED IN====== */}

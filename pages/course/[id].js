@@ -39,6 +39,7 @@ import { GET_WISHLIST } from "../../store/wishlist";
 import { GET_CART, CART_COURSE_ID } from "../../store/cart";
 import { OPEN_CART } from "../../store/offcanvas";
 import { GET_ALL_COURSE } from "../../store/course";
+import { USER_DATA } from "../../store/user";
 
 export async function getStaticPaths() {
   await Dbconnection();
@@ -103,6 +104,10 @@ export async function getStaticProps(context) {
 const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   const [loading, setLoading] = useState(false);
 
+  // $$$$$$$$$$$$$$$$$$
+  const [IS_USER, SET_IS_USER] = useState(null);
+  // $$$$$$$$$$$$$$$$$$
+
   const router = useRouter();
   const parsed_course = data ? JSON.parse(data) : null;
 
@@ -111,6 +116,20 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
   const parsed_isEnrolled = isEnrolled ? JSON.parse(isEnrolled) : false;
   const parsed_isEnrolled_ID = isEnrolled_ID ? JSON.parse(isEnrolled_ID) : null;
   const dispatch = useDispatch();
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  useEffect(() => {
+    const parsed_uid = window.localStorage.getItem("uid")
+      ? JSON.parse(window.localStorage.getItem("uid"))
+      : null;
+
+    if (parsed_uid === null) {
+      dispatch(USER_DATA(null));
+      SET_IS_USER(null);
+    }
+  }, [IS_USER]);
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
   // ######################################################
   useEffect(() => {
@@ -450,22 +469,61 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                       <img src={`/img/${parsed_course.course_img}`} />
 
                       {/* WISH N CART */}
-                      <div className={styles._course_SMALL_COL_wish_n_cart}>
-                        <abbr title="Your Wishlist" style={{ all: "unset" }}>
-                          <BsSuitHeartFill
-                            className={styles._course_SMALL_COL_wish_ICONS}
-                            onClick={() => ADD_TO_WISH_LIST(parsed_course._id)}
-                          />
-                        </abbr>
-                        {/* ================= */}
 
-                        <abbr title="Your Cart" style={{ all: "unset" }}>
-                          <BsCartFill
-                            className={styles._course_SMALL_COL_cart_ICONS}
-                            onClick={handleOpenCart}
-                          />
-                        </abbr>
-                      </div>
+                      {/* IF IS_USER IS NOT EQUAL TO NULL */}
+                      {IS_USER !== null && (
+                        <>
+                          <div className={styles._course_SMALL_COL_wish_n_cart}>
+                            <abbr
+                              title="Your Wishlist"
+                              style={{ all: "unset" }}
+                            >
+                              <BsSuitHeartFill
+                                className={styles._course_SMALL_COL_wish_ICONS}
+                                onClick={() =>
+                                  ADD_TO_WISH_LIST(parsed_course._id)
+                                }
+                              />
+                            </abbr>
+                            {/* ================= */}
+
+                            <abbr title="Your Cart" style={{ all: "unset" }}>
+                              <BsCartFill
+                                className={styles._course_SMALL_COL_cart_ICONS}
+                                onClick={handleOpenCart}
+                              />
+                            </abbr>
+                          </div>
+                        </>
+                      )}
+
+                      {/* END */}
+
+                      {/* IF IS_USER IS EQUAL TO NULL */}
+
+                      {IS_USER === null && (
+                        <>
+                          <div className={styles._course_SMALL_COL_wish_n_cart}>
+                            <abbr
+                              title="Your Wishlist"
+                              style={{ all: "unset" }}
+                            >
+                              <BsSuitHeartFill
+                                className={styles._course_SMALL_COL_wish_ICONS}
+                                onClick={() => router.replace("/login")}
+                              />
+                            </abbr>
+                            {/* ================= */}
+
+                            <abbr title="Your Cart" style={{ all: "unset" }}>
+                              <BsCartFill
+                                className={styles._course_SMALL_COL_cart_ICONS}
+                                onClick={() => router.replace("/login")}
+                              />
+                            </abbr>
+                          </div>
+                        </>
+                      )}
 
                       {/* END */}
 
