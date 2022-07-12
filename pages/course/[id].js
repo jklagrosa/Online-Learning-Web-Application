@@ -636,7 +636,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                             onClick={() => {
                               window.location.href = "/login";
                             }}
-                          >
+                          > 
                             Enroll Now{" "}
                             <AiFillCaretRight
                               className={styles._course_SMALL_COL_BTN_ICON}
