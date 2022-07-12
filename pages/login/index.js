@@ -98,7 +98,7 @@ const LogIn = () => {
 
                     {!loading && (
                       <>
-                        <button type="submit">Login</button>
+                        <button type="submit">Login as Demo User</button>
                       </>
                     )}
 
