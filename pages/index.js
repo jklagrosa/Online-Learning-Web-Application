@@ -73,6 +73,12 @@ export default function Home({ course_data }) {
     }
   }, []);
 
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // useEffect(() => {
+  //   window.location.href = "/";
+  // }, []);
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
   // ########### IF ANY CART IS REMOVED RUN THE
   //"GET_UPDATED_CART_DATA" AGAIN #############
 

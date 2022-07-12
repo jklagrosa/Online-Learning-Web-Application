@@ -61,7 +61,7 @@ const LogIn = () => {
     if (response && response.data && response.data.success) {
       dispatch(USER_DATA(response.data.data._id));
 
-      router.replace("/");
+      router.push("/");
     }
 
     return response.data;
