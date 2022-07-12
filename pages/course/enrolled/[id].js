@@ -21,33 +21,34 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_CART, CART_COURSE_ID } from "../../../store/cart";
 
-export async function getStaticPaths() {
-  await Dbconnection();
-  const get_id = await Course.find({});
-  const paths = get_id.map((x) => {
-    return {
-      params: { id: `${x._id}` },
-    };
-  });
+// export async function getStaticPaths() {
+//   await Dbconnection();
+//   const get_id = await Course.find({});
+//   const paths = get_id.map((x) => {
+//     return {
+//       params: { id: `${x._id}` },
+//     };
+//   });
 
-  console.log(paths);
+//   console.log(paths);
 
-  if (!get_id) {
-    return {
-      paths: [],
-      fallback: false,
-    };
-  }
+//   if (!get_id) {
+//     return {
+//       paths: [],
+//       fallback: false,
+//     };
+//   }
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   await Dbconnection();
   const { params } = context;
+
   const find_course = await Course.findOne({ _id: `${params.id}` });
   if (!find_course) {
     return {

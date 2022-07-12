@@ -20,7 +20,7 @@ import { GET_WISHLIST } from "../store/wishlist";
 import { GET_CART } from "../store/cart";
 import { USER_DATA } from "../store/user";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   await Dbconnection();
 
   const GET_ALL_COURSE = await Course.find({});

@@ -41,31 +41,31 @@ import { OPEN_CART } from "../../store/offcanvas";
 import { GET_ALL_COURSE } from "../../store/course";
 import { USER_DATA } from "../../store/user";
 
-export async function getStaticPaths() {
-  await Dbconnection();
-  const get_id = await Course.find({});
-  const paths = get_id.map((x) => {
-    return {
-      params: { id: `${x._id}` },
-    };
-  });
+// export async function getStaticPaths() {
+//   await Dbconnection();
+//   const get_id = await Course.find({});
+//   const paths = get_id.map((x) => {
+//     return {
+//       params: { id: `${x._id}` },
+//     };
+//   });
 
-  console.log(paths);
+//   console.log(paths);
 
-  if (!get_id) {
-    return {
-      paths: [],
-      fallback: false,
-    };
-  }
+//   if (!get_id) {
+//     return {
+//       paths: [],
+//       fallback: false,
+//     };
+//   }
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   await Dbconnection();
   const { params } = context;
 
@@ -282,7 +282,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
       }
 
       if (response && response.data && response.data.success) {
-        router.push({
+        router.replace({
           pathname: "/course/enrolled/[id]",
           query: { id: response.data.data._id },
         });
@@ -636,7 +636,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                             onClick={() => {
                               window.location.href = "/login";
                             }}
-                          > 
+                          >
                             Enroll Now{" "}
                             <AiFillCaretRight
                               className={styles._course_SMALL_COL_BTN_ICON}
