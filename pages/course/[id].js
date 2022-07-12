@@ -514,7 +514,9 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                             >
                               <BsSuitHeartFill
                                 className={styles._course_SMALL_COL_wish_ICONS}
-                                onClick={() => router.replace("/login")}
+                                onClick={() => {
+                                  window.location.href = "/login";
+                                }}
                               />
                             </abbr>
                             {/* ================= */}
@@ -522,7 +524,9 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                             <abbr title="Your Cart" style={{ all: "unset" }}>
                               <BsCartFill
                                 className={styles._course_SMALL_COL_cart_ICONS}
-                                onClick={() => router.replace("/login")}
+                                onClick={() => {
+                                  window.location.href = "/login";
+                                }}
                               />
                             </abbr>
                           </div>
@@ -614,7 +618,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                         {/*  */}
 
                         {/* LOADING IS FALSE */}
-                        {!loading && (
+                        {!loading && IS_USER !== null && (
                           <button
                             onClick={() => handleEnrollNow(parsed_course._id)}
                           >
@@ -625,6 +629,22 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                           </button>
                         )}
                         {/* END - LOADING IS FALSE */}
+
+                        {/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */}
+                        {!loading && IS_USER === null && (
+                          <button
+                            onClick={() => {
+                              window.location.href = "/login";
+                            }}
+                          >
+                            Enroll Now{" "}
+                            <AiFillCaretRight
+                              className={styles._course_SMALL_COL_BTN_ICON}
+                            />
+                          </button>
+                        )}
+
+                        {/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */}
 
                         {/* ================================================== */}
 
