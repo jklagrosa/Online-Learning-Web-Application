@@ -220,7 +220,11 @@ const Navigation = () => {
       <Navbar expand="lg" id={styles._navbar_wrapper}>
         <Container fluid="lg" className="p-0">
           {/* SHOW NAVBAR LOGO IN LARGE DEVICES 577PX UP! */}
-          <Navbar.Brand href="#home" id={styles._navbar_logo}>
+          <Navbar.Brand
+            onClick={() => router.push("/")}
+            id={styles._navbar_logo}
+            style={{ cursor: "pointer" }}
+          >
             <span>Edu</span>kasyon
           </Navbar.Brand>
           {/* END */}
@@ -228,7 +232,11 @@ const Navigation = () => {
           {/* ============================================================= */}
 
           {/* SHOW NAVBAR LOGO IN SMALL DEVICES 576PX DOWN! */}
-          <Navbar.Brand href="#home" id={styles._navbar_logo_SMALL}>
+          <Navbar.Brand
+            onClick={() => router.push("/")}
+            id={styles._navbar_logo_SMALL}
+            style={{ cursor: "pointer" }}
+          >
             <span>E</span>k
           </Navbar.Brand>
           {/* END */}

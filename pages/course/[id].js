@@ -334,6 +334,9 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
                       <Breadcrumb.Item
                         className={styles._course_links}
                         style={{ textDecoration: "underline" }}
+                        onClick={() => {
+                          window.location.href = "/";
+                        }}
                       >
                         Home
                       </Breadcrumb.Item>
