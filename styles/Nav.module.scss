@@ -1,9 +1,68 @@
 @import "../styles/utils.module.scss";
 
 
-// WISHLIST & CART OFFCANVAS
-#_navbar_offcanvas_wrapper{
 
+
+#_drawer_offcanvas_991px{
+  width: 350px;
+
+  #_drawer_offcanvas_title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $BLUE;
+    span{
+      color: $ORANGE;
+    }
+  }
+
+  // ####################
+
+
+  #_drawer_offcanvas_body{
+    ul{
+      all: unset;
+      list-style: none;
+      li{
+        margin-bottom: 1.25rem;
+        font-size: 1.5rem;
+        
+        a{
+          color: $BLACK;
+          transition: all 0.2s ease-in-out;
+
+          &:hover{
+            color: $RED;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+// WISHLIST & CART OFFCANVAS 
+#_navbar_offcanvas_wrapper{ 
 
   @media only screen and (min-width: 2501px){
     width: 800px;       
@@ -69,6 +128,9 @@
       top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
+
+
+
       h6{
         text-align: center;
         width: 500px;

@@ -318,16 +318,16 @@ const Navigation = () => {
               >
                 Home
               </Nav.Link>
-              <Nav.Link href="#" className={styles._navbar_links}>
+              <Nav.Link href="#lc" className={styles._navbar_links}>
+                Latest Courses
+              </Nav.Link>
+              <Nav.Link href="#fc" className={styles._navbar_links}>
                 Featured Courses
               </Nav.Link>
-              <Nav.Link href="#" className={styles._navbar_links}>
-                Top Sellers
-              </Nav.Link>
-              <Nav.Link href="#" className={styles._navbar_links}>
+              <Nav.Link href="#ev" className={styles._navbar_links}>
                 Events
               </Nav.Link>
-              <Nav.Link href="#" className={styles._navbar_links}>
+              <Nav.Link href="#ac" className={styles._navbar_links}>
                 Achievement
               </Nav.Link>
             </Nav>
@@ -633,13 +633,34 @@ const Navigation = () => {
       {/* ==========================OFFCANVAS SMALL DEVICES DRAWER========================= */}
       {/* ================================================================================ */}
 
-      <Offcanvas show={showDrawer} onHide={handleCloseDrawer}>
+      <Offcanvas
+        show={showDrawer}
+        onHide={handleCloseDrawer}
+        id={styles._drawer_offcanvas_991px}
+      >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>EDUKASYON</Offcanvas.Title>
+          <Offcanvas.Title id={styles._drawer_offcanvas_title}>
+            EDU<span>KASYON</span>
+          </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+        <Offcanvas.Body id={styles._drawer_offcanvas_body}>
+          <ul>
+            <li>
+              <a onClick={() => router.push("/")}>Home</a>
+            </li>
+            <li>
+              <a href="#lc">Latest Courses</a>
+            </li>
+            <li>
+              <a href="#fc">Featured Courses</a>
+            </li>
+            <li>
+              <a href="#ev">Events</a>
+            </li>
+            <li>
+              <a href="#ac">Achievement</a>
+            </li>
+          </ul>
         </Offcanvas.Body>
       </Offcanvas>
 
