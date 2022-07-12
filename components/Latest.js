@@ -141,7 +141,7 @@ const Latest = () => {
   return (
     <>
       <div id={styles._featured_wrapper}>
-        <Container fluid="lg" className="p-0">
+        <Container fluid="lg" className="p-0" id="lc">
           {/* IF COURSES ARE AVAILABLE */}
           {courses?.length > 0 && (
             <>

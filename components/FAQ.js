@@ -5,7 +5,7 @@ const FAQ = () => {
   return (
     <>
       <div id={styles._faq_wrapper}>
-        <Container fluid="lg" className="p-0">
+        <Container fluid="lg" className="p-0" id="faq">
           <h1>Frequently Asked Questions</h1>
           <Row className="gx-3 gy-0">
             <Col xs={12} md={6}>

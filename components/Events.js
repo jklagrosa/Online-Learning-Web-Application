@@ -6,7 +6,7 @@ const Achievement = () => {
   return (
     <>
       <div id={styles._events_wrapper}>
-        <Container fluid="lg" className="p-0">
+        <Container fluid="lg" className="p-0" id="ev">
           <h1>Our Upcoming Events</h1>
           <Row className="g-3">
             <Col xs={12} md={6}>

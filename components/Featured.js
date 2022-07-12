@@ -140,7 +140,7 @@ const Featured = () => {
   return (
     <>
       <div id={styles._featured_wrapper}>
-        <Container fluid="lg" className="p-0">
+        <Container fluid="lg" className="p-0" id="fc">
           {/* IF COURSES ARE AVAILABLE */}
           {courses?.length > 0 && (
             <>

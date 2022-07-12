@@ -327,8 +327,8 @@ const Navigation = () => {
               <Nav.Link href="#ev" className={styles._navbar_links}>
                 Events
               </Nav.Link>
-              <Nav.Link href="#ac" className={styles._navbar_links}>
-                Achievement
+              <Nav.Link href="#faq" className={styles._navbar_links}>
+                FAQ
               </Nav.Link>
             </Nav>
             <Nav className="mx-auto">
@@ -658,7 +658,7 @@ const Navigation = () => {
               <a href="#ev">Events</a>
             </li>
             <li>
-              <a href="#ac">Achievement</a>
+              <a href="#faq">FAQ</a>
             </li>
           </ul>
         </Offcanvas.Body>
