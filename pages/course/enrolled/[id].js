@@ -106,7 +106,7 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
 
     if (parsed_uid === null) {
       setIsUser(true);
-      window.location.href = "/";
+      window.location.href = "/login";
     }
   }, []);
 
