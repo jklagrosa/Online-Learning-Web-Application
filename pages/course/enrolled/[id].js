@@ -84,6 +84,9 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
   const [video, setVideo] = useState("");
 
   const [id_is_equal, setID_IS_EQUAL] = useState(null);
+  const [isUser, setIsUser] = useState(false);
+
+  const [disable_unenroll, setDisable_Unenroll] = useState(false);
 
   const parsed_data = data ? JSON.parse(data) : null;
 
@@ -102,7 +105,8 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
       : null;
 
     if (parsed_uid === null) {
-      router.replace("/");
+      setIsUser(true);
+      window.location.href = "/";
     }
   }, []);
 
@@ -137,10 +141,9 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
           draggable: true,
           progress: undefined,
         });
-        router.replace("/");
+        setDisable_Unenroll(true);
+        window.location.href = "/";
         dispatch(CART_COURSE_ID(null));
-
-        console.log("COURSE DELETED!");
       }
     }
   }, [cartId]);
@@ -204,7 +207,7 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
         draggable: true,
         progress: undefined,
       });
-      router.replace("/");
+      window.location.href = "/";
     }
 
     return response.data;
@@ -213,138 +216,156 @@ const EnrolledCourse = ({ data, notEnrolled, notEnrolled_ID }) => {
 
   return (
     <>
-      <Nav />
-      <div id={styles._enrolled_course_wrapper}>
-        <Container fluid="lg" className="p-0">
-          {/* IF COURSE IS AVAILABLE */}
-          {parsed_data !== null && (
-            <>
-              <Row
-                className="gx-3 gy-4 mx-auto"
-                id={styles._enrolled_header_section}
-              >
-                <Col xs={12} lg={8}>
-                  <div className={styles._enrolled_video_section}>
-                    <iframe
-                      src={video}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+      {!isUser && (
+        <>
+          <Nav />
+          <div id={styles._enrolled_course_wrapper}>
+            <Container fluid="lg" className="p-0">
+              {/* IF USER IS LOGGED IN */}
 
-                    <div className={styles._enrolled_video_section_DETAILS}>
-                      {/* UN-ENROLL TO THIS COURSE */}
+              {parsed_data !== null && (
+                <>
+                  <Row
+                    className="gx-3 gy-4 mx-auto"
+                    id={styles._enrolled_header_section}
+                  >
+                    <Col xs={12} lg={8}>
+                      <div className={styles._enrolled_video_section}>
+                        <iframe
+                          src={video}
+                          title="YouTube video player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
 
-                      {parsed_data.is_enrolled && (
-                        <>
-                          <button
-                            id={styles._unenrolled_btn}
-                            onClick={() => UN_ENROLLED(parsed_data._id)}
-                          >
-                            Unenroll from this course
-                          </button>
-                        </>
-                      )}
+                        <div className={styles._enrolled_video_section_DETAILS}>
+                          {/* UN-ENROLL TO THIS COURSE */}
 
-                      {/* END */}
+                          {parsed_data.is_enrolled && !disable_unenroll && (
+                            <>
+                              <button
+                                id={styles._unenrolled_btn}
+                                onClick={() => UN_ENROLLED(parsed_data._id)}
+                              >
+                                Unenroll from this course
+                              </button>
+                            </>
+                          )}
 
-                      {!parsed_data.is_enrolled && (
-                        <>
-                          <button id={styles._unenrolled_btn}>
-                            Back to homepage
-                          </button>
-                        </>
-                      )}
+                          {/* END */}
 
-                      {/* ======================================================= */}
+                          {!parsed_data.is_enrolled && (
+                            <>
+                              <button
+                                id={styles._unenrolled_btn}
+                                onClick={() => router.replace("/")}
+                              >
+                                Back to homepage
+                              </button>
+                            </>
+                          )}
 
-                      <h2>{parsed_data.title}</h2>
+                          {/* ======================================================= */}
 
-                      <div className={styles._enrolled_video_section_ICONS}>
-                        <span>
-                          <FaChalkboardTeacher
-                            className={
-                              styles._enrolled_video_section_SPAN_ICONS
-                            }
-                          />{" "}
-                          {parsed_data.inst}
-                        </span>
-                        {/*  */}
-                        <span>
-                          <AiFillStar
-                            className={
-                              styles._enrolled_video_section_SPAN_ICONS
-                            }
-                          />{" "}
-                          {parsed_data.star}/5
-                        </span>
-                        {/*  */}
-                        <span>
-                          <MdPlayLesson
-                            className={
-                              styles._enrolled_video_section_SPAN_ICONS
-                            }
-                          />{" "}
-                          {parsed_data.lessons} Lessons
-                        </span>
-                        {/*  */}
-                        <span>
-                          <BsPersonFill
-                            className={
-                              styles._enrolled_video_section_SPAN_ICONS
-                            }
-                          />{" "}
-                          {parsed_data.enrolled_students} Enrolled students
-                        </span>
-                        {/*  */}
+                          <h2>{parsed_data.title}</h2>
 
-                        <span>
-                          <FaLanguage
-                            className={
-                              styles._enrolled_video_section_SPAN_ICONS
-                            }
-                          />{" "}
-                          {parsed_data.course_lang}
-                        </span>
+                          <div className={styles._enrolled_video_section_ICONS}>
+                            <span>
+                              <FaChalkboardTeacher
+                                className={
+                                  styles._enrolled_video_section_SPAN_ICONS
+                                }
+                              />{" "}
+                              {parsed_data.inst}
+                            </span>
+                            {/*  */}
+                            <span>
+                              <AiFillStar
+                                className={
+                                  styles._enrolled_video_section_SPAN_ICONS
+                                }
+                              />{" "}
+                              {parsed_data.star}/5
+                            </span>
+                            {/*  */}
+                            <span>
+                              <MdPlayLesson
+                                className={
+                                  styles._enrolled_video_section_SPAN_ICONS
+                                }
+                              />{" "}
+                              {parsed_data.lessons} Lessons
+                            </span>
+                            {/*  */}
+                            <span>
+                              <BsPersonFill
+                                className={
+                                  styles._enrolled_video_section_SPAN_ICONS
+                                }
+                              />{" "}
+                              {parsed_data.enrolled_students} Enrolled students
+                            </span>
+                            {/*  */}
+
+                            <span>
+                              <FaLanguage
+                                className={
+                                  styles._enrolled_video_section_SPAN_ICONS
+                                }
+                              />{" "}
+                              {parsed_data.course_lang}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </Col>
-                {/* ========================= */}
-                <Col xs={12} lg={4}>
-                  <div className={styles._enrolled_course_contents}>
-                    <h5>Course Lessons</h5>
+                    </Col>
+                    {/* ========================= */}
+                    <Col xs={12} lg={4}>
+                      <div className={styles._enrolled_course_contents}>
+                        <h5>Course Lessons</h5>
 
-                    <div className={styles._enrolled_course_contents_VIDS}>
-                      {parsed_data?.vids?.map((vid, index) => (
-                        <>
-                          <span
-                            key={index}
-                            onClick={() => handleWatchLessons(vid)}
-                          >
-                            <BsPlayBtnFill
-                              className={
-                                styles._enrolled_course_contents_VIDS_ICONS
-                              }
-                            />{" "}
-                            {`Lecture ${index + 1}`}
-                          </span>
-                          <br />
-                        </>
-                      ))}
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </>
-          )}
+                        <div className={styles._enrolled_course_contents_VIDS}>
+                          {parsed_data?.vids?.map((vid, index) => (
+                            <>
+                              <span
+                                key={index}
+                                onClick={() => handleWatchLessons(vid)}
+                              >
+                                <BsPlayBtnFill
+                                  className={
+                                    styles._enrolled_course_contents_VIDS_ICONS
+                                  }
+                                />{" "}
+                                {`Lecture ${index + 1}`}
+                              </span>
+                              <br />
+                            </>
+                          ))}
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
+                </>
+              )}
 
-          {/* END */}
-        </Container>
-      </div>
-      <Footer />
-      <Copyright />
+              {/* END */}
+
+              {/* IF COURSE IS AVAILABLE */}
+
+              {/* END */}
+            </Container>
+          </div>
+          <Footer />
+          <Copyright />
+        </>
+      )}
+
+      {isUser && (
+        <>
+          <p id={styles._user_is_logged_in}>Please wait...</p>
+        </>
+      )}
     </>
   );
 };
