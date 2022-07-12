@@ -5,7 +5,7 @@ export default function Document() {
     <Html>
       <Head>
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
-        <title>Online Learning Web Application</title>
+        <meta name="description" content="Online Learning Web Application" />
       </Head>
       <body>
         <Main />

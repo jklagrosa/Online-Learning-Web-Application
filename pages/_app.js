@@ -7,10 +7,15 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { Provider } from "react-redux";
 import { store } from "../store/store";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Online Learning Web Application</title>
+      </Head>
+
       <ToastContainer />
 
       <Provider store={store}>

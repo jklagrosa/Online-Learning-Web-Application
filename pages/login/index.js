@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../../config/others";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { USER_DATA } from "../../store/user";
 
 const LogIn = () => {
@@ -16,6 +16,7 @@ const LogIn = () => {
   const [isUser, setIsUser] = useState(false);
 
   const dispatch = useDispatch();
+  // const { user } = useSelector((state) => state?.user);
 
   const router = useRouter();
 
@@ -61,7 +62,21 @@ const LogIn = () => {
     if (response && response.data && response.data.success) {
       dispatch(USER_DATA(response.data.data._id));
 
-      router.push("/");
+      let saveUser = null;
+
+      saveUser = window.localStorage.setItem(
+        "uid",
+        JSON.stringify(response.data.data._id)
+      );
+
+      const getUser =
+        saveUser !== null
+          ? JSON.parse(window.localStorage.getItem("uid"))
+          : null;
+
+      if (getUser !== null) {
+        window.location.href = "/";
+      }
     }
 
     return response.data;

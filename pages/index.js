@@ -48,14 +48,14 @@ export default function Home({ course_data }) {
   // ###################
 
   // @@@@@@@@@@@@@@@@@@@
-  const { user } = useSelector((state) => state?.user);
+  // const { user } = useSelector((state) => state?.user);
   // @@@@@@@@@@@@@@@@@@@
 
-  useEffect(() => {
-    if (user !== null) {
-      window.localStorage.setItem("uid", JSON.stringify(user));
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user !== null) {
+  //     window.localStorage.setItem("uid", JSON.stringify(user));
+  //   }
+  // }, [user]);
 
   useEffect(() => {
     const parsed_uid = window.localStorage.getItem("uid")
@@ -72,25 +72,6 @@ export default function Home({ course_data }) {
       dispatch(GET_ALL_COURSE(parsed_data));
     }
   }, []);
-
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  useEffect(() => {
-    let isCanceled = false;
-    const userApproved = window.localStorage.getItem("uid")
-      ? JSON.parse(window.localStorage.getItem("uid"))
-      : null;
-
-    if (!isCanceled) {
-      if (userApproved !== null) {
-        window.location.href = "/";
-      }
-    }
-
-    return () => {
-      isCanceled = true;
-    };
-  }, []);
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
   // ########### IF ANY CART IS REMOVED RUN THE
   //"GET_UPDATED_CART_DATA" AGAIN #############
