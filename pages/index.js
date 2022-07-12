@@ -74,9 +74,22 @@ export default function Home({ course_data }) {
   }, []);
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  // useEffect(() => {
-  //   window.location.href = "/";
-  // }, []);
+  useEffect(() => {
+    let isCanceled = false;
+    const userApproved = window.localStorage.getItem("uid")
+      ? JSON.parse(window.localStorage.getItem("uid"))
+      : null;
+
+    if (!isCanceled) {
+      if (userApproved !== null) {
+        window.location.href = "/";
+      }
+    }
+
+    return () => {
+      isCanceled = true;
+    };
+  }, []);
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
   // ########### IF ANY CART IS REMOVED RUN THE
