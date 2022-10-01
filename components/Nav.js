@@ -684,7 +684,7 @@ const Navigation = () => {
               <a href={router.pathname !== "/" ? "/" : "#faq"}>FAQ</a>
             </li>
           </ul>
-        </Offcanvas.Body>
+        </Offcanvas.Body> 
       </Offcanvas>
 
       {/* ================================================================================ */}
