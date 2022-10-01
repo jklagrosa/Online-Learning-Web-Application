@@ -326,16 +326,29 @@ const Navigation = () => {
               >
                 Home
               </Nav.Link>
-              <Nav.Link href="#lc" className={styles._navbar_links}>
+
+              <Nav.Link
+                href={router.pathname !== "/" ? "/" : "#lc"}
+                className={styles._navbar_links}
+              >
                 Latest Courses
               </Nav.Link>
-              <Nav.Link href="#fc" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? "/" : "#fc"}
+                className={styles._navbar_links}
+              >
                 Featured Courses
               </Nav.Link>
-              <Nav.Link href="#ev" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? "/" : "#ev"}
+                className={styles._navbar_links}
+              >
                 Events
               </Nav.Link>
-              <Nav.Link href="#faq" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? "/" : "#faq"}
+                className={styles._navbar_links}
+              >
                 FAQ
               </Nav.Link>
             </Nav>
@@ -657,16 +670,18 @@ const Navigation = () => {
               <a onClick={() => router.push("/")}>Home</a>
             </li>
             <li>
-              <a href="#lc">Latest Courses</a>
+              <a href={router.pathname !== "/" ? "/" : "#lc"}>Latest Courses</a>
             </li>
             <li>
-              <a href="#fc">Featured Courses</a>
+              <a href={router.pathname !== "/" ? "/" : "#fc"}>
+                Featured Courses
+              </a>
             </li>
             <li>
-              <a href="#ev">Events</a>
+              <a href={router.pathname !== "/" ? "/" : "#ev"}>Events</a>
             </li>
             <li>
-              <a href="#faq">FAQ</a>
+              <a href={router.pathname !== "/" ? "/" : "#faq"}>FAQ</a>
             </li>
           </ul>
         </Offcanvas.Body>
