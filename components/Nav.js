@@ -154,6 +154,7 @@ const Navigation = () => {
     );
 
     if (!response.data.success) {
+      toast.clearWaitingQueue();
       toast.error("Please try again later.", {
         position: "top-right",
         autoClose: 6000,
@@ -188,6 +189,7 @@ const Navigation = () => {
     );
 
     if (!response.data.success) {
+      toast.clearWaitingQueue();
       toast.error("Please try again later.", {
         position: "top-right",
         autoClose: 6000,

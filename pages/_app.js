@@ -10,8 +10,6 @@ import { store } from "../store/store";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-  toast.clearWaitingQueue();
-
   return (
     <>
       <Head>

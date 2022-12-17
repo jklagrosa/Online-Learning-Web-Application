@@ -218,6 +218,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
     );
 
     if (response.data.isExist) {
+      toast.clearWaitingQueue();
       return toast.info("Already in Wishlist.", {
         position: "top-center",
         autoClose: 6000,
@@ -230,6 +231,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
     }
 
     if (!response.data.success) {
+      toast.clearWaitingQueue();
       return toast.error("Please try again later.", {
         position: "top-center",
         autoClose: 6000,
@@ -243,7 +245,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
 
     if (response && response.data && response.data.success) {
       await GET_UPDATED_WISHLIST_DATA();
-
+      toast.clearWaitingQueue();
       toast.success("Added to your Wishlist.", {
         position: "top-center",
         autoClose: 6000,
@@ -270,6 +272,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
         headersOpts
       );
       if (!response.data.success) {
+        toast.clearWaitingQueue();
         return toast.error("Please try again later.", {
           position: "top-right",
           autoClose: 6000,
@@ -290,6 +293,7 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
 
       return response.data;
     } catch (error) {
+      toast.clearWaitingQueue();
       toast.error("Please try again later.", {
         position: "top-right",
         autoClose: 6000,
