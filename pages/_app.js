@@ -10,10 +10,7 @@ import { store } from "../store/store";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-  const clearWaitingQueue = () => {
-    toast.clearWaitingQueue();
-  };
-  clearWaitingQueue();
+  toast.clearWaitingQueue();
 
   return (
     <>
@@ -21,7 +18,7 @@ function MyApp({ Component, pageProps }) {
         <title>Online Learning Web Application</title>
       </Head>
 
-      <ToastContainer limit={3} />
+      <ToastContainer limit={1} />
 
       <Provider store={store}>
         <Component {...pageProps} />
