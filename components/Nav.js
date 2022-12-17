@@ -428,104 +428,125 @@ const Navigation = () => {
             Wishlist
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body id={styles._navbar_offcanvas_body}>
-          {newWishlist?.length === 0 && (
-            <>
-              <div id={styles._NO_DATA_AVAILABLE_}>
-                <h6>Your Wishlist is Empty.</h6>
-              </div>
-            </>
-          )}
-          {/* ========================================== */}
-
-          {/* IF DATA IS AVAILABLE */}
-          {newWishlist?.length > 0 && (
-            <>
-              {newWishlist?.map((wish) => (
+        {isLoggedIn && (
+          <>
+            <Offcanvas.Body id={styles._navbar_offcanvas_body}>
+              {newWishlist?.length === 0 && (
                 <>
-                  <div id={styles._navbar_offcanvas_body_COLS} key={wish._id}>
-                    <Row className="gx-2 gy-0">
-                      <Col xs={6}>
-                        <abbr
-                          title="Click to see more details"
-                          style={{ all: "unset" }}
-                        >
-                          <img
-                            src={`/img/${wish.course_img}`}
-                            alt={wish.title}
-                            onClick={() => handleSeeMore(wish._id)}
-                          />
-                        </abbr>
-                      </Col>
-                      {/* ====== */}
-                      <Col xs={6}>
-                        <h6>{`${wish.title.substring(0, 18)}...`}</h6>
-
-                        <div id={styles._navbar_offcanvas_body_ICONS}>
-                          <span>
-                            <FaChalkboardTeacher
-                              id={styles._navbar_offcanvas_body_main_icons}
-                            />{" "}
-                            {wish.inst}
-                          </span>
-                          <br />
-                          {/*  */}
-                          <span>
-                            <AiFillStar
-                              id={styles._navbar_offcanvas_body_main_icons}
-                            />{" "}
-                            {wish.star}/5
-                          </span>
-                          <br />
-                          {/*  */}
-                          <span>
-                            <MdPlayLesson
-                              id={styles._navbar_offcanvas_body_main_icons}
-                            />{" "}
-                            {wish.lessons} Lessons
-                          </span>
-                          <br />
-                          {/*  */}
-                          <span>
-                            <BsPersonFill
-                              id={styles._navbar_offcanvas_body_main_icons}
-                            />{" "}
-                            {wish.enrolled_students} Enrolled students
-                          </span>
-                          <br />
-                          {/*  */}
-                          <span>
-                            <IoMdPricetag
-                              id={styles._navbar_offcanvas_body_main_icons}
-                            />{" "}
-                            ₱{wish.price}
-                          </span>
-                          {/*  */}
-                        </div>
-                      </Col>
-                    </Row>
-
-                    {/* CLOSE ICON */}
-                    <div id={styles._navbar_offcanvas_body_close_icons}>
-                      <abbr
-                        title={`Remove ${wish.title} from your wishlist.`}
-                        style={{ all: "unset" }}
-                      >
-                        <AiOutlineClose
-                          id={styles._navbar_offcanvas_body_close_icons_ICON}
-                          onClick={() => REMOVE_FROM_YOUR_WISHLIST(wish._id)}
-                        />
-                      </abbr>
-                    </div>
-                    {/* END */}
+                  <div id={styles._NO_DATA_AVAILABLE_}>
+                    <h6>Your Wishlist is Empty.</h6>
                   </div>
                 </>
-              ))}
-            </>
-          )}
-          {/* END */}
-          {/* ############################################# */}
-        </Offcanvas.Body>
+              )}
+              {/* ========================================== */}
+
+              {/* IF DATA IS AVAILABLE */}
+              {newWishlist?.length > 0 && (
+                <>
+                  {newWishlist?.map((wish) => (
+                    <>
+                      <div
+                        id={styles._navbar_offcanvas_body_COLS}
+                        key={wish._id}
+                      >
+                        <Row className="gx-2 gy-0">
+                          <Col xs={6}>
+                            <abbr
+                              title="Click to see more details"
+                              style={{ all: "unset" }}
+                            >
+                              <img
+                                src={`/img/${wish.course_img}`}
+                                alt={wish.title}
+                                onClick={() => handleSeeMore(wish._id)}
+                              />
+                            </abbr>
+                          </Col>
+                          {/* ====== */}
+                          <Col xs={6}>
+                            <h6>{`${wish.title.substring(0, 18)}...`}</h6>
+
+                            <div id={styles._navbar_offcanvas_body_ICONS}>
+                              <span>
+                                <FaChalkboardTeacher
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                />{" "}
+                                {wish.inst}
+                              </span>
+                              <br />
+                              {/*  */}
+                              <span>
+                                <AiFillStar
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                />{" "}
+                                {wish.star}/5
+                              </span>
+                              <br />
+                              {/*  */}
+                              <span>
+                                <MdPlayLesson
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                />{" "}
+                                {wish.lessons} Lessons
+                              </span>
+                              <br />
+                              {/*  */}
+                              <span>
+                                <BsPersonFill
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                />{" "}
+                                {wish.enrolled_students} Enrolled students
+                              </span>
+                              <br />
+                              {/*  */}
+                              <span>
+                                <IoMdPricetag
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                />{" "}
+                                ₱{wish.price}
+                              </span>
+                              {/*  */}
+                            </div>
+                          </Col>
+                        </Row>
+
+                        {/* CLOSE ICON */}
+                        <div id={styles._navbar_offcanvas_body_close_icons}>
+                          <abbr
+                            title={`Remove ${wish.title} from your wishlist.`}
+                            style={{ all: "unset" }}
+                          >
+                            <AiOutlineClose
+                              id={
+                                styles._navbar_offcanvas_body_close_icons_ICON
+                              }
+                              onClick={() =>
+                                REMOVE_FROM_YOUR_WISHLIST(wish._id)
+                              }
+                            />
+                          </abbr>
+                        </div>
+                        {/* END */}
+                      </div>
+                    </>
+                  ))}
+                </>
+              )}
+              {/* END */}
+              {/* ############################################# */}
+            </Offcanvas.Body>
+          </>
+        )}
+        {!isLoggedIn && (
+          <>
+            <div id={styles._NO_DATA_AVAILABLE_}>
+              <h6>
+                Please <span onClick={() => router.push("/login")}>login</span>{" "}
+                to add items to your wishlist.
+              </h6>
+            </div>
+          </>
+        )}
       </Offcanvas>
       {/* END */}
 
@@ -542,111 +563,132 @@ const Navigation = () => {
             Cart
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body id={styles._navbar_offcanvas_body}>
-          {newCart?.length === 0 && (
-            <>
-              <div id={styles._NO_DATA_AVAILABLE_}>
-                <h6>Enrolled courses are shown here.</h6>
-              </div>
-            </>
-          )}
-          {/* ========================================== */}
-
-          {newCart?.length > 0 && (
-            <>
-              {newCart?.map((cart) => (
+        {isLoggedIn && (
+          <>
+            <Offcanvas.Body id={styles._navbar_offcanvas_body}>
+              {newCart?.length === 0 && (
                 <>
-                  <div id={styles._navbar_offcanvas_body_COLS} key={cart._id}>
-                    <Row className="gx-2 gy-0">
-                      <Col xs={6}>
-                        <abbr
-                          title="Click to watch course"
-                          style={{ all: "unset" }}
-                        >
-                          <img
-                            src={`/img/${cart.course_img}`}
-                            onClick={() => handleWatchCourseFromCart(cart._id)}
-                          />
-                        </abbr>
-                      </Col>
-                      {/* ====== */}
-                      <Col xs={6}>
-                        <h6>{`${cart.title.substring(0, 18)}...`}</h6>
-
-                        <div id={styles._navbar_offcanvas_body_ICONS}>
-                          <span>
-                            <AiOutlineCheck
-                              id={styles._navbar_offcanvas_body_main_icons}
-                              style={{ color: "#e6c229" }}
-                            />{" "}
-                            {cart.status ? "Enrolled" : "Not Enrolled"}
-                          </span>
-                          <br />
-                          {/*  */}
-
-                          <span>
-                            <FaChalkboardTeacher
-                              id={styles._navbar_offcanvas_body_main_icons}
-                              style={{ color: "#e6c229" }}
-                            />{" "}
-                            {cart.inst}
-                          </span>
-                          <br />
-                          {/*  */}
-                          <span>
-                            <AiFillStar
-                              id={styles._navbar_offcanvas_body_main_icons}
-                              style={{ color: "#e6c229" }}
-                            />{" "}
-                            {cart.star}/5
-                          </span>
-                          <br />
-                          {/*  */}
-                          <span>
-                            <MdPlayLesson
-                              id={styles._navbar_offcanvas_body_main_icons}
-                              style={{ color: "#e6c229" }}
-                            />{" "}
-                            {cart.lessons} Lessons
-                          </span>
-                          <br />
-
-                          {/*  */}
-
-                          <span>
-                            <BsPersonFill
-                              id={styles._navbar_offcanvas_body_main_icons}
-                              style={{ color: "#e6c229" }}
-                            />{" "}
-                            {cart.enrolled_students} Enrolled students
-                          </span>
-                          <br />
-                          {/*  */}
-                        </div>
-                      </Col>
-                    </Row>
-
-                    {/* CLOSE ICON */}
-                    <div id={styles._navbar_offcanvas_body_close_icons}>
-                      <abbr
-                        title={`Unenroll from this course titled "${cart.title}."`}
-                        style={{ all: "unset" }}
-                      >
-                        <AiOutlineClose
-                          id={styles._navbar_offcanvas_body_close_icons_ICON}
-                          onClick={() => REMOVE_FROM_CART(cart._id)}
-                        />
-                      </abbr>
-                    </div>
-                    {/* END */}
+                  <div id={styles._NO_DATA_AVAILABLE_}>
+                    <h6>Enrolled courses are shown here.</h6>
                   </div>
                 </>
-              ))}
-            </>
-          )}
+              )}
+              {/* ========================================== */}
 
-          {/* ========================================== */}
-        </Offcanvas.Body>
+              {newCart?.length > 0 && (
+                <>
+                  {newCart?.map((cart) => (
+                    <>
+                      <div
+                        id={styles._navbar_offcanvas_body_COLS}
+                        key={cart._id}
+                      >
+                        <Row className="gx-2 gy-0">
+                          <Col xs={6}>
+                            <abbr
+                              title="Click to watch course"
+                              style={{ all: "unset" }}
+                            >
+                              <img
+                                src={`/img/${cart.course_img}`}
+                                onClick={() =>
+                                  handleWatchCourseFromCart(cart._id)
+                                }
+                              />
+                            </abbr>
+                          </Col>
+                          {/* ====== */}
+                          <Col xs={6}>
+                            <h6>{`${cart.title.substring(0, 18)}...`}</h6>
+
+                            <div id={styles._navbar_offcanvas_body_ICONS}>
+                              <span>
+                                <AiOutlineCheck
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                  style={{ color: "#e6c229" }}
+                                />{" "}
+                                {cart.status ? "Enrolled" : "Not Enrolled"}
+                              </span>
+                              <br />
+                              {/*  */}
+
+                              <span>
+                                <FaChalkboardTeacher
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                  style={{ color: "#e6c229" }}
+                                />{" "}
+                                {cart.inst}
+                              </span>
+                              <br />
+                              {/*  */}
+                              <span>
+                                <AiFillStar
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                  style={{ color: "#e6c229" }}
+                                />{" "}
+                                {cart.star}/5
+                              </span>
+                              <br />
+                              {/*  */}
+                              <span>
+                                <MdPlayLesson
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                  style={{ color: "#e6c229" }}
+                                />{" "}
+                                {cart.lessons} Lessons
+                              </span>
+                              <br />
+
+                              {/*  */}
+
+                              <span>
+                                <BsPersonFill
+                                  id={styles._navbar_offcanvas_body_main_icons}
+                                  style={{ color: "#e6c229" }}
+                                />{" "}
+                                {cart.enrolled_students} Enrolled students
+                              </span>
+                              <br />
+                              {/*  */}
+                            </div>
+                          </Col>
+                        </Row>
+
+                        {/* CLOSE ICON */}
+                        <div id={styles._navbar_offcanvas_body_close_icons}>
+                          <abbr
+                            title={`Unenroll from this course titled "${cart.title}."`}
+                            style={{ all: "unset" }}
+                          >
+                            <AiOutlineClose
+                              id={
+                                styles._navbar_offcanvas_body_close_icons_ICON
+                              }
+                              onClick={() => REMOVE_FROM_CART(cart._id)}
+                            />
+                          </abbr>
+                        </div>
+                        {/* END */}
+                      </div>
+                    </>
+                  ))}
+                </>
+              )}
+
+              {/* ========================================== */}
+            </Offcanvas.Body>
+          </>
+        )}
+        {!isLoggedIn && (
+          <>
+            <div id={styles._NO_DATA_AVAILABLE_}>
+              <h6>
+                Please <span onClick={() => router.push("/login")}>login</span>{" "}
+                to add items to your cart.
+              </h6>
+            </div>
+          </>
+        )}
       </Offcanvas>
       {/* END */}
 
@@ -684,7 +726,7 @@ const Navigation = () => {
               <a href={router.pathname !== "/" ? "/" : "#faq"}>FAQ</a>
             </li>
           </ul>
-        </Offcanvas.Body> 
+        </Offcanvas.Body>
       </Offcanvas>
 
       {/* ================================================================================ */}
