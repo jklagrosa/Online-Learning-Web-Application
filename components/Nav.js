@@ -156,10 +156,10 @@ const Navigation = () => {
     if (!response.data.success) {
       toast.error("Please try again later.", {
         position: "top-right",
-        autoClose: 8000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -190,10 +190,10 @@ const Navigation = () => {
     if (!response.data.success) {
       toast.error("Please try again later.", {
         position: "top-right",
-        autoClose: 8000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });

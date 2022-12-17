@@ -220,10 +220,10 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
     if (response.data.isExist) {
       return toast.info("Already in Wishlist.", {
         position: "top-center",
-        autoClose: 8000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -232,10 +232,10 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
     if (!response.data.success) {
       return toast.error("Please try again later.", {
         position: "top-center",
-        autoClose: 8000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -246,10 +246,10 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
 
       toast.success("Added to your Wishlist.", {
         position: "top-center",
-        autoClose: 8000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -272,10 +272,10 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
       if (!response.data.success) {
         return toast.error("Please try again later.", {
           position: "top-right",
-          autoClose: 8000,
+          autoClose: 6000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: true,
           progress: undefined,
         });
@@ -292,10 +292,10 @@ const CourseID = ({ data, isEnrolled, isEnrolled_ID }) => {
     } catch (error) {
       toast.error("Please try again later.", {
         position: "top-right",
-        autoClose: 8000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
